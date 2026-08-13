@@ -37,7 +37,7 @@ export default function PartnersSection() {
             <img
               src={p.logo}
               alt={p.name}
-              className="h-20 sm:h-28 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105"
+              className="h-12 sm:h-14 w-auto object-contain brightness-0 invert opacity-55 hover:opacity-90 transition-all duration-300 hover:scale-105"
               loading="lazy"
             />
           </div>
