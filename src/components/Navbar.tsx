@@ -114,7 +114,7 @@ export default function Navbar() {
   return (
     <nav
       className={`sticky top-0 z-[200] border-b transition-shadow ${scrolled ? "shadow-lg shadow-black/10" : ""}`}
-      style={{ background: "#fff", borderColor: "var(--dark-hairline)" }}
+      style={{ background: "rgba(23,18,14,0.85)", backdropFilter: "blur(14px)", WebkitBackdropFilter: "blur(14px)", borderColor: "var(--dark-hairline)" }}
     >
       <div className="max-w-[1240px] mx-auto flex items-center justify-between px-8 h-[72px]">
         <Link to="/" className="flex items-center gap-2.5 shrink-0">
@@ -124,30 +124,30 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-0.5">
           {Object.entries(megaMenus).map(([label, data]) => (
             <div key={label} className="relative" onMouseEnter={() => setOpenMenu(label)} onMouseLeave={() => setOpenMenu(null)}>
-              <span className="text-[0.83rem] font-medium px-3 py-2 cursor-pointer flex items-center gap-1 rounded-lg transition-colors" style={{ color: "#666" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#111")} onMouseLeave={(e) => (e.currentTarget.style.color = "#666")}>
+              <span className="text-[0.83rem] font-medium px-3 py-2 cursor-pointer flex items-center gap-1 rounded-lg transition-colors" style={{ color: "var(--dark-text-secondary)" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--dark-text)")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--dark-text-secondary)")}>
                 {label} <small className="text-[0.6rem] opacity-40">&#9662;</small>
               </span>
               <div className={`fixed left-1/2 -translate-x-1/2 pt-3 z-[300] transition-all duration-200 ${openMenu === label ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"}`} style={{ width: "min(680px, 90vw)" }}>
-                <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", border: "1px solid #e5e5e5", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)" }}>
+                <div className="rounded-2xl overflow-hidden" style={{ background: "var(--dark-surface)", border: "1px solid var(--dark-hairline)", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.6)" }}>
                   <div className="grid grid-cols-[1fr_240px]">
                     <div className="p-4 flex flex-col gap-0.5">
-                      <span className="text-[0.65rem] font-semibold tracking-widest uppercase px-3 pt-1 pb-2" style={{ color: "#999" }}>{label}</span>
+                      <span className="text-[0.65rem] font-semibold tracking-widest uppercase px-3 pt-1 pb-2" style={{ color: "var(--dark-text-muted)" }}>{label}</span>
                       {data.items.map((item) => (
-                        <Link key={item.to} to={item.to} className="flex items-start gap-3 px-3 py-3 text-[0.84rem] no-underline rounded-xl transition-all group" style={{ color: "#555" }} onMouseEnter={(e) => { e.currentTarget.style.background = "#f5f5f5"; e.currentTarget.style.color = "#111"; }} onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#555"; }}>
-                          <span className="mt-0.5 shrink-0 p-1.5 rounded-lg transition-colors" style={{ background: "#f5f5f5" }}>{item.icon}</span>
+                        <Link key={item.to} to={item.to} className="flex items-start gap-3 px-3 py-3 text-[0.84rem] no-underline rounded-xl transition-all group" style={{ color: "var(--dark-text-secondary)" }} onMouseEnter={(e) => { e.currentTarget.style.background = "var(--dark-elevated)"; e.currentTarget.style.color = "var(--dark-text)"; }} onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--dark-text-secondary)"; }}>
+                          <span className="mt-0.5 shrink-0 p-1.5 rounded-lg transition-colors" style={{ background: "var(--dark-elevated)" }}>{item.icon}</span>
                           <div className="flex flex-col gap-0.5">
                             <span className="font-medium transition-colors">{item.label}</span>
-                            <span className="text-[0.72rem] leading-snug font-normal" style={{ color: "#999" }}>{item.desc}</span>
+                            <span className="text-[0.72rem] leading-snug font-normal" style={{ color: "var(--dark-text-muted)" }}>{item.desc}</span>
                           </div>
                         </Link>
                       ))}
                     </div>
                     {data.featured && (
-                      <Link to={data.featured.to} className="no-underline flex flex-col border-l" style={{ borderColor: "#e5e5e5", background: "#f8f8f8" }}>
+                      <Link to={data.featured.to} className="no-underline flex flex-col border-l" style={{ borderColor: "var(--dark-hairline)", background: "var(--dark-elevated)" }}>
                         <img src={data.featured.img} alt="" className="w-full h-36 object-cover" />
                         <div className="p-4 flex flex-col gap-1.5 flex-1">
-                          <span className="text-[0.82rem] font-semibold leading-tight" style={{ color: "#111" }}>{data.featured.title}</span>
-                          <span className="text-[0.72rem] leading-relaxed" style={{ color: "#888" }}>{data.featured.desc}</span>
+                          <span className="text-[0.82rem] font-semibold leading-tight" style={{ color: "var(--dark-text)" }}>{data.featured.title}</span>
+                          <span className="text-[0.72rem] leading-relaxed" style={{ color: "var(--dark-text-secondary)" }}>{data.featured.desc}</span>
                         </div>
                       </Link>
                     )}
@@ -156,16 +156,16 @@ export default function Navbar() {
               </div>
             </div>
           ))}
-          <Link to="/blog" className="text-[0.83rem] font-medium px-3 py-2 no-underline rounded-lg transition-colors" style={{ color: "#666" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#111")} onMouseLeave={(e) => (e.currentTarget.style.color = "#666")}>Blog</Link>
-          <Link to="/events" className="text-[0.83rem] font-medium px-3 py-2 no-underline rounded-lg transition-colors" style={{ color: "#666" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#111")} onMouseLeave={(e) => (e.currentTarget.style.color = "#666")}>Events</Link>
-          <Link to="/contact" className="text-[0.83rem] font-medium px-3 py-2 no-underline rounded-lg transition-colors" style={{ color: "#666" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#111")} onMouseLeave={(e) => (e.currentTarget.style.color = "#666")}>Contact</Link>
+          <Link to="/blog" className="text-[0.83rem] font-medium px-3 py-2 no-underline rounded-lg transition-colors" style={{ color: "var(--dark-text-secondary)" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--dark-text)")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--dark-text-secondary)")}>Blog</Link>
+          <Link to="/events" className="text-[0.83rem] font-medium px-3 py-2 no-underline rounded-lg transition-colors" style={{ color: "var(--dark-text-secondary)" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--dark-text)")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--dark-text-secondary)")}>Events</Link>
+          <Link to="/contact" className="text-[0.83rem] font-medium px-3 py-2 no-underline rounded-lg transition-colors" style={{ color: "var(--dark-text-secondary)" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--dark-text)")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--dark-text-secondary)")}>Contact</Link>
         </div>
 
         <Link to="/donate" className="hidden lg:inline-flex text-[0.78rem] font-semibold px-5 py-2.5 rounded-lg no-underline transition-colors ml-2 whitespace-nowrap" style={{ background: "var(--orange)", color: "#fff" }} onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")} onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
           Support Our Work
         </Link>
 
-        <button className="lg:hidden flex items-center justify-center p-2 bg-transparent border-none cursor-pointer" style={{ color: "#666" }} onClick={() => setMobileOpen(!mobileOpen)}>
+        <button className="lg:hidden flex items-center justify-center p-2 bg-transparent border-none cursor-pointer" style={{ color: "var(--dark-text-secondary)" }} onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>

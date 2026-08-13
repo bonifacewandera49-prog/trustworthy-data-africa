@@ -35,10 +35,10 @@ function HeroCarousel() {
   const s = heroSlides[active];
 
   return (
-    <section style={{ background: "#fff" }} className="pt-4 pb-2">
+    <section style={{ background: "var(--dark-base)" }} className="pt-4 pb-2">
       <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center min-h-[420px] md:min-h-[480px]">
         {/* Image — rounded, with subtle bg */}
-        <div className="rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[4/3]" style={{ background: "#F0EEEB" }}>
+        <div className="rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[4/3]" style={{ background: "var(--dark-elevated)" }}>
           <img
             src={s.img}
             alt=""
@@ -52,7 +52,7 @@ function HeroCarousel() {
             style={{
               fontSize: "clamp(1.7rem, 3.4vw, 2.6rem)",
               lineHeight: 1.15,
-              color: "#B7412A",
+              color: "var(--orange)",
             }}
           >
             {s.title}
@@ -63,14 +63,14 @@ function HeroCarousel() {
             <Link
               to={s.to}
               className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
-              style={{ borderColor: "#B7412A", color: "#B7412A" }}
+              style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#B7412A";
+                e.currentTarget.style.background = "var(--orange)";
                 e.currentTarget.style.color = "#fff";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "#B7412A";
+                e.currentTarget.style.color = "var(--orange)";
               }}
             >
               {s.btn}
@@ -81,7 +81,7 @@ function HeroCarousel() {
             <button
               onClick={() => setPaused(!paused)}
               className="bg-transparent border-none cursor-pointer p-1"
-              style={{ color: "#999" }}
+              style={{ color: "var(--dark-text-muted)" }}
             >
               {paused ? <Play className="w-4 h-4" /> : <Pause className="w-4 h-4" />}
             </button>
@@ -92,7 +92,7 @@ function HeroCarousel() {
                 className="h-[3px] rounded-full border-none cursor-pointer transition-all"
                 style={{
                   width: i === active ? "32px" : "20px",
-                  background: i === active ? "#B7412A" : "#ccc",
+                  background: i === active ? "var(--orange)" : "var(--dark-hairline)",
                 }}
               />
             ))}
@@ -108,13 +108,13 @@ function HeroCarousel() {
    ═══════════════════════════════════════════ */
 function CompanyIntro() {
   const stats = [
-    { num: "09", label: "Core Research Areas", color: "#2E8B57" },
-    { num: "02", label: "Products", color: "#1E6FAD" },
-    { num: "06", label: "Sectors We Serve", color: "#B7412A" },
+    { num: "09", label: "Core Research Areas", color: "var(--orange)" },
+    { num: "02", label: "Products", color: "var(--orange)" },
+    { num: "06", label: "Sectors We Serve", color: "var(--orange)" },
   ];
   return (
-    <section style={{ background: "#fff" }} className="py-14 md:py-18 px-[clamp(1.5rem,4vw,4rem)]">
-      <div className="max-w-[1140px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+    <section style={{ background: "var(--dark-base)" }} className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]">
+      <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         {/* Left — intro text */}
         <div>
           <h2
@@ -122,13 +122,13 @@ function CompanyIntro() {
             style={{
               fontSize: "clamp(1.3rem, 2.4vw, 1.8rem)",
               lineHeight: 1.3,
-              color: "#B7412A",
+              color: "var(--orange)",
             }}
           >
             Solid Elf is a cybersecurity and data research lab that builds tools,
             frameworks, and datasets to keep systems secure and make data trustworthy.
           </h2>
-          <p className="text-[0.88rem] leading-[1.75]" style={{ color: "#555" }}>
+          <p className="text-[0.88rem] leading-[1.75]" style={{ color: "var(--dark-text-secondary)" }}>
             We work across the full data lifecycle — from secure field collection
             through governance and interpretability — and the full security spectrum,
             from adversarial testing to defensive architecture and privacy engineering.
@@ -144,7 +144,7 @@ function CompanyIntro() {
               >
                 {s.num}
               </span>
-              <span className="text-[0.82rem] mt-1 block" style={{ color: "#555" }}>
+              <span className="text-[0.82rem] mt-1 block" style={{ color: "var(--dark-text-secondary)" }}>
                 {s.label}
               </span>
             </a>
@@ -162,30 +162,30 @@ function ProjectCards() {
   const cards = [
     {
       img: "/images/security-ops.jpg",
-      tags: [{ text: "Cybersecurity", bg: "#B7412A" }, { text: "Threat Intel", bg: "#D4A017" }],
+      tags: [{ text: "Cybersecurity" }, { text: "Threat Intel" }],
       title: "Phishing Trends & Threat Intelligence for African Institutions",
       to: "/work/cybersecurity-threat-intelligence",
     },
     {
       img: "/images/data-lifecycle.jpg",
-      tags: [{ text: "Data", bg: "#2E8B57" }],
+      tags: [{ text: "Data" }],
       title: "Data Collection, Translation & Integrity in Low-Resource Environments",
       to: "/work/data-collection-translation-integrity",
     },
     {
       img: "/images/canarydrop.jpg",
-      tags: [{ text: "AI & ML", bg: "#1E6FAD" }, { text: "Fairness", bg: "#8B5A9F" }],
+      tags: [{ text: "AI & ML" }, { text: "Fairness" }],
       title: "AI Fairness Audits & Interpretability for Consequential Decisions",
       to: "/work/ai-machine-learning-fairness",
     },
   ];
   return (
-    <section style={{ background: "#fff" }} className="py-14 md:py-18 px-[clamp(1.5rem,4vw,4rem)]">
-      <div className="max-w-[1140px] mx-auto">
-        <h2 className="text-[1.4rem] md:text-[1.7rem] font-normal mb-2" style={{ color: "#333" }}>
+    <section style={{ background: "var(--dark-base)" }} className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]">
+      <div className="max-w-[1240px] mx-auto">
+        <h2 className="text-[1.4rem] md:text-[1.7rem] font-normal mb-2" style={{ color: "var(--dark-text)" }}>
           Changing the way we secure data and systems
         </h2>
-        <p className="text-[0.88rem] mb-8" style={{ color: "#666" }}>
+        <p className="text-[0.88rem] mb-8" style={{ color: "var(--dark-text-secondary)" }}>
           We are building the security and data tools of tomorrow, while continuing to provide
           the research and protection the world requires today.
         </p>
@@ -194,9 +194,9 @@ function ProjectCards() {
             <Link
               to={c.to}
               key={c.title}
-              className="rounded-2xl overflow-hidden bg-white no-underline transition-shadow group border"
-              style={{ borderColor: "#E8E4E0" }}
-              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 8px 30px rgba(0,0,0,0.08)"; }}
+              className="rounded-2xl overflow-hidden no-underline transition-shadow group border"
+              style={{ background: "var(--dark-surface)", borderColor: "var(--dark-hairline)" }}
+              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 8px 30px rgba(0,0,0,0.45)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; }}
             >
               <div className="aspect-[16/10] overflow-hidden">
@@ -207,17 +207,17 @@ function ProjectCards() {
                   {c.tags.map((t) => (
                     <span
                       key={t.text}
-                      className="text-[0.58rem] font-semibold tracking-wide uppercase px-2.5 py-1 rounded-full text-white"
-                      style={{ background: t.bg }}
+                      className="eyebrow text-[0.58rem] px-2.5 py-1 rounded-full border"
+                      style={{ background: "var(--dark-elevated)", borderColor: "var(--dark-hairline)", color: "var(--orange)" }}
                     >
                       {t.text}
                     </span>
                   ))}
                 </div>
-                <h3 className="text-[0.88rem] font-semibold leading-snug mb-3" style={{ color: "#333" }}>
+                <h3 className="text-[0.88rem] font-semibold leading-snug mb-3" style={{ color: "var(--dark-text)" }}>
                   {c.title}
                 </h3>
-                <span className="inline-flex items-center gap-1 text-[0.82rem] font-semibold" style={{ color: "#B7412A" }}>
+                <span className="inline-flex items-center gap-1 text-[0.82rem] font-semibold" style={{ color: "var(--orange)" }}>
                   <ChevronRight className="w-3.5 h-3.5" /> Find out more
                 </span>
               </div>
@@ -228,9 +228,9 @@ function ProjectCards() {
           <Link
             to="/work"
             className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
-            style={{ borderColor: "#B7412A", color: "#B7412A" }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "#B7412A"; e.currentTarget.style.color = "#fff"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#B7412A"; }}
+            style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
           >
             Discover our activities and achievements
           </Link>
@@ -251,14 +251,14 @@ function ResearchAreas() {
     { img: "/images/data-lifecycle.jpg", title: "Data Governance" },
   ];
   return (
-    <section style={{ background: "#F5F3F0" }} className="py-14 md:py-18 px-[clamp(1.5rem,4vw,4rem)]">
-      <div className="max-w-[1140px] mx-auto">
+    <section style={{ background: "var(--dark-surface)" }} className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]">
+      <div className="max-w-[1240px] mx-auto">
         <h2
           className="text-center font-normal mb-10 max-w-[640px] mx-auto"
           style={{
             fontSize: "clamp(1.2rem, 2.2vw, 1.55rem)",
             lineHeight: 1.35,
-            color: "#1E7A8C",
+            color: "var(--dark-text)",
           }}
         >
           Place security and data governance at the heart of our research,
@@ -278,8 +278,8 @@ function ResearchAreas() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <span className="inline-flex items-center gap-1 text-[0.82rem] font-semibold" style={{ color: "#333" }}>
-                <ChevronRight className="w-3.5 h-3.5" style={{ color: "#B7412A" }} /> {a.title}
+              <span className="inline-flex items-center gap-1 text-[0.82rem] font-semibold" style={{ color: "var(--dark-text)" }}>
+                <ChevronRight className="w-3.5 h-3.5" style={{ color: "var(--orange)" }} /> {a.title}
               </span>
             </Link>
           ))}
@@ -294,8 +294,8 @@ function ResearchAreas() {
    ═══════════════════════════════════════════ */
 function CareersBanner() {
   return (
-    <section className="px-[clamp(1.5rem,4vw,4rem)] py-0" style={{ background: "#fff" }}>
-      <div className="max-w-[1140px] mx-auto">
+    <section className="px-[clamp(1.5rem,4vw,4rem)] py-0" style={{ background: "var(--dark-base)" }}>
+      <div className="max-w-[1240px] mx-auto">
         <div className="relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-[400px]">
           <img
             src="/images/hero-bg.jpg"
@@ -303,10 +303,10 @@ function CareersBanner() {
             className="absolute inset-0 w-full h-full object-cover"
           />
           {/* White floating card */}
-          <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 max-w-[380px] bg-white rounded-2xl p-8 md:p-10 shadow-lg">
+          <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 max-w-[380px] rounded-2xl p-8 md:p-10 shadow-2xl border" style={{ background: "var(--dark-surface)", borderColor: "var(--dark-hairline)" }}>
             <h2
               className="font-normal mb-6"
-              style={{ fontSize: "clamp(1.2rem, 2vw, 1.5rem)", lineHeight: 1.3, color: "#333" }}
+              style={{ fontSize: "clamp(1.2rem, 2vw, 1.5rem)", lineHeight: 1.3, color: "var(--dark-text)" }}
             >
               Our research owes everything to its talents
             </h2>
@@ -314,9 +314,9 @@ function CareersBanner() {
               <Link
                 to="/opportunities"
                 className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
-                style={{ borderColor: "#B7412A", color: "#B7412A" }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = "#B7412A"; e.currentTarget.style.color = "#fff"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#B7412A"; }}
+                style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
               >
                 Find out about opportunities
               </Link>
@@ -343,49 +343,49 @@ function News() {
     { date: "04/22", year: "2026", title: "Securing Health Data in Low-Resource Environments" },
   ];
   return (
-    <section style={{ background: "#fff" }} className="py-14 md:py-18 px-[clamp(1.5rem,4vw,4rem)]">
-      <div className="max-w-[1140px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+    <section style={{ background: "var(--dark-base)" }} className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]">
+      <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Events */}
         <div>
-          <h3 className="text-[0.9rem] font-semibold tracking-wider uppercase mb-6" style={{ color: "#333" }}>
+          <h3 className="text-[0.9rem] font-semibold tracking-wider uppercase mb-6" style={{ color: "var(--dark-text)" }}>
             Upcoming Events
           </h3>
           <div className="space-y-0">
             {events.map((e, i) => (
-              <div key={i} className="flex gap-4 py-4 border-b" style={{ borderColor: "#E8E4E0" }}>
+              <div key={i} className="flex gap-4 py-4 border-b" style={{ borderColor: "var(--dark-hairline)" }}>
                 <div className="min-w-[52px]">
-                  <span className="font-bold text-[0.92rem] block" style={{ color: "#333" }}>{e.date}</span>
-                  <span className="font-bold text-[0.92rem] block" style={{ color: "#333" }}>{e.year}</span>
+                  <span className="font-bold text-[0.92rem] block" style={{ color: "var(--dark-text)" }}>{e.date}</span>
+                  <span className="font-bold text-[0.92rem] block" style={{ color: "var(--dark-text)" }}>{e.year}</span>
                 </div>
-                <span className="text-[0.84rem] leading-snug pt-0.5" style={{ color: "#444" }}>
+                <span className="text-[0.84rem] leading-snug pt-0.5" style={{ color: "var(--dark-text-secondary)" }}>
                   {e.title}
                 </span>
               </div>
             ))}
           </div>
-          <Link to="/events" className="inline-flex items-center gap-1 mt-4 text-[0.82rem] font-semibold no-underline" style={{ color: "#B7412A" }}>
+          <Link to="/events" className="inline-flex items-center gap-1 mt-4 text-[0.82rem] font-semibold no-underline" style={{ color: "var(--orange)" }}>
             <ChevronRight className="w-3.5 h-3.5" /> All events
           </Link>
         </div>
         {/* Papers */}
         <div>
-          <h3 className="text-[0.9rem] font-semibold tracking-wider uppercase mb-6" style={{ color: "#333" }}>
+          <h3 className="text-[0.9rem] font-semibold tracking-wider uppercase mb-6" style={{ color: "var(--dark-text)" }}>
             Featured Research
           </h3>
           <div className="space-y-0">
             {papers.map((p, i) => (
-              <div key={i} className="flex gap-4 py-4 border-b" style={{ borderColor: "#E8E4E0" }}>
+              <div key={i} className="flex gap-4 py-4 border-b" style={{ borderColor: "var(--dark-hairline)" }}>
                 <div className="min-w-[52px]">
-                  <span className="font-bold text-[0.92rem] block" style={{ color: "#333" }}>{p.date}</span>
-                  <span className="font-bold text-[0.92rem] block" style={{ color: "#333" }}>{p.year}</span>
+                  <span className="font-bold text-[0.92rem] block" style={{ color: "var(--dark-text)" }}>{p.date}</span>
+                  <span className="font-bold text-[0.92rem] block" style={{ color: "var(--dark-text)" }}>{p.year}</span>
                 </div>
-                <span className="text-[0.84rem] leading-snug pt-0.5" style={{ color: "#444" }}>
+                <span className="text-[0.84rem] leading-snug pt-0.5" style={{ color: "var(--dark-text-secondary)" }}>
                   {p.title}
                 </span>
               </div>
             ))}
           </div>
-          <Link to="/research" className="inline-flex items-center gap-1 mt-4 text-[0.82rem] font-semibold no-underline" style={{ color: "#B7412A" }}>
+          <Link to="/research" className="inline-flex items-center gap-1 mt-4 text-[0.82rem] font-semibold no-underline" style={{ color: "var(--orange)" }}>
             <ChevronRight className="w-3.5 h-3.5" /> All research
           </Link>
         </div>
@@ -399,17 +399,17 @@ function News() {
    ═══════════════════════════════════════════ */
 function Subscribe() {
   return (
-    <section style={{ background: "#F5F3F0" }} className="py-14 px-[clamp(1.5rem,4vw,4rem)]">
+    <section style={{ background: "var(--dark-surface)" }} className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]">
       <div className="max-w-[600px] mx-auto text-center">
-        <h2 className="text-[1.3rem] font-normal mb-6" style={{ color: "#333" }}>
+        <h2 className="text-[1.3rem] font-normal mb-6" style={{ color: "var(--dark-text)" }}>
           Receive our research updates
         </h2>
         <Link
           to="/contact"
           className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
-          style={{ borderColor: "#B7412A", color: "#B7412A" }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = "#B7412A"; e.currentTarget.style.color = "#fff"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#B7412A"; }}
+          style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
         >
           Subscribe
         </Link>
@@ -428,9 +428,9 @@ function Publications() {
     { img: "/images/qkabrine.jpg", title: "Quantum ML Benchmark Study", link: "/research" },
   ];
   return (
-    <section style={{ background: "#fff" }} className="py-14 md:py-18 px-[clamp(1.5rem,4vw,4rem)]">
-      <div className="max-w-[1140px] mx-auto">
-        <h2 className="text-[1.3rem] font-normal mb-8" style={{ color: "#333" }}>
+    <section style={{ background: "var(--dark-base)" }} className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]">
+      <div className="max-w-[1240px] mx-auto">
+        <h2 className="text-[1.3rem] font-normal mb-8" style={{ color: "var(--dark-text)" }}>
           Our reference publications
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -447,10 +447,10 @@ function Publications() {
                 </div>
               </div>
               <div className="pt-1">
-                <h3 className="text-[0.86rem] font-medium leading-snug mb-2" style={{ color: "#333" }}>
+                <h3 className="text-[0.86rem] font-medium leading-snug mb-2" style={{ color: "var(--dark-text)" }}>
                   {p.title}
                 </h3>
-                <span className="inline-flex items-center gap-1 text-[0.78rem] font-semibold" style={{ color: "#B7412A" }}>
+                <span className="inline-flex items-center gap-1 text-[0.78rem] font-semibold" style={{ color: "var(--orange)" }}>
                   <Download className="w-3 h-3" /> PDF
                 </span>
               </div>
@@ -461,9 +461,9 @@ function Publications() {
           <Link
             to="/reports"
             className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
-            style={{ borderColor: "#B7412A", color: "#B7412A" }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "#B7412A"; e.currentTarget.style.color = "#fff"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#B7412A"; }}
+            style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
           >
             All our publications
           </Link>
@@ -478,19 +478,19 @@ function Publications() {
    ═══════════════════════════════════════════ */
 function Partners() {
   const partners = [
-    "capitello", "cyberhive", "eswatini", "deltanova",
-    "athena", "zimtrust", "quantum", "regiondata",
+    "techbuzzhub", "geolens", "tensorview", "fencher",
+    "tonative", "intellisys", "aieswatini", "zindi",
   ];
   return (
-    <section style={{ background: "#F5F3F0" }} className="py-14 px-[clamp(1.5rem,4vw,4rem)]">
-      <div className="max-w-[1140px] mx-auto">
-        <h2 className="text-[1.1rem] font-normal mb-8 text-center" style={{ color: "#666" }}>
+    <section style={{ background: "var(--dark-surface)" }} className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]">
+      <div className="max-w-[1240px] mx-auto">
+        <h2 className="text-[1.1rem] font-normal mb-8 text-center" style={{ color: "var(--dark-text-secondary)" }}>
           Partners & Associates
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {partners.map((p) => (
-            <div key={p} className="rounded-xl border p-5 flex items-center justify-center" style={{ background: "#fff", borderColor: "#E8E4E0" }}>
-              <img src={`/images/partners/${p}.png`} alt={p} className="max-h-10 w-auto object-contain" />
+            <div key={p} className="rounded-xl border p-5 flex items-center justify-center" style={{ background: "var(--dark-base)", borderColor: "var(--dark-hairline)" }}>
+              <img src={`/images/partners/${p}.png`} alt={p} className="max-h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" />
             </div>
           ))}
         </div>
@@ -504,7 +504,7 @@ function Partners() {
    ═══════════════════════════════════════════ */
 export default function Index() {
   return (
-    <div style={{ background: "#fff" }}>
+    <div style={{ background: "var(--dark-base)" }}>
       <HeroCarousel />
       <CompanyIntro />
       <ProjectCards />

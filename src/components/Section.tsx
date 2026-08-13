@@ -15,7 +15,7 @@ export default function Section({ children, className, narrow, style }: SectionP
         ...style,
       }}
     >
-      <div className={`mx-auto ${narrow ? "max-w-[680px]" : "max-w-[1140px]"}`}>
+      <div className={`mx-auto ${narrow ? "max-w-[680px]" : "max-w-[1240px]"}`}>
         {children}
       </div>
     </section>
