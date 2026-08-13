@@ -490,7 +490,7 @@ function Partners() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {partners.map((p) => (
             <div key={p} className="rounded-xl border p-5 flex items-center justify-center" style={{ background: "var(--dark-base)", borderColor: "var(--dark-hairline)" }}>
-              <img src={`/images/partners/${p}.png`} alt={p} className="max-h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" />
+              <img src={`/images/partners/${p}.png`} alt={p} loading="lazy" className="max-h-10 w-auto object-contain brightness-0 invert opacity-55 hover:opacity-90 transition-opacity duration-300" />
             </div>
           ))}
         </div>
