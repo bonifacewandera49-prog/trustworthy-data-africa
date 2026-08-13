@@ -17,20 +17,30 @@
 @layer base {
   :root {
     /* Brand accent -- saturated orange */
-    --orange: #FF6B35;
-    --orange-hover: #E85A28;
+    --orange: #FF7A3D;
+    --orange-hover: #FF9057;
+    --orange-glow: rgba(255,122,61,0.28);
 
     /* -- Elevation ladder (4 steps) -- */
-    --dark-base: #17120E;
-    --dark-surface: #1D1712;
-    --dark-elevated: #252018;
-    --dark-top: #2D2720;
-    --dark-hairline: rgba(255,255,255,0.06);
+    --dark-base: #191410;
+    --dark-surface: #211A14;
+    --dark-elevated: #2A231B;
+    --dark-top: #332B22;
+    --dark-hairline: rgba(255,255,255,0.09);
 
     /* -- Text (lifted, warm) -- */
-    --dark-text: #E8E0D8;
-    --dark-text-secondary: #B4A99E;
-    --dark-text-muted: #7A7066;
+    --dark-text: #F7F1EA;
+    --dark-text-secondary: #C9BDB1;
+    --dark-text-muted: #8D8175;
+
+    /* -- Light navbar surface -- */
+    --nav-bg: rgba(252,250,247,0.92);
+    --nav-surface: #FFFFFF;
+    --nav-elevated: #F3EEE7;
+    --nav-hairline: rgba(23,18,14,0.10);
+    --nav-text: #4A4038;
+    --nav-text-strong: #17120E;
+    --nav-text-muted: #8A7F73;
 
     /* -- Card/surface aliases -- */
     --card: 18 16% 9%;
