@@ -35,7 +35,7 @@ function HeroCarousel() {
   const s = heroSlides[active];
 
   return (
-    <section className="pt-28 pb-2">
+    <section style={{ background: "var(--dark-base)" }} className="pt-4 pb-2">
       <div className="max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center min-h-[420px] md:min-h-[480px]">
         {/* Image — rounded, with subtle bg */}
         <div className="rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[4/3]" style={{ background: "var(--dark-elevated)" }}>
@@ -504,7 +504,7 @@ function Partners() {
    ═══════════════════════════════════════════ */
 export default function Index() {
   return (
-    <div>
+    <div style={{ background: "var(--dark-base)" }}>
       <HeroCarousel />
       <CompanyIntro />
       <ProjectCards />
