@@ -478,8 +478,8 @@ function Publications() {
    ═══════════════════════════════════════════ */
 function Partners() {
   const partners = [
-    "capitello", "cyberhive", "eswatini", "deltanova",
-    "athena", "zimtrust", "quantum", "regiondata",
+    "techbuzzhub", "geolens", "tensorview", "fencher",
+    "tonative", "intellisys", "aieswatini", "zindi",
   ];
   return (
     <section style={{ background: "var(--dark-surface)" }} className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]">
@@ -490,7 +490,7 @@ function Partners() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {partners.map((p) => (
             <div key={p} className="rounded-xl border p-5 flex items-center justify-center" style={{ background: "var(--dark-base)", borderColor: "var(--dark-hairline)" }}>
-              <img src={`/images/partners/${p}.png`} alt={p} className="max-h-10 w-auto object-contain" />
+              <img src={`/images/partners/${p}.png`} alt={p} className="max-h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" />
             </div>
           ))}
         </div>
