@@ -12,16 +12,16 @@ const partners = [
 export default function PartnersSection() {
   return (
     <div
-      className="rv rounded-2xl py-20 md:py-24 px-8 md:px-16"
+      className="rv rounded-2xl py-20 md:py-24 px-8 md:px-16 border border-[var(--dark-hairline)]"
       style={{
-        background: "#F8F6F4",
+        background: "var(--dark-surface)",
         backgroundImage:
-          "linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px)",
+          "linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px)",
         backgroundSize: "48px 48px",
       }}
     >
       <div className="mb-14 text-center">
-        <h2 className="text-[1.75rem] md:text-[2rem] font-bold tracking-tight mb-2" style={{ color: "#111" }}>
+        <h2 className="text-[1.75rem] md:text-[2rem] font-bold tracking-tight mb-2" style={{ color: "var(--dark-text)" }}>
           Partners &amp; Associates
         </h2>
         <div className="w-16 h-1 rounded-full mx-auto" style={{ background: "var(--orange)" }} />
@@ -37,7 +37,7 @@ export default function PartnersSection() {
             <img
               src={p.logo}
               alt={p.name}
-              className="h-20 sm:h-28 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105"
+              className="h-12 sm:h-14 w-auto object-contain brightness-0 invert opacity-55 hover:opacity-90 transition-all duration-300 hover:scale-105"
               loading="lazy"
             />
           </div>
