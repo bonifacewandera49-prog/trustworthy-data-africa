@@ -114,7 +114,7 @@ export default function Navbar() {
   return (
     <nav
       className={`sticky top-0 z-[200] border-b transition-shadow ${scrolled ? "shadow-lg shadow-black/10" : ""}`}
-      style={{ background: "rgba(23,18,14,0.85)", backdropFilter: "blur(14px)", WebkitBackdropFilter: "blur(14px)", borderColor: "var(--dark-hairline)" }}
+      style={{ background: "rgba(37,32,24,0.92)", backdropFilter: "blur(14px)", WebkitBackdropFilter: "blur(14px)", borderColor: "var(--dark-hairline)" }}
     >
       <div className="max-w-[1240px] mx-auto flex items-center justify-between px-8 h-[72px]">
         <Link to="/" className="flex items-center gap-2.5 shrink-0">
@@ -171,7 +171,7 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden flex flex-col p-4 px-7 overflow-y-auto" style={{ maxHeight: "calc(100vh - 72px)", background: "var(--dark-base)", borderTop: "1px solid var(--dark-hairline)" }}>
+        <div className="lg:hidden flex flex-col p-4 px-7 overflow-y-auto" style={{ maxHeight: "calc(100vh - 72px)", background: "var(--dark-elevated)", borderTop: "1px solid var(--dark-hairline)" }}>
           {Object.entries(megaMenus).map(([label, data]) => (
             <div key={label} style={{ borderBottom: "1px solid var(--dark-hairline)" }}>
               <button onClick={() => toggleMobileSection(label)} className="flex items-center justify-between w-full text-left text-[0.82rem] font-semibold tracking-wider uppercase py-3 bg-transparent border-none cursor-pointer" style={{ color: "var(--dark-text-muted)" }}>
