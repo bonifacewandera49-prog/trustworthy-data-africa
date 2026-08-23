@@ -14,16 +14,169 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      event_registrations: {
+        Row: {
+          access_token: string
+          checked_in: boolean
+          checked_in_at: string | null
+          created_at: string
+          email: string
+          event_id: string
+          full_name: string
+          id: string
+          organisation: string | null
+          status: string
+        }
+        Insert: {
+          access_token?: string
+          checked_in?: boolean
+          checked_in_at?: string | null
+          created_at?: string
+          email: string
+          event_id: string
+          full_name: string
+          id?: string
+          organisation?: string | null
+          status?: string
+        }
+        Update: {
+          access_token?: string
+          checked_in?: boolean
+          checked_in_at?: string | null
+          created_at?: string
+          email?: string
+          event_id?: string
+          full_name?: string
+          id?: string
+          organisation?: string | null
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "event_registrations_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      events: {
+        Row: {
+          cover_image: string | null
+          created_at: string
+          description: string
+          end_date: string | null
+          event_type: string
+          id: string
+          is_free: boolean
+          location: string | null
+          location_type: string
+          max_capacity: number | null
+          meeting_url: string | null
+          published: boolean
+          registration_open: boolean
+          require_approval: boolean
+          slug: string
+          start_date: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          cover_image?: string | null
+          created_at?: string
+          description?: string
+          end_date?: string | null
+          event_type?: string
+          id?: string
+          is_free?: boolean
+          location?: string | null
+          location_type?: string
+          max_capacity?: number | null
+          meeting_url?: string | null
+          published?: boolean
+          registration_open?: boolean
+          require_approval?: boolean
+          slug: string
+          start_date: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          cover_image?: string | null
+          created_at?: string
+          description?: string
+          end_date?: string | null
+          event_type?: string
+          id?: string
+          is_free?: boolean
+          location?: string | null
+          location_type?: string
+          max_capacity?: number | null
+          meeting_url?: string | null
+          published?: boolean
+          registration_open?: boolean
+          require_approval?: boolean
+          slug?: string
+          start_date?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      event_availability: {
+        Args: { _event_id: string }
+        Returns: {
+          max_capacity: number
+          taken: number
+        }[]
+      }
+      get_registration_by_token: {
+        Args: { _slug: string; _token: string }
+        Returns: {
+          checked_in: boolean
+          event_location: string
+          event_location_type: string
+          event_start: string
+          event_title: string
+          full_name: string
+          meeting_url: string
+          status: string
+        }[]
+      }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +303,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator", "user"],
+    },
   },
 } as const
