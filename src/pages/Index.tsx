@@ -500,8 +500,8 @@ export default function Index() {
     <div>
       <HeroCarousel />
       <CompanyIntro />
-      <ProjectCards />
-      <ResearchAreas />
+      <LatestPosts />
+      <CoreActivities />
       <CareersBanner />
       <News />
       <Subscribe />
