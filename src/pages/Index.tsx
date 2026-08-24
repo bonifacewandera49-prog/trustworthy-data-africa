@@ -225,20 +225,14 @@ function LatestPosts() {
 }
 
 /* ═══════════════════════════════════════════
-   RESEARCH AREAS — centered heading + 4 image cards
+   CORE ACTIVITIES — centered heading + numbered list
    ═══════════════════════════════════════════ */
-function ResearchAreas() {
-  const areas = [
-    { img: "/images/fieldwork.jpg", title: "Privacy Engineering" },
-    { img: "/images/team-working.jpg", title: "Quantum ML" },
-    { img: "/images/about-lab.jpg", title: "Interpretability" },
-    { img: "/images/data-lifecycle.jpg", title: "Data Governance" },
-  ];
+function CoreActivities() {
   return (
     <section style={{ background: "var(--dark-surface)" }} className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]">
       <div className="max-w-[1240px] mx-auto">
         <h2
-          className="text-center font-normal mb-10 max-w-[640px] mx-auto"
+          className="text-center font-normal mb-3 max-w-[640px] mx-auto"
           style={{
             fontSize: "clamp(1.2rem, 2.2vw, 1.55rem)",
             lineHeight: 1.35,
@@ -248,25 +242,40 @@ function ResearchAreas() {
           Place security and data governance at the heart of our research,
           tools and operations
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {areas.map((a) => (
+        <p className="text-center text-[0.88rem] mb-10 max-w-[560px] mx-auto" style={{ color: "var(--dark-text-secondary)" }}>
+          Our core activities span the full data lifecycle and security spectrum.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10">
+          {activityAreas.map((a, i) => (
             <Link
-              to="/work"
-              key={a.title}
-              className="no-underline group"
+              to={`/work/${a.slug}`}
+              key={a.slug}
+              className="flex gap-4 py-5 border-b no-underline group transition-colors"
+              style={{ borderColor: "var(--dark-hairline)" }}
             >
-              <div className="aspect-square rounded-xl overflow-hidden mb-3">
-                <img
-                  src={a.img}
-                  alt={a.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <span className="inline-flex items-center gap-1 text-[0.82rem] font-semibold" style={{ color: "var(--dark-text)" }}>
-                <ChevronRight className="w-3.5 h-3.5" style={{ color: "var(--orange)" }} /> {a.title}
+              <span className="font-mono text-[1.05rem] font-bold min-w-[36px] pt-0.5" style={{ color: "var(--orange)" }}>
+                {String(i + 1).padStart(2, "0")}
               </span>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="text-[0.92rem] font-semibold" style={{ color: "var(--dark-text)" }}>{a.title}</h3>
+                  <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" style={{ color: "var(--orange)" }} />
+                </div>
+                <p className="text-[0.82rem] leading-[1.7] line-clamp-2" style={{ color: "var(--dark-text-secondary)" }}>{a.desc}</p>
+              </div>
             </Link>
           ))}
+        </div>
+        <div className="text-center mt-10">
+          <Link
+            to="/work"
+            className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
+            style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
+          >
+            Explore our work
+          </Link>
         </div>
       </div>
     </section>
