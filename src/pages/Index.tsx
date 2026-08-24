@@ -158,29 +158,12 @@ function CompanyIntro() {
 }
 
 /* ═══════════════════════════════════════════
-   PROJECT CARDS — 3 large rounded image cards
+   LATEST BLOG POSTS — 3 large rounded image cards
    ═══════════════════════════════════════════ */
-function ProjectCards() {
-  const cards = [
-    {
-      img: "/images/security-ops.jpg",
-      tags: [{ text: "Cybersecurity" }, { text: "Threat Intel" }],
-      title: "Phishing Trends & Threat Intelligence for African Institutions",
-      to: "/work/cybersecurity-threat-intelligence",
-    },
-    {
-      img: "/images/data-lifecycle.jpg",
-      tags: [{ text: "Data" }],
-      title: "Data Collection, Translation & Integrity in Low-Resource Environments",
-      to: "/work/data-collection-translation-integrity",
-    },
-    {
-      img: "/images/canarydrop.jpg",
-      tags: [{ text: "AI & ML" }, { text: "Fairness" }],
-      title: "AI Fairness Audits & Interpretability for Consequential Decisions",
-      to: "/work/ai-machine-learning-fairness",
-    },
-  ];
+function LatestPosts() {
+  const posts = [...blogPosts]
+    .sort((a, b) => b.published_at.localeCompare(a.published_at))
+    .slice(0, 3);
   return (
     <section style={{ background: "var(--dark-base)" }} className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]">
       <div className="max-w-[1240px] mx-auto">
@@ -188,39 +171,38 @@ function ProjectCards() {
           Changing the way we secure data and systems
         </h2>
         <p className="text-[0.88rem] mb-8" style={{ color: "var(--dark-text-secondary)" }}>
-          We are building the security and data tools of tomorrow, while continuing to provide
-          the research and protection the world requires today.
+          Insights, analysis, and technical guides from our research team.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {cards.map((c) => (
+          {posts.map((p) => (
             <Link
-              to={c.to}
-              key={c.title}
+              to={`/blog/${p.slug}`}
+              key={p.slug}
               className="rounded-2xl overflow-hidden no-underline transition-shadow group border"
               style={{ background: "var(--dark-surface)", borderColor: "var(--dark-hairline)" }}
               onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 8px 30px rgba(0,0,0,0.45)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; }}
             >
               <div className="aspect-[16/10] overflow-hidden">
-                <img src={c.img} alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={p.cover_image} alt={p.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="p-5">
                 <div className="flex gap-1.5 flex-wrap mb-3">
-                  {c.tags.map((t) => (
-                    <span
-                      key={t.text}
-                      className="eyebrow text-[0.58rem] px-2.5 py-1 rounded-full border"
-                      style={{ background: "var(--dark-elevated)", borderColor: "var(--dark-hairline)", color: "var(--orange)" }}
-                    >
-                      {t.text}
-                    </span>
-                  ))}
+                  <span
+                    className="eyebrow text-[0.58rem] px-2.5 py-1 rounded-full border"
+                    style={{ background: "var(--dark-elevated)", borderColor: "var(--dark-hairline)", color: "var(--orange)" }}
+                  >
+                    {p.tag}
+                  </span>
                 </div>
-                <h3 className="text-[0.88rem] font-semibold leading-snug mb-3" style={{ color: "var(--dark-text)" }}>
-                  {c.title}
+                <h3 className="text-[0.88rem] font-semibold leading-snug mb-2" style={{ color: "var(--dark-text)" }}>
+                  {p.title}
                 </h3>
+                <p className="text-[0.8rem] leading-relaxed mb-3 line-clamp-2" style={{ color: "var(--dark-text-muted)" }}>
+                  {p.excerpt}
+                </p>
                 <span className="inline-flex items-center gap-1 text-[0.82rem] font-semibold" style={{ color: "var(--orange)" }}>
-                  <ChevronRight className="w-3.5 h-3.5" /> Find out more
+                  <ChevronRight className="w-3.5 h-3.5" /> Read article
                 </span>
               </div>
             </Link>
@@ -228,13 +210,13 @@ function ProjectCards() {
         </div>
         <div className="text-center mt-8">
           <Link
-            to="/work"
+            to="/blog"
             className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
             style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
             onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
           >
-            Discover our activities and achievements
+            Read our blog
           </Link>
         </div>
       </div>
