@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight, Pause, Play, Download } from "lucide-react";
+import { ChevronRight, Pause, Play, Download, ArrowRight } from "lucide-react";
+import { blogPosts } from "@/data/blog";
+import { activityAreas } from "@/data/activities";
 
 /* ═══════════════════════════════════════════
    HERO CAROUSEL — split image/text + slides
