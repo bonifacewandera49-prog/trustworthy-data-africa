@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight, Pause, Play, Download } from "lucide-react";
+import { ChevronRight, Pause, Play, Download, ArrowRight } from "lucide-react";
+import { blogPosts } from "@/data/blog";
+import { activityAreas } from "@/data/activities";
 
 /* ═══════════════════════════════════════════
    HERO CAROUSEL — split image/text + slides
@@ -156,29 +158,12 @@ function CompanyIntro() {
 }
 
 /* ═══════════════════════════════════════════
-   PROJECT CARDS — 3 large rounded image cards
+   LATEST BLOG POSTS — 3 large rounded image cards
    ═══════════════════════════════════════════ */
-function ProjectCards() {
-  const cards = [
-    {
-      img: "/images/security-ops.jpg",
-      tags: [{ text: "Cybersecurity" }, { text: "Threat Intel" }],
-      title: "Phishing Trends & Threat Intelligence for African Institutions",
-      to: "/work/cybersecurity-threat-intelligence",
-    },
-    {
-      img: "/images/data-lifecycle.jpg",
-      tags: [{ text: "Data" }],
-      title: "Data Collection, Translation & Integrity in Low-Resource Environments",
-      to: "/work/data-collection-translation-integrity",
-    },
-    {
-      img: "/images/canarydrop.jpg",
-      tags: [{ text: "AI & ML" }, { text: "Fairness" }],
-      title: "AI Fairness Audits & Interpretability for Consequential Decisions",
-      to: "/work/ai-machine-learning-fairness",
-    },
-  ];
+function LatestPosts() {
+  const posts = [...blogPosts]
+    .sort((a, b) => b.published_at.localeCompare(a.published_at))
+    .slice(0, 3);
   return (
     <section style={{ background: "var(--dark-base)" }} className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]">
       <div className="max-w-[1240px] mx-auto">
@@ -186,39 +171,38 @@ function ProjectCards() {
           Changing the way we secure data and systems
         </h2>
         <p className="text-[0.88rem] mb-8" style={{ color: "var(--dark-text-secondary)" }}>
-          We are building the security and data tools of tomorrow, while continuing to provide
-          the research and protection the world requires today.
+          Insights, analysis, and technical guides from our research team.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {cards.map((c) => (
+          {posts.map((p) => (
             <Link
-              to={c.to}
-              key={c.title}
+              to={`/blog/${p.slug}`}
+              key={p.slug}
               className="rounded-2xl overflow-hidden no-underline transition-shadow group border"
               style={{ background: "var(--dark-surface)", borderColor: "var(--dark-hairline)" }}
               onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 8px 30px rgba(0,0,0,0.45)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; }}
             >
               <div className="aspect-[16/10] overflow-hidden">
-                <img src={c.img} alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={p.cover_image} alt={p.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="p-5">
                 <div className="flex gap-1.5 flex-wrap mb-3">
-                  {c.tags.map((t) => (
-                    <span
-                      key={t.text}
-                      className="eyebrow text-[0.58rem] px-2.5 py-1 rounded-full border"
-                      style={{ background: "var(--dark-elevated)", borderColor: "var(--dark-hairline)", color: "var(--orange)" }}
-                    >
-                      {t.text}
-                    </span>
-                  ))}
+                  <span
+                    className="eyebrow text-[0.58rem] px-2.5 py-1 rounded-full border"
+                    style={{ background: "var(--dark-elevated)", borderColor: "var(--dark-hairline)", color: "var(--orange)" }}
+                  >
+                    {p.tag}
+                  </span>
                 </div>
-                <h3 className="text-[0.88rem] font-semibold leading-snug mb-3" style={{ color: "var(--dark-text)" }}>
-                  {c.title}
+                <h3 className="text-[0.88rem] font-semibold leading-snug mb-2" style={{ color: "var(--dark-text)" }}>
+                  {p.title}
                 </h3>
+                <p className="text-[0.8rem] leading-relaxed mb-3 line-clamp-2" style={{ color: "var(--dark-text-muted)" }}>
+                  {p.excerpt}
+                </p>
                 <span className="inline-flex items-center gap-1 text-[0.82rem] font-semibold" style={{ color: "var(--orange)" }}>
-                  <ChevronRight className="w-3.5 h-3.5" /> Find out more
+                  <ChevronRight className="w-3.5 h-3.5" /> Read article
                 </span>
               </div>
             </Link>
@@ -226,13 +210,13 @@ function ProjectCards() {
         </div>
         <div className="text-center mt-8">
           <Link
-            to="/work"
+            to="/blog"
             className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
             style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
             onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
           >
-            Discover our activities and achievements
+            Read our blog
           </Link>
         </div>
       </div>
@@ -241,20 +225,14 @@ function ProjectCards() {
 }
 
 /* ═══════════════════════════════════════════
-   RESEARCH AREAS — centered heading + 4 image cards
+   CORE ACTIVITIES — centered heading + numbered list
    ═══════════════════════════════════════════ */
-function ResearchAreas() {
-  const areas = [
-    { img: "/images/fieldwork.jpg", title: "Privacy Engineering" },
-    { img: "/images/team-working.jpg", title: "Quantum ML" },
-    { img: "/images/about-lab.jpg", title: "Interpretability" },
-    { img: "/images/data-lifecycle.jpg", title: "Data Governance" },
-  ];
+function CoreActivities() {
   return (
     <section style={{ background: "var(--dark-surface)" }} className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]">
       <div className="max-w-[1240px] mx-auto">
         <h2
-          className="text-center font-normal mb-10 max-w-[640px] mx-auto"
+          className="text-center font-normal mb-3 max-w-[640px] mx-auto"
           style={{
             fontSize: "clamp(1.2rem, 2.2vw, 1.55rem)",
             lineHeight: 1.35,
@@ -264,25 +242,40 @@ function ResearchAreas() {
           Place security and data governance at the heart of our research,
           tools and operations
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {areas.map((a) => (
+        <p className="text-center text-[0.88rem] mb-10 max-w-[560px] mx-auto" style={{ color: "var(--dark-text-secondary)" }}>
+          Our core activities span the full data lifecycle and security spectrum.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10">
+          {activityAreas.map((a, i) => (
             <Link
-              to="/work"
-              key={a.title}
-              className="no-underline group"
+              to={`/work/${a.slug}`}
+              key={a.slug}
+              className="flex gap-4 py-5 border-b no-underline group transition-colors"
+              style={{ borderColor: "var(--dark-hairline)" }}
             >
-              <div className="aspect-square rounded-xl overflow-hidden mb-3">
-                <img
-                  src={a.img}
-                  alt={a.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <span className="inline-flex items-center gap-1 text-[0.82rem] font-semibold" style={{ color: "var(--dark-text)" }}>
-                <ChevronRight className="w-3.5 h-3.5" style={{ color: "var(--orange)" }} /> {a.title}
+              <span className="font-mono text-[1.05rem] font-bold min-w-[36px] pt-0.5" style={{ color: "var(--orange)" }}>
+                {String(i + 1).padStart(2, "0")}
               </span>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="text-[0.92rem] font-semibold" style={{ color: "var(--dark-text)" }}>{a.title}</h3>
+                  <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" style={{ color: "var(--orange)" }} />
+                </div>
+                <p className="text-[0.82rem] leading-[1.7] line-clamp-2" style={{ color: "var(--dark-text-secondary)" }}>{a.desc}</p>
+              </div>
             </Link>
           ))}
+        </div>
+        <div className="text-center mt-10">
+          <Link
+            to="/work"
+            className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
+            style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
+          >
+            Explore our work
+          </Link>
         </div>
       </div>
     </section>
@@ -507,8 +500,8 @@ export default function Index() {
     <div>
       <HeroCarousel />
       <CompanyIntro />
-      <ProjectCards />
-      <ResearchAreas />
+      <LatestPosts />
+      <CoreActivities />
       <CareersBanner />
       <News />
       <Subscribe />
