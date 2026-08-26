@@ -52,9 +52,12 @@ export default function DatasetsPage() {
  {d.cover_image ? <img src={d.cover_image} alt={d.title} loading="lazy" className="w-full h-full object-cover" style={{ opacity: 0.55 }} /> : <Database className="w-8 h-8" style={{ color: "var(--dark-text-muted)" }} />}
  </div>
  <div className="p-5">
- <div className="flex items-center gap-2 mb-2 flex-wrap">
- <span className="font-mono text-[0.6rem] tracking-widest uppercase px-2 py-0.5 rounded-full" style={{ background: "hsl(var(--muted))", color: "var(--dark-text-muted)" }}>{d.tag}</span>
- <span className="font-mono text-[0.6rem] tracking-widest uppercase px-2 py-0.5 rounded-full" style={d.status === "Available" ? { background: "rgba(34,197,94,0.1)", color: "#4ade80" } : { background: "rgba(245,158,11,0.1)", color: "#fbbf24" }}>{d.status}</span>
+ <div className="flex items-center gap-3 mb-2.5 flex-wrap">
+ <span className="font-mono text-[0.62rem] tracking-widest uppercase" style={{ color: "var(--orange)" }}>{d.tag}</span>
+ <span className="inline-flex items-center gap-1.5 font-mono text-[0.62rem] tracking-widest uppercase" style={{ color: d.status === "Available" ? "#4ade80" : "#fbbf24" }}>
+ <span className="w-[5px] h-[5px] rounded-full" style={{ background: d.status === "Available" ? "#4ade80" : "#fbbf24" }} />
+ {d.status}
+ </span>
  </div>
  <h3 className="text-[0.9rem] font-semibold mb-1.5 leading-snug" style={{ color: "var(--dark-text)" }}>{d.title}</h3>
  <p className="text-[0.8rem] leading-relaxed line-clamp-2 mb-3" style={{ color: "var(--dark-text-muted)" }}>{d.description}</p>

@@ -93,9 +93,9 @@ export default function Events() {
                           </div>
                           <p className="text-xs mt-2 line-clamp-2 max-sm:hidden" style={{ color: "var(--dark-text-muted)" }}>{e.description}</p>
                           <div className="flex items-center gap-2 mt-3 flex-wrap">
-                            <Badge variant="secondary" className="font-mono text-[0.55rem] tracking-widest uppercase" style={{ background: "hsl(var(--muted))" }}>{e.event_type}</Badge>
-                            {e.require_approval && <Badge className="font-mono text-[0.55rem] tracking-widest uppercase" style={{ background: "rgba(245,158,11,0.1)", color: "#fbbf24", borderColor: "rgba(245,158,11,0.2)" }}>Approval Required</Badge>}
-                            {!e.is_free && <Badge variant="outline" className="font-mono text-[0.55rem] tracking-widest uppercase" style={{ borderColor: "var(--dark-hairline)", color: "var(--dark-text-muted)" }}>Paid</Badge>}
+                            <Badge variant="secondary" className="rounded font-mono text-[0.55rem] tracking-widest uppercase" style={{ background: "hsl(var(--muted))" }}>{e.event_type}</Badge>
+                            {e.require_approval && <Badge className="rounded font-mono text-[0.55rem] tracking-widest uppercase" style={{ background: "rgba(245,158,11,0.1)", color: "#fbbf24", borderColor: "rgba(245,158,11,0.2)" }}>Approval Required</Badge>}
+                            {!e.is_free && <Badge variant="outline" className="rounded font-mono text-[0.55rem] tracking-widest uppercase" style={{ borderColor: "var(--dark-hairline)", color: "var(--dark-text-muted)" }}>Paid</Badge>}
                             {e.registration_open && new Date(e.start_date) >= now && <span className="text-[0.7rem] font-semibold ml-auto" style={{ color: "var(--orange)" }}>Register &rarr;</span>}
                           </div>
                         </div>

@@ -45,7 +45,7 @@ export default function Team() {
  <button
  key={tab.value}
  onClick={() => setActiveTab(tab.value)}
- className="px-4 py-2 rounded-full text-sm font-medium transition-colors border cursor-pointer"
+ className="px-4 py-2 rounded-lg text-sm font-medium transition-colors border cursor-pointer"
  style={
  activeTab === tab.value
  ? { background: "var(--orange)", color: "var(--dark-text)", borderColor: "var(--orange)" }

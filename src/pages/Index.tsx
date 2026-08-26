@@ -64,7 +64,7 @@ function HeroCarousel() {
           <div>
             <Link
               to={s.to}
-              className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
+              className="inline-flex items-center px-7 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border"
               style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "var(--orange)";
@@ -187,14 +187,9 @@ function LatestPosts() {
                 <img src={p.cover_image} alt={p.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="p-5">
-                <div className="flex gap-1.5 flex-wrap mb-3">
-                  <span
-                    className="eyebrow text-[0.58rem] px-2.5 py-1 rounded-full border"
-                    style={{ background: "var(--dark-elevated)", borderColor: "var(--dark-hairline)", color: "var(--orange)" }}
-                  >
-                    {p.tag}
-                  </span>
-                </div>
+                <span className="font-mono text-[0.66rem] tracking-widest uppercase mb-2 block" style={{ color: "var(--orange)" }}>
+                  {p.tag}
+                </span>
                 <h3 className="text-[0.88rem] font-semibold leading-snug mb-2" style={{ color: "var(--dark-text)" }}>
                   {p.title}
                 </h3>
@@ -211,7 +206,7 @@ function LatestPosts() {
         <div className="text-center mt-8">
           <Link
             to="/blog"
-            className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
+            className="inline-flex items-center px-7 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border"
             style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
             onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
@@ -269,7 +264,7 @@ function CoreActivities() {
         <div className="text-center mt-10">
           <Link
             to="/work"
-            className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
+            className="inline-flex items-center px-7 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border"
             style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
             onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
@@ -306,7 +301,7 @@ function CareersBanner() {
             <div className="text-center">
               <Link
                 to="/opportunities"
-                className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
+                className="inline-flex items-center px-7 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border"
                 style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
@@ -399,7 +394,7 @@ function Subscribe() {
         </h2>
         <Link
           to="/contact"
-          className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
+          className="inline-flex items-center px-7 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border"
           style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
           onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
           onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
@@ -453,7 +448,7 @@ function Publications() {
         <div className="text-center mt-8">
           <Link
             to="/reports"
-            className="inline-flex items-center px-7 py-2.5 rounded-full text-[0.85rem] font-semibold no-underline transition-all border"
+            className="inline-flex items-center px-7 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border"
             style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
             onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}

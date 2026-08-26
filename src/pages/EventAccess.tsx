@@ -52,7 +52,10 @@ export default function EventAccess() {
                 <div className="text-[0.7rem] font-mono uppercase tracking-widest" style={{ color: "var(--dark-text-muted)" }}>Attendee</div>
                 <div className="text-lg font-semibold" style={{ color: "var(--dark-text)" }}>{record.full_name}</div>
               </div>
-              <span className="font-mono text-[0.65rem] px-3 py-1 rounded-full" style={{ color: s.color, background: "hsl(var(--muted))" }}>{s.text}</span>
+              <span className="inline-flex items-center gap-1.5 font-mono text-[0.65rem] tracking-widest uppercase px-2.5 py-1 rounded" style={{ color: s.color, background: "hsl(var(--muted))" }}>
+                <span className="w-[5px] h-[5px] rounded-full" style={{ background: s.color }} />
+                {s.text}
+              </span>
             </div>
             {record.event_location && (
               <p className="text-sm" style={{ color: "var(--dark-text-secondary)" }}>Location: {record.event_location}</p>
