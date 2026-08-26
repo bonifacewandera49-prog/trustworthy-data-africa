@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ChevronRight,
@@ -9,8 +9,14 @@ import {
   Landmark,
   FlaskConical,
   Quote,
+  Calendar,
+  MapPin,
+  Monitor,
 } from "lucide-react";
 import { blogPosts } from "@/data/blog";
+import { activityAreas } from "@/data/activities";
+import { supabase } from "@/integrations/supabase/client";
+import type { EventRow } from "@/lib/events";
 
 /* ═══════════════════════════════════════════
    HERO — full-bleed image, big two-line headline, CTA
@@ -43,17 +49,17 @@ function Hero() {
               color: "var(--dark-text)",
             }}
           >
-            Let our research
+            Building trust
             <br />
-            move <span style={{ color: "var(--orange)" }}>you.</span>
+            in <span style={{ color: "var(--orange)" }}>data & systems.</span>
           </h1>
           <p
             className="text-[0.95rem] md:text-[1rem] leading-relaxed mb-8 max-w-[480px]"
             style={{ color: "var(--dark-text-secondary)" }}
           >
-            We connect research, tools, and datasets to keep systems secure
-            and make data trustworthy — so organisations across Africa can
-            make decisions they can stand behind.
+            We're a security, data, and AI lab — building tools, running
+            research, and training teams so businesses, governments, and
+            communities across Africa can trust the systems they depend on.
           </p>
           <Link
             to="/about"
@@ -111,11 +117,11 @@ function TrustedSolutions() {
           className="font-normal mb-3 max-w-[560px]"
           style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)", lineHeight: 1.25, color: "var(--dark-text)" }}
         >
-          Our research is trusted by institutions across Africa
+          What we do, grounded in real conditions
         </h2>
         <p className="text-[0.9rem] mb-10 max-w-[560px]" style={{ color: "var(--dark-text-secondary)" }}>
-          We pair field expertise with rigorous research, tooling, and training —
-          so the systems and data you rely on hold up under real conditions.
+          We pair field expertise with tooling, research, and hands-on training —
+          so the systems and data you rely on hold up under real-world conditions.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {solutionCards.map((c) => (
@@ -245,33 +251,10 @@ function WhateverYourWorld() {
 }
 
 /* ═══════════════════════════════════════════
-   OUR PRODUCTS — filter pills + product cards
+   OUR SERVICES — real activity areas + view-all button
    ═══════════════════════════════════════════ */
-const productFilters = ["All", "Security", "AI & Data"];
-const products = [
-  {
-    name: "CanaryDrop",
-    desc: "Breach detection calibrated to real-world threat patterns — social engineering tactics, local platforms, and languages.",
-    to: "/solutions/canarydrop",
-    category: "Security",
-  },
-  {
-    name: "Qkabrine",
-    desc: "Quantum ML & AutoML platform for research teams working across classical and hybrid quantum architectures.",
-    to: "/solutions/qkabrine",
-    category: "AI & Data",
-  },
-  {
-    name: "Advisory & Training",
-    desc: "Consultancy and training services in security, privacy, and data governance — built from our active research.",
-    to: "/consultancy",
-    category: "Security",
-  },
-];
-
-function OurProducts() {
-  const [active, setActive] = useState("All");
-  const filtered = products.filter((p) => active === "All" || p.category === active);
+function OurServices() {
+  const shown = activityAreas.slice(0, 6);
 
   return (
     <section
@@ -279,56 +262,59 @@ function OurProducts() {
       className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]"
     >
       <div className="max-w-[1240px] mx-auto">
-        <h2
-          className="font-normal mb-2"
-          style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)", lineHeight: 1.25, color: "var(--dark-text)" }}
-        >
-          Our tools & platforms
-        </h2>
-        <p className="text-[0.9rem] mb-7 max-w-[560px]" style={{ color: "var(--dark-text-secondary)" }}>
-          Purpose-built solutions addressing the security and data challenges we
-          see across our research.
-        </p>
-        <div className="flex flex-wrap gap-2 mb-8">
-          {productFilters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActive(f)}
-              className="px-4 py-2 rounded-lg text-[0.82rem] font-medium transition-colors border cursor-pointer"
-              style={
-                active === f
-                  ? { background: "var(--orange)", color: "#fff", borderColor: "var(--orange)" }
-                  : { background: "transparent", color: "var(--dark-text-secondary)", borderColor: "var(--dark-hairline)" }
-              }
+        <div className="flex flex-wrap items-end justify-between gap-4 mb-7">
+          <div>
+            <h2
+              className="font-normal mb-2"
+              style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)", lineHeight: 1.25, color: "var(--dark-text)" }}
             >
-              {f}
-            </button>
-          ))}
+              Our services
+            </h2>
+            <p className="text-[0.9rem] max-w-[560px]" style={{ color: "var(--dark-text-secondary)" }}>
+              Nine areas of work spanning security, data, privacy, and AI —
+              from field data collection to quantum machine learning.
+            </p>
+          </div>
+          <Link
+            to="/work"
+            className="hidden sm:inline-flex items-center gap-1.5 px-6 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border shrink-0"
+            style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
+          >
+            View all services <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-          {filtered.map((p) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {shown.map((a) => (
             <Link
-              key={p.name}
-              to={p.to}
+              key={a.slug}
+              to={`/work/${a.slug}`}
               className="rounded-2xl p-6 no-underline border transition-all group flex flex-col"
               style={{ background: "var(--dark-surface)", borderColor: "var(--dark-hairline)" }}
               onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(255,122,61,0.35)"; e.currentTarget.style.transform = "translateY(-3px)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--dark-hairline)"; e.currentTarget.style.transform = "none"; }}
             >
-              <span className="font-mono text-[0.66rem] tracking-widest uppercase mb-3" style={{ color: "var(--orange)" }}>
-                {p.category}
-              </span>
-              <h3 className="text-[1rem] font-semibold mb-2.5" style={{ color: "var(--dark-text)" }}>
-                {p.name}
+              <h3 className="text-[0.98rem] font-semibold mb-2.5 leading-snug" style={{ color: "var(--dark-text)" }}>
+                {a.title}
               </h3>
-              <p className="text-[0.83rem] leading-relaxed mb-5 flex-1" style={{ color: "var(--dark-text-secondary)" }}>
-                {p.desc}
+              <p className="text-[0.82rem] leading-relaxed mb-5 flex-1" style={{ color: "var(--dark-text-secondary)" }}>
+                {a.desc}
               </p>
               <span className="inline-flex items-center gap-1 text-[0.8rem] font-semibold" style={{ color: "var(--orange)" }}>
-                <ArrowRight className="w-3.5 h-3.5" /> Learn more
+                Learn more <ArrowRight className="w-3.5 h-3.5" />
               </span>
             </Link>
           ))}
+        </div>
+        <div className="text-center mt-8 sm:hidden">
+          <Link
+            to="/work"
+            className="inline-flex items-center gap-1.5 px-7 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border"
+            style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
+          >
+            View all services <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </div>
     </section>
@@ -403,109 +389,32 @@ function Testimonial() {
 }
 
 /* ═══════════════════════════════════════════
-   UNPARALLELED EXPERTISE — tabs + team cards
+   UPCOMING EVENTS — live data from Supabase
    ═══════════════════════════════════════════ */
-const expertiseTabs = ["Core Team", "Researchers"];
-const expertiseMembers: Record<string, { name: string; role: string; image: string; link?: string }[]> = {
-  "Core Team": [
-    { name: "Eric Jagwara", role: "Founder & Director", image: "/images/team/eric-jagwara.jpg" },
-    { name: "Dr. Abubakhari Sserwadda", role: "Head of Data & Cybersecurity", image: "/images/team/abubakhari-sserwadda.webp" },
-    { name: "Irene Akitwi", role: "Head of Computational Social Science", image: "/images/team/irene-akitwi.webp", link: "https://www.researchgate.net/profile/Irene-Akitwi-2" },
-  ],
-  Researchers: [
-    { name: "Prof. Yawe Bruno Lule", role: "Principal Consultant", image: "/images/team/yawe-bruno-lule.jpg" },
-    { name: "Soddo Paul", role: "Head of Embedded Systems & Firmware", image: "/images/team/soddo-paul.jpg" },
-    { name: "Dr. Nkechi Eze", role: "Senior Researcher — AI Fairness", image: "/images/qkabrine.jpg" },
-  ],
-};
-
-function Expertise() {
-  const [tab, setTab] = useState("Core Team");
-  return (
-    <section
-      style={{ background: "var(--dark-surface)" }}
-      className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]"
-    >
-      <div className="max-w-[1240px] mx-auto">
-        <h2
-          className="font-normal mb-2"
-          style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)", lineHeight: 1.25, color: "var(--dark-text)" }}
-        >
-          Unparalleled expertise
-        </h2>
-        <p className="text-[0.9rem] mb-7 max-w-[560px]" style={{ color: "var(--dark-text-secondary)" }}>
-          A dedicated group of investigators and problem-solvers across security, data science, and engineering.
-        </p>
-        <div className="flex flex-wrap gap-2 mb-8">
-          {expertiseTabs.map((t) => (
-            <button
-              key={t}
-              onClick={() => setTab(t)}
-              className="px-4 py-2 rounded-lg text-[0.82rem] font-medium transition-colors border cursor-pointer"
-              style={
-                tab === t
-                  ? { background: "var(--orange)", color: "#fff", borderColor: "var(--orange)" }
-                  : { background: "transparent", color: "var(--dark-text-secondary)", borderColor: "var(--dark-hairline)" }
-              }
-            >
-              {t}
-            </button>
-          ))}
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-          {expertiseMembers[tab].map((m) => {
-            const inner = (
-              <>
-                <div className="w-16 h-16 rounded-full overflow-hidden mb-4 border" style={{ borderColor: "var(--dark-hairline)" }}>
-                  <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
-                </div>
-                <h3 className="text-[0.94rem] font-semibold mb-0.5" style={{ color: "var(--dark-text)" }}>{m.name}</h3>
-                <p className="text-[0.8rem]" style={{ color: "var(--dark-text-secondary)" }}>{m.role}</p>
-                {m.link && (
-                  <span className="inline-flex items-center gap-1 text-[0.76rem] font-semibold mt-2" style={{ color: "var(--orange)" }}>
-                    Profile <ArrowUpRight className="w-3 h-3" />
-                  </span>
-                )}
-              </>
-            );
-            return m.link ? (
-              <a key={m.name} href={m.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl p-6 no-underline border flex flex-col" style={{ background: "var(--dark-base)", borderColor: "var(--dark-hairline)" }}>
-                {inner}
-              </a>
-            ) : (
-              <div key={m.name} className="rounded-2xl p-6 border flex flex-col" style={{ background: "var(--dark-base)", borderColor: "var(--dark-hairline)" }}>
-                {inner}
-              </div>
-            );
-          })}
-        </div>
-        <div className="text-center mt-10">
-          <Link
-            to="/team"
-            className="inline-flex items-center px-7 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border"
-            style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
-          >
-            Meet the full team
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
+function locationIcon(type: string) {
+  if (type === "online") return <Monitor className="w-3.5 h-3.5" />;
+  return <MapPin className="w-3.5 h-3.5" />;
 }
 
-/* ═══════════════════════════════════════════
-   INSIGHTS YOU TRUST — small list + featured card
-   ═══════════════════════════════════════════ */
-function InsightsYouTrust() {
-  const list = [
-    { label: "Trademark Filing Trends Report 2026", to: "/reports" },
-    { label: "AI Impact Study", to: "/research" },
-    { label: "The Top 100 Global Innovators", to: "/reports" },
-    { label: "Drugs to Watch", to: "/research" },
-  ];
-  const featured = blogPosts[0];
+function UpcomingEvents() {
+  const [events, setEvents] = useState<EventRow[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    supabase
+      .from("events")
+      .select("*")
+      .eq("published", true)
+      .gte("start_date", new Date().toISOString())
+      .order("start_date", { ascending: true })
+      .limit(3)
+      .then(({ data }) => {
+        setEvents((data as EventRow[]) || []);
+        setLoading(false);
+      });
+  }, []);
+
+  if (!loading && events.length === 0) return null;
 
   return (
     <section
@@ -513,49 +422,68 @@ function InsightsYouTrust() {
       className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]"
     >
       <div className="max-w-[1240px] mx-auto">
-        <h2
-          className="font-normal mb-2"
-          style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)", lineHeight: 1.25, color: "var(--dark-text)" }}
-        >
-          Insights you trust
-        </h2>
-        <p className="text-[0.9rem] mb-10 max-w-[560px]" style={{ color: "var(--dark-text-secondary)" }}>
-          Expert analysis and data-driven insights to guide your most critical decisions.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8">
+        <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
           <div>
-            {list.map((item, i) => (
+            <h2
+              className="font-normal mb-2"
+              style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)", lineHeight: 1.25, color: "var(--dark-text)" }}
+            >
+              Upcoming events
+            </h2>
+            <p className="text-[0.9rem] max-w-[560px]" style={{ color: "var(--dark-text-secondary)" }}>
+              Workshops, webinars, and training sessions — open to the organisations and communities we work with.
+            </p>
+          </div>
+          <Link
+            to="/events"
+            className="hidden sm:inline-flex items-center gap-1.5 px-6 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border shrink-0"
+            style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
+          >
+            View all events <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
+        {loading ? (
+          <p className="text-[0.85rem]" style={{ color: "var(--dark-text-secondary)" }}>Loading events…</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {events.map((e) => (
               <Link
-                key={item.label}
-                to={item.to}
-                className="block py-4 no-underline border-b transition-colors group"
-                style={{ borderColor: i === 0 ? "var(--orange)" : "var(--dark-hairline)" }}
+                key={e.id}
+                to={`/events/${e.slug}`}
+                className="rounded-2xl overflow-hidden no-underline border transition-all group flex flex-col"
+                style={{ background: "var(--dark-surface)", borderColor: "var(--dark-hairline)" }}
+                onMouseEnter={(ev) => (ev.currentTarget.style.borderColor = "rgba(255,122,61,0.35)")}
+                onMouseLeave={(ev) => (ev.currentTarget.style.borderColor = "var(--dark-hairline)")}
               >
-                <span className="text-[0.86rem] font-medium leading-snug" style={{ color: "var(--dark-text)" }}>
-                  {item.label}
-                </span>
+                {e.cover_image && (
+                  <div className="aspect-[16/9] overflow-hidden">
+                    <img src={e.cover_image} alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                )}
+                <div className="p-6 flex flex-col flex-1">
+                  <span className="font-mono text-[0.66rem] tracking-widest uppercase mb-3 flex items-center gap-1.5" style={{ color: "var(--orange)" }}>
+                    <Calendar className="w-3 h-3" />
+                    {new Date(e.start_date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
+                  </span>
+                  <h3 className="text-[1rem] font-semibold mb-2 leading-snug" style={{ color: "var(--dark-text)" }}>
+                    {e.title}
+                  </h3>
+                  {e.location && (
+                    <span className="inline-flex items-center gap-1.5 text-[0.78rem] mb-4" style={{ color: "var(--dark-text-secondary)" }}>
+                      {locationIcon(e.location_type)} {e.location}
+                    </span>
+                  )}
+                  <span className="inline-flex items-center gap-1 text-[0.8rem] font-semibold mt-auto" style={{ color: "var(--orange)" }}>
+                    {e.registration_open ? "Register" : "Details"} <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
-          <Link
-            to={`/blog/${featured.slug}`}
-            className="relative rounded-2xl overflow-hidden no-underline group min-h-[300px] flex flex-col justify-end p-8"
-          >
-            <img src={featured.cover_image} alt="" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(25,20,16,0.1) 0%, rgba(25,20,16,0.6) 55%, rgba(25,20,16,0.94) 100%)" }} />
-            <div className="relative z-[1]">
-              <span className="font-mono text-[0.66rem] tracking-widest uppercase mb-3 block" style={{ color: "var(--orange)" }}>
-                Thought Leadership — {featured.tag}
-              </span>
-              <h3 className="text-[1.3rem] font-semibold leading-snug mb-2 max-w-[440px]" style={{ color: "var(--dark-text)" }}>
-                {featured.title}
-              </h3>
-              <span className="inline-flex items-center gap-1 text-[0.82rem] font-semibold" style={{ color: "var(--orange)" }}>
-                Read the story <ChevronRight className="w-3.5 h-3.5" />
-              </span>
-            </div>
-          </Link>
-        </div>
+        )}
       </div>
     </section>
   );
@@ -703,10 +631,9 @@ export default function Index() {
       <Hero />
       <TrustedSolutions />
       <WhateverYourWorld />
-      <OurProducts />
+      <OurServices />
       <Testimonial />
-      <Expertise />
-      <InsightsYouTrust />
+      <UpcomingEvents />
       <LatestStories />
       <CareersBanner />
       <Partners />
