@@ -19,7 +19,7 @@ import { supabase } from "@/integrations/supabase/client";
 import type { EventRow } from "@/lib/events";
 
 /* ═══════════════════════════════════════════
-   HERO — full-bleed image, big two-line headline, CTA
+   HERO: full-bleed image, big two-line headline, CTA
    ═══════════════════════════════════════════ */
 function Hero() {
   return (
@@ -57,7 +57,7 @@ function Hero() {
             className="text-[0.95rem] md:text-[1rem] leading-relaxed mb-8 max-w-[480px]"
             style={{ color: "var(--dark-text-secondary)" }}
           >
-            We're a security, data, and AI lab — building tools, running
+            We're a security, data, and AI lab, building tools, running
             research, and training teams so businesses, governments, and
             communities across Africa can trust the systems they depend on.
           </p>
@@ -77,7 +77,7 @@ function Hero() {
 }
 
 /* ═══════════════════════════════════════════
-   TRUSTED SOLUTIONS — 2x2 image cards
+   TRUSTED SOLUTIONS: 2x2 image cards
    ═══════════════════════════════════════════ */
 const solutionCards = [
   {
@@ -88,19 +88,19 @@ const solutionCards = [
   },
   {
     title: "Cybersecurity & Threat Intel",
-    desc: "We track real-world threat patterns and build tools like CanaryDrop to detect breaches before they spread.",
+    desc: "We track real-world threat patterns and build detection tools that catch breaches before they spread.",
     img: "/images/security-ops.jpg",
     to: "/work/cybersecurity-threat-intelligence",
   },
   {
     title: "Privacy Engineering",
-    desc: "We turn data protection legislation into practical engineering — synthetic data, differential privacy, secure computation.",
+    desc: "We turn data protection legislation into practical engineering: synthetic data, differential privacy, secure computation.",
     img: "/images/data-lifecycle.jpg",
     to: "/work/privacy-engineering-data-protection",
   },
   {
     title: "AI, ML & Quantum Research",
-    desc: "We build fairness-audited models and explore quantum-classical hybrids through our platform, Qkabrine.",
+    desc: "We build fairness-audited models and explore quantum-classical hybrid approaches to machine learning.",
     img: "/images/qkabrine.jpg",
     to: "/work/ai-machine-learning-fairness",
   },
@@ -120,7 +120,7 @@ function TrustedSolutions() {
           What we do, grounded in real conditions
         </h2>
         <p className="text-[0.9rem] mb-10 max-w-[560px]" style={{ color: "var(--dark-text-secondary)" }}>
-          We pair field expertise with tooling, research, and hands-on training —
+          We pair field expertise with tooling, research, and hands-on training,
           so the systems and data you rely on hold up under real-world conditions.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -165,7 +165,7 @@ function TrustedSolutions() {
 }
 
 /* ═══════════════════════════════════════════
-   WHATEVER YOUR WORLD — 3 sector pillar cards
+   WHATEVER YOUR WORLD: 3 sector pillar cards
    ═══════════════════════════════════════════ */
 const worldCards = [
   {
@@ -206,7 +206,7 @@ function WhateverYourWorld() {
         </h2>
         <p className="text-[0.9rem] mb-10 max-w-[620px]" style={{ color: "var(--dark-text-secondary)" }}>
           Data security, privacy, and governance challenges look different in every
-          sector. Our aim is the same everywhere — to put rigour behind the systems
+          sector. Our aim is the same everywhere: to put rigour behind the systems
           that matter.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -251,7 +251,7 @@ function WhateverYourWorld() {
 }
 
 /* ═══════════════════════════════════════════
-   OUR SERVICES — real activity areas + view-all button
+   OUR SERVICES: real activity areas + view-all button
    ═══════════════════════════════════════════ */
 function OurServices() {
   const shown = activityAreas.slice(0, 6);
@@ -271,7 +271,7 @@ function OurServices() {
               Our services
             </h2>
             <p className="text-[0.9rem] max-w-[560px]" style={{ color: "var(--dark-text-secondary)" }}>
-              Nine areas of work spanning security, data, privacy, and AI —
+              Nine areas of work spanning security, data, privacy, and AI,
               from field data collection to quantum machine learning.
             </p>
           </div>
@@ -322,18 +322,18 @@ function OurServices() {
 }
 
 /* ═══════════════════════════════════════════
-   TESTIMONIAL — accent gradient quote block
+   TESTIMONIAL: accent gradient quote block
    ═══════════════════════════════════════════ */
 const testimonials = [
   {
     quote:
-      "Solid Elf's threat intelligence work gave us a real, ground-level picture of the phishing patterns actually hitting our users — not a generic global model. It changed how we prioritise security training.",
+      "Solid Elf's threat intelligence work gave us a real, ground-level picture of the phishing patterns actually hitting our users, not a generic global model. It changed how we prioritise security training.",
     name: "Partner Organisation",
     role: "Technology & Data Partner",
   },
   {
     quote:
-      "The data governance framework the lab built with us is the first one that actually reflected how our field teams collect data — paper records, USSD, and all. It's now core to how we onboard new partners.",
+      "The data governance framework the lab built with us is the first one that actually reflected how our field teams collect data: paper records, USSD, and all. It's now core to how we onboard new partners.",
     name: "Sector Collaborator",
     role: "Programme Lead, Research & NGOs",
   },
@@ -389,7 +389,7 @@ function Testimonial() {
 }
 
 /* ═══════════════════════════════════════════
-   UPCOMING EVENTS — live data from Supabase
+   UPCOMING EVENTS: live data from Supabase
    ═══════════════════════════════════════════ */
 function locationIcon(type: string) {
   if (type === "online") return <Monitor className="w-3.5 h-3.5" />;
@@ -431,7 +431,7 @@ function UpcomingEvents() {
               Upcoming events
             </h2>
             <p className="text-[0.9rem] max-w-[560px]" style={{ color: "var(--dark-text-secondary)" }}>
-              Workshops, webinars, and training sessions — open to the organisations and communities we work with.
+              Workshops, webinars, and training sessions, open to the organisations and communities we work with.
             </p>
           </div>
           <Link
@@ -490,7 +490,7 @@ function UpcomingEvents() {
 }
 
 /* ═══════════════════════════════════════════
-   LATEST STORIES — big card + two smaller
+   LATEST STORIES: big card + two smaller
    ═══════════════════════════════════════════ */
 function LatestStories() {
   const posts = [...blogPosts].sort((a, b) => b.published_at.localeCompare(a.published_at)).slice(0, 3);

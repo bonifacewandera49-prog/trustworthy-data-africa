@@ -10,15 +10,15 @@ const areas = activityAreas;
 export default function Work() {
   return (
     <>
-      <Hero tag="Core Activities" title="From first collection to final decision." subtitle="Our work covers the full data lifecycle because data security, privacy, and governance challenges are connected at every stage." />
+      <Hero tag="Research Areas" title="From first collection to final decision." subtitle="These are the areas we actively research, publish, and build tools in. It's where our expertise comes from. Looking to hire us? See our consultancy services." />
       <Section>
-        <SplitSection image="/images/canarydrop.jpg">
+        <SplitSection eyebrow="Research Areas">
           <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>The Full Data Lifecycle</h2>
           <p className="text-[0.93rem] leading-[1.85] mb-4" style={{ color: "var(--dark-text)" }}>
             Consider the journey of a single health record. It may be captured on paper in a rural clinic, digitised by a field worker, transmitted over a mobile network, stored in a government database, and eventually used to inform treatment decisions.
           </p>
           <p className="text-[0.93rem] leading-[1.85]" style={{ color: "var(--dark-text)" }}>
-            We work across all these stages because addressing any one of them in isolation produces incomplete results.
+            We work across all these stages because addressing any one of them in isolation produces incomplete results. This research is what our consultancy services draw on.
           </p>
         </SplitSection>
       </Section>
@@ -51,13 +51,18 @@ export default function Work() {
       </Section>
       <Section narrow className="text-center">
         <p className="rv" style={{ fontSize: "clamp(1.1rem, 2.2vw, 1.35rem)", lineHeight: "1.4", color: "var(--dark-text-secondary)" }}>
-          Every activity produces open research. Explore our published papers, datasets, and reports.
+          Every activity produces open research. Explore our published papers, datasets, and reports, or hire us to apply this expertise to your organisation.
         </p>
-        <div className="rv mt-5">
+        <div className="rv mt-5 flex gap-3 justify-center flex-wrap">
           <Link to="/research" className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
             View our research
+          </Link>
+          <Link to="/consultancy" className="inline-block border px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-all" style={{ background: "transparent", borderColor: "var(--dark-hairline)", color: "var(--dark-text-secondary)" }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--orange)"; e.currentTarget.style.color = "var(--dark-text)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--dark-hairline)"; e.currentTarget.style.color = "var(--dark-text-secondary)"; }}>
+            See consultancy services
           </Link>
         </div>
       </Section>

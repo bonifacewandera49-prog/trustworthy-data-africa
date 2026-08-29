@@ -16,8 +16,8 @@ const posts: Record<string, { title: string; tag: string; published_at: string; 
  tag: "Quantum Computing",
  published_at: "2026-03-22",
  content: `<p>Quantum machine learning represents one of the most promising frontiers in computational research. By leveraging quantum mechanical properties like superposition and entanglement, quantum ML algorithms can process information in ways that classical computers cannot.</p>
-<p>For research teams without deep quantum physics expertise, getting started can seem daunting. Qkabrine was designed to bridge this gap by automating the most complex aspects of quantum circuit design.</p>
-<p>The platform searches through possible circuit architectures, encoding strategies, and hyperparameters to find configurations that perform well on your specific dataset. This means research teams can focus on their domain expertise while Qkabrine handles the quantum mechanics.</p>`,
+<p>For research teams without deep quantum physics expertise, getting started can seem daunting. Our AutoML platform was designed to bridge this gap by automating the most complex aspects of quantum circuit design.</p>
+<p>The platform searches through possible circuit architectures, encoding strategies, and hyperparameters to find configurations that perform well on your specific dataset. This means research teams can focus on their domain expertise while the platform handles the quantum mechanics.</p>`,
  },
  "phishing-trends-2026": {
  title: "Emerging Phishing Trends Targeting African Institutions in 2026",
@@ -25,7 +25,7 @@ const posts: Record<string, { title: string; tag: string; published_at: string; 
  published_at: "2026-02-10",
  content: `<p>Our threat intelligence programme has identified several new phishing trends specifically targeting African institutions. These campaigns are increasingly sophisticated, using local languages and cultural references to appear legitimate.</p>
 <p>Key trends include: mobile money impersonation scams targeting both individuals and businesses. Fake government service portals designed to harvest credentials. And business email compromise campaigns exploiting trust relationships within organisations.</p>
-<p>CanaryDrop was developed in response to these trends, providing early warning when attackers probe your systems using the same tactics we observe in the wild.</p>`,
+<p>Our breach detection tooling was developed in response to these trends, providing early warning when attackers probe your systems using the same tactics we observe in the wild.</p>`,
  },
 };
 

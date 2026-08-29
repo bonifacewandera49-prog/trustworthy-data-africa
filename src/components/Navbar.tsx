@@ -51,8 +51,8 @@ const megaMenus: Record<string, MegaMenuData> = {
   },
   "What We Do": {
     items: [
-      { to: "/work", label: "Core Activities", desc: "Research, tools, training, and datasets across the full data lifecycle", icon: <Microscope className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
-      { to: "/consultancy", label: "Consultancy", desc: "Advisory and training services that fund our research", icon: <BookOpen className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
+      { to: "/work", label: "Research Areas", desc: "The areas we actively research, publish, and build tools in", icon: <Microscope className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
+      { to: "/consultancy", label: "Consultancy", desc: "Hire us: advisory, audits, and training built on that research", icon: <BookOpen className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
     ],
     featured: {
       to: "/work",
@@ -161,8 +161,8 @@ export default function Navbar() {
           <Link to="/contact" className="text-[0.83rem] font-medium px-3 py-2 no-underline rounded-lg transition-colors" style={{ color: "var(--nav-text)" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--nav-text-strong)")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--nav-text)")}>Contact</Link>
         </div>
 
-        <Link to="/donate" className="hidden lg:inline-flex text-[0.78rem] font-semibold px-5 py-2.5 rounded-lg no-underline transition-colors ml-2 whitespace-nowrap" style={{ background: "var(--orange)", color: "#fff" }} onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")} onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
-          Support Our Work
+        <Link to="/partnerships" className="hidden lg:inline-flex text-[0.78rem] font-semibold px-5 py-2.5 rounded-lg no-underline transition-colors ml-2 whitespace-nowrap" style={{ background: "var(--orange)", color: "#fff" }} onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")} onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
+          Partner With Us
         </Link>
 
         <button className="lg:hidden flex items-center justify-center p-2 bg-transparent border-none cursor-pointer" style={{ color: "var(--nav-text)" }} onClick={() => setMobileOpen(!mobileOpen)}>
@@ -190,8 +190,8 @@ export default function Navbar() {
           <Link to="/blog" className="text-[0.9rem] py-2.5 no-underline" style={{ color: "var(--nav-text)", borderBottom: "1px solid var(--nav-hairline)" }}>Blog</Link>
           <Link to="/events" className="text-[0.9rem] py-2.5 no-underline" style={{ color: "var(--nav-text)", borderBottom: "1px solid var(--nav-hairline)" }}>Events</Link>
           <Link to="/contact" className="text-[0.9rem] py-2.5 no-underline" style={{ color: "var(--nav-text)", borderBottom: "1px solid var(--nav-hairline)" }}>Contact</Link>
-          <Link to="/donate" className="border-none p-3 rounded-lg font-semibold text-[0.86rem] cursor-pointer mt-3.5 text-center no-underline" style={{ background: "var(--orange)", color: "#fff" }}>
-            Support Our Work
+          <Link to="/partnerships" className="border-none p-3 rounded-lg font-semibold text-[0.86rem] cursor-pointer mt-3.5 text-center no-underline" style={{ background: "var(--orange)", color: "#fff" }}>
+            Partner With Us
           </Link>
         </div>
       )}

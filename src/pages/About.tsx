@@ -22,7 +22,7 @@ export default function About() {
  subtitle="We defend systems, secure data, and develop the methods of tomorrow. By training the teams that sustain these defenses, we produce work rooted in real-world impact and held to rigorous international standards."
  />
  <Section>
- <SplitSection image="/images/fieldwork.jpg">
+ <SplitSection eyebrow="Field Practice">
  <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>
  How We Work
  </h2>
@@ -35,7 +35,7 @@ export default function About() {
  </SplitSection>
  </Section>
  <Section>
- <SplitSection image="/images/team-working.jpg" reverse>
+ <SplitSection eyebrow="Our People" reverse>
  <p className="text-[0.93rem] leading-[1.85] mb-4" style={{ color: "var(--dark-text)" }}>
  We combine research and practice in a way that keeps both grounded. Our researchers contribute directly to tool development, threat intelligence, and field deployment, and the challenges we encounter in the field feed back into our published research.
  </p>
@@ -64,7 +64,7 @@ export default function About() {
  </div>
  </Section>
  <Section>
- <SplitSection image="/images/about-lab.jpg">
+ <SplitSection eyebrow="The Lab">
  <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>
  Research, Tools, Training & Open Data
  </h2>
@@ -82,13 +82,13 @@ export default function About() {
 
  <Section narrow className="text-center">
  <p className="rv" style={{ fontSize: "clamp(1.1rem, 2.2vw, 1.35rem)", lineHeight: "1.4", color: "var(--dark-text-secondary)" }}>
- Our research and tools help governments, organisations, and partners stay secure and make better decisions with their data. Your support helps sustain it.
+ Our research and tools help governments, organisations, and partners stay secure and make better decisions with their data. We welcome grants, contracts, and institutional partnerships that help us do more of it.
  </p>
  <div className="rv mt-5">
- <Link to="/donate" className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
+ <Link to="/partnerships" className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
  onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")}
  onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
- Support our work
+ Partner with us
  </Link>
  </div>
  </Section>

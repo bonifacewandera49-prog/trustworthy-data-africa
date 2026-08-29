@@ -12,7 +12,7 @@ interface ActivityData {
 
 const activities: Record<string, ActivityData> = {
   "data-collection-translation-integrity": {
-    index: 1, tagline: "From the field to the database — accurately and securely.",
+    index: 1, tagline: "From the field to the database, accurately and securely.",
     overview: "Data enters systems through USSD, SMS, paper records, field enumerators, community networks, and informal channels. Each channel introduces its own risks of error, loss, and unauthorised access. We design secure collection protocols, translate and structure data from hard-to-use sources, and train field teams to maintain integrity from the point of first capture.",
     whatWeDo: [
       "Design secure data collection protocols for low-resource and low-connectivity environments",
@@ -28,7 +28,7 @@ const activities: Record<string, ActivityData> = {
     whatWeDo: [
       "Monitor and analyse phishing and social engineering campaigns targeting African institutions",
       "Develop threat intelligence feeds calibrated to local attack patterns",
-      "Build and deploy CanaryDrop for breach detection and early warning",
+      "Develop and deploy breach detection tooling for early warning",
       "Conduct adversarial testing and security assessments",
       "Deliver threat awareness training for teams and organisations",
     ],
@@ -46,7 +46,7 @@ const activities: Record<string, ActivityData> = {
   },
   "ai-machine-learning-fairness": {
     index: 4, tagline: "Models that work for everyone they affect.",
-    overview: "We build models suited to diverse data conditions — where data is sparse, biased, or incomplete — and develop interpretability tools so organisations can understand and explain automated decisions. Our fairness audits identify disparities in model outcomes across demographic groups, and we work with teams to address them.",
+    overview: "We build models suited to diverse data conditions, where data is sparse, biased, or incomplete, and develop interpretability tools so organisations can understand and explain automated decisions. Our fairness audits identify disparities in model outcomes across demographic groups, and we work with teams to address them.",
     whatWeDo: [
       "Build machine learning models for resource-constrained data environments",
       "Conduct independent fairness audits of automated decision-making systems",
@@ -57,11 +57,11 @@ const activities: Record<string, ActivityData> = {
   },
   "quantum-machine-learning": {
     index: 5, tagline: "Exploring the next frontier in computational research.",
-    overview: "We explore the intersection of quantum computing and machine learning, developing quantum circuit architectures, hybrid classical-quantum models, and automated quantum hyperparameter optimisation through Qkabrine. Our work focuses on making quantum ML accessible to research teams without deep quantum physics expertise.",
+    overview: "We explore the intersection of quantum computing and machine learning, developing quantum circuit architectures, hybrid classical-quantum models, and automated quantum hyperparameter optimisation. Our work focuses on making quantum ML accessible to research teams without deep quantum physics expertise.",
     whatWeDo: [
       "Design quantum circuit architectures for classification and optimisation tasks",
       "Develop hybrid classical-quantum ML pipelines",
-      "Automate quantum hyperparameter search through Qkabrine",
+      "Automate quantum hyperparameter search",
       "Evaluate quantum advantage claims on real-world datasets",
       "Publish benchmark studies and best practices",
     ],
@@ -79,7 +79,7 @@ const activities: Record<string, ActivityData> = {
   },
   "blockchain-emerging-technology": {
     index: 7, tagline: "Rigorous evaluation before deployment.",
-    overview: "We conduct rigorous, independent assessments of emerging technologies proposed for real-world contexts, evaluating performance under local conditions. Our assessments consider technical feasibility, security implications, governance requirements, and actual utility — separating genuine innovation from speculative claims.",
+    overview: "We conduct rigorous, independent assessments of emerging technologies proposed for real-world contexts, evaluating performance under local conditions. Our assessments consider technical feasibility, security implications, governance requirements, and actual utility, separating genuine innovation from speculative claims.",
     whatWeDo: [
       "Assess blockchain and distributed ledger proposals for real-world viability",
       "Evaluate emerging technologies (federated learning, edge computing, etc.) for local contexts",
@@ -90,7 +90,7 @@ const activities: Record<string, ActivityData> = {
   },
   "data-governance-policy": {
     index: 8, tagline: "Frameworks that govern data responsibly.",
-    overview: "We produce peer-reviewed research and frameworks that inform data governance policy globally. Our work spans cross-border data sharing, sovereign data strategies, compliance frameworks, and the governance of AI systems — always grounded in the realities of implementation.",
+    overview: "We produce peer-reviewed research and frameworks that inform data governance policy globally. Our work spans cross-border data sharing, sovereign data strategies, compliance frameworks, and the governance of AI systems, always grounded in the realities of implementation.",
     whatWeDo: [
       "Research cross-border data governance frameworks for the African Union and beyond",
       "Develop sovereign data strategy recommendations for governments",
@@ -101,7 +101,7 @@ const activities: Record<string, ActivityData> = {
   },
   "training-capacity-building": {
     index: 9, tagline: "Building the teams that sustain the work.",
-    overview: "Every training programme is built from our active research and tailored to participant contexts. We cover cybersecurity, privacy engineering, safe data collection, threat awareness, and responsible AI — delivering practical skills that teams can apply immediately.",
+    overview: "Every training programme is built from our active research and tailored to participant contexts. We cover cybersecurity, privacy engineering, safe data collection, threat awareness, and responsible AI, delivering practical skills that teams can apply immediately.",
     whatWeDo: [
       "Design and deliver cybersecurity training for teams and organisations",
       "Build privacy engineering capacity through hands-on workshops",
@@ -126,7 +126,7 @@ export default function ActivityDetail() {
         <div className="text-center">
           <h1 className="mb-4 text-4xl font-bold" style={{ color: "var(--dark-text)" }}>404</h1>
           <p className="mb-4 text-xl" style={{ color: "var(--dark-text-muted)" }}>Activity not found</p>
-          <Link to="/work" className="underline" style={{ color: "var(--orange)" }}>Back to Core Activities</Link>
+          <Link to="/work" className="underline" style={{ color: "var(--orange)" }}>Back to Research Areas</Link>
         </div>
       </div>
     );
@@ -185,13 +185,18 @@ export default function ActivityDetail() {
       {/* CTA */}
       <Section narrow className="text-center">
         <p className="rv" style={{ fontSize: "clamp(1.1rem, 2.2vw, 1.35rem)", lineHeight: "1.4", color: "var(--dark-text-secondary)" }}>
-          Want to engage our team on this activity?
+          This research feeds directly into our consultancy services.
         </p>
-        <div className="rv mt-5">
-          <Link to="/contact" className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
+        <div className="rv mt-5 flex gap-3 justify-center flex-wrap">
+          <Link to="/consultancy" className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
-            Get in touch
+            See related services
+          </Link>
+          <Link to="/research" className="inline-block border px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-all" style={{ background: "transparent", borderColor: "var(--dark-hairline)", color: "var(--dark-text-secondary)" }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--orange)"; e.currentTarget.style.color = "var(--dark-text)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--dark-hairline)"; e.currentTarget.style.color = "var(--dark-text-secondary)"; }}>
+            Explore our research
           </Link>
         </div>
       </Section>

@@ -35,7 +35,7 @@ const services: Record<string, ServiceData> = {
   },
   "data-strategy-governance": {
     index: 3, tagline: "Frameworks that make data assets manageable and secure.",
-    overview: "Organisations accumulate data faster than they can govern it. We help design and implement data governance frameworks that account for real-world constraints — limited infrastructure, diverse data sources, and evolving regulatory requirements — while making data more secure, findable, and usable.",
+    overview: "Organisations accumulate data faster than they can govern it. We help design and implement data governance frameworks that account for real-world constraints: limited infrastructure, diverse data sources, and evolving regulatory requirements, while making data more secure, findable, and usable.",
     whatWeDo: [
       "Assess current data assets, flows, and governance gaps",
       "Design governance frameworks tailored to organisational context",
@@ -57,7 +57,7 @@ const services: Record<string, ServiceData> = {
   },
   "custom-training-programmes": {
     index: 5, tagline: "Practical skills built from active research.",
-    overview: "Every training programme is built from our active research and tailored to participant contexts. We cover cybersecurity, privacy engineering, safe data collection, threat awareness, and responsible AI — delivering practical skills that teams can apply immediately, not theoretical content that sits in a binder.",
+    overview: "Every training programme is built from our active research and tailored to participant contexts. We cover cybersecurity, privacy engineering, safe data collection, threat awareness, and responsible AI, delivering practical skills that teams can apply immediately, not theoretical content that sits in a binder.",
     whatWeDo: [
       "Design curricula from current research and real case studies",
       "Deliver hands-on workshops with practical exercises",
@@ -68,7 +68,7 @@ const services: Record<string, ServiceData> = {
   },
   "bespoke-tool-development": {
     index: 6, tagline: "Purpose-built tools for specific challenges.",
-    overview: "Sometimes off-the-shelf tools do not fit the context. We build custom data collection, security, and analytics tools designed for specific operational requirements — whether that means offline-first mobile apps, secure data pipelines, or specialised monitoring systems.",
+    overview: "Sometimes off-the-shelf tools do not fit the context. We build custom data collection, security, and analytics tools designed for specific operational requirements, whether that means offline-first mobile apps, secure data pipelines, or specialised monitoring systems.",
     whatWeDo: [
       "Analyse operational requirements and constraints",
       "Design tools that work in target infrastructure",
@@ -154,11 +154,16 @@ export default function ConsultancyDetail() {
         <p className="rv" style={{ fontSize: "clamp(1.1rem, 2.2vw, 1.35rem)", lineHeight: "1.4", color: "var(--dark-text-secondary)" }}>
           Interested in this service? Every consultancy project directly supports our independent research.
         </p>
-        <div className="rv mt-5">
+        <div className="rv mt-5 flex gap-3 justify-center flex-wrap">
           <Link to="/contact" className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
             Get in touch
+          </Link>
+          <Link to="/work" className="inline-block border px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-all" style={{ background: "transparent", borderColor: "var(--dark-hairline)", color: "var(--dark-text-secondary)" }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--orange)"; e.currentTarget.style.color = "var(--dark-text)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--dark-hairline)"; e.currentTarget.style.color = "var(--dark-text-secondary)"; }}>
+            See the research behind it
           </Link>
         </div>
       </Section>

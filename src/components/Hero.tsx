@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import WavePattern from "@/components/WavePattern";
 
 interface HeroProps {
   tag?: string;
@@ -9,7 +10,10 @@ interface HeroProps {
 
 export default function Hero({ tag, title, subtitle, actions }: HeroProps) {
   return (
-    <div className="pt-28 pb-[72px] px-[clamp(1.5rem,4vw,4rem)]" style={{ textAlign: "center" }}>
+    <div className="relative pt-28 pb-[88px] px-[clamp(1.5rem,4vw,4rem)] overflow-hidden" style={{ textAlign: "center" }}>
+      <div className="absolute bottom-0 left-0 w-full h-16 pointer-events-none">
+        <WavePattern opacity={0.08} />
+      </div>
       <div className="max-w-[740px] mx-auto">
         {tag && (
           <p className="rv font-mono text-[0.74rem] font-medium tracking-widest uppercase mb-4" style={{ color: "var(--orange)" }}>

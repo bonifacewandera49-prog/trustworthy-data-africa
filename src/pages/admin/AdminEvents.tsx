@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const events = [
  { id: "1", title: "Cybersecurity Workshop: Threat Intelligence for Financial Services", start_date: "2026-06-15", published: true, registration_open: true },
- { id: "2", title: "Qkabrine Platform Launch & Demo", start_date: "2026-07-10", published: true, registration_open: true },
+ { id: "2", title: "AI Platform Launch & Demo", start_date: "2026-07-10", published: true, registration_open: true },
  { id: "3", title: "African Data Governance Summit 2026", start_date: "2026-08-20", published: true, registration_open: false },
 ];
 

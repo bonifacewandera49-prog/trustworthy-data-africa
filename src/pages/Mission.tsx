@@ -27,7 +27,7 @@ export default function Mission() {
  </div>
  </Section>
  <Section>
- <SplitSection image="/images/team-working.jpg">
+ <SplitSection eyebrow="Our Mission">
  <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>
  From Principle to Practice
  </h2>
@@ -40,7 +40,7 @@ export default function Mission() {
  </SplitSection>
  </Section>
  <Section>
- <SplitSection image="/images/security-ops.jpg" reverse>
+ <SplitSection eyebrow="Our Vision" reverse>
  <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>
  Security and Governance for a Digital World
  </h2>

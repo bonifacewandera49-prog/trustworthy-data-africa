@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Newspaper } from "lucide-react";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import FilterDropdown from "@/components/FilterDropdown";
+import WavePattern from "@/components/WavePattern";
 import { blogPosts } from "@/data/blog";
 
 const posts = blogPosts;
@@ -25,8 +27,10 @@ export default function Blog() {
         <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
           {filtered.map((p) => (
             <Link to={`/blog/${p.slug}`} key={p.id} className="rv rounded-lg overflow-hidden border transition-colors no-underline group" style={{ background: "hsl(var(--card))", borderColor: "var(--dark-hairline)" }}>
-              <div className="aspect-[16/9] flex items-center justify-center overflow-hidden" style={{ background: "hsl(var(--muted))" }}>
-                {p.cover_image ? <img src={p.cover_image} alt={p.title} loading="lazy" className="w-full h-full object-cover" style={{ opacity: 0.55 }} /> : <span className="text-xs" style={{ color: "var(--dark-text-muted)" }}>No cover</span>}
+              <div className="relative aspect-[16/9] flex flex-col items-center justify-center gap-2 overflow-hidden" style={{ background: "linear-gradient(155deg, var(--dark-surface) 0%, var(--dark-elevated) 100%)" }}>
+                <div className="absolute bottom-0 left-0 w-full h-2/3 pointer-events-none"><WavePattern opacity={0.08} /></div>
+                <Newspaper className="relative z-[1] w-6 h-6" style={{ color: "var(--orange)", opacity: 0.6 }} />
+                <span className="relative z-[1] font-mono text-[0.62rem] tracking-widest uppercase" style={{ color: "var(--dark-text-muted)" }}>{p.tag}</span>
               </div>
               <div className="p-5">
                 <span className="font-mono text-[0.66rem] tracking-widest uppercase mb-2 block" style={{ color: "var(--orange)" }}>{p.tag}</span>

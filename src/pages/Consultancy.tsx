@@ -16,9 +16,9 @@ const services = [
 export default function Consultancy() {
   return (
     <>
-      <Hero tag="Consultancy" title="Advisory that funds our independence." subtitle="Our consultancy services translate research into practical support for organisations, and the revenue funds our independent research programme." />
+      <Hero tag="Consultancy" title="Advisory that funds our independence." subtitle="This is how organisations engage us commercially: advisory, assessment, and training, delivered by the same researchers who produce our published work. Curious what that research covers? See our research areas." />
       <Section>
-        <SplitSection image="/images/team-working.jpg">
+        <SplitSection eyebrow="Advisory">
           <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>How Consultancy Works</h2>
           <p className="text-[0.93rem] leading-[1.85] mb-4" style={{ color: "var(--dark-text)" }}>
             We provide advisory, assessment, and training services to organisations across all sectors. Every engagement is delivered by the same researchers who produce our published work.

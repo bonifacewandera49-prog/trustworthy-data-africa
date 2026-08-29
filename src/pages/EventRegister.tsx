@@ -9,7 +9,7 @@ const inputCls = "w-full p-3 rounded-lg text-[0.86rem] outline-none transition-c
 const inputStyle = { background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" } as const;
 
 const statusCopy: Record<RegistrationStatus, { title: string; body: string }> = {
-  approved: { title: "You're registered!", body: "Your spot is confirmed. Keep your access link safe — it's your ticket to the event." },
+  approved: { title: "You're registered!", body: "Your spot is confirmed. Keep your access link safe, it's your ticket to the event." },
   pending: { title: "Registration received", body: "This event requires approval. We'll review your request and update your access page once a decision is made." },
   waitlist: { title: "You're on the waitlist", body: "This event is at capacity. We'll let you know via your access page if a spot opens up." },
   declined: { title: "Registration declined", body: "Unfortunately your registration was not approved." },

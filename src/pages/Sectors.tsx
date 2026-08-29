@@ -2,6 +2,7 @@ import { useState } from "react";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import SplitSection from "@/components/SplitSection";
+import WavePattern from "@/components/WavePattern";
 
 const sectors = [
  { name: "Health", desc: "Patient data is among the most sensitive information any organisation holds. Health data is collected from fully digital hospital systems to paper records in rural clinics.", points: ["Securing patient data across its complete lifecycle", "Designing collection protocols for low-resource environments", "Auditing AI diagnostics for bias and reliability", "Privacy frameworks that protect individuals while enabling research", "Cybersecurity training for frontline health workers"] },
@@ -20,7 +21,14 @@ export default function Sectors() {
  <>
  <Hero tag="Sectors" title="The same rigour, calibrated to your context." subtitle="Data security, privacy, and governance challenges appear in every sector that handles sensitive information. We work across all of them." />
  <Section>
- <div className="rv rounded-lg bg-cover bg-center opacity-40 border h-[200px] mb-6" style={{ backgroundImage: "url(/images/data-lifecycle.jpg)", borderColor: "var(--dark-hairline)" }} />
+ <div className="rv rounded-lg border relative overflow-hidden p-8 mb-6" style={{ borderColor: "var(--dark-hairline)", background: "linear-gradient(155deg, var(--dark-surface) 0%, var(--dark-elevated) 100%)" }}>
+ <div className="absolute bottom-0 left-0 w-full h-2/3 pointer-events-none">
+ <WavePattern opacity={0.09} />
+ </div>
+ <p className="relative z-[1] text-[0.88rem] leading-relaxed max-w-[560px]" style={{ color: "var(--dark-text-secondary)" }}>
+ One standard of rigour, applied across every sector we work in. Select a tab below to see how it plays out.
+ </p>
+ </div>
  <div className="rv flex flex-wrap gap-1.5 mb-7">
  {sectors.map((sec, i) => (
  <button
@@ -47,7 +55,7 @@ export default function Sectors() {
  </div>
  </Section>
  <Section>
- <SplitSection image="/images/fieldwork.jpg" reverse>
+ <SplitSection eyebrow="Cross-Sector" reverse>
  <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>
  Cross-Sector Expertise
  </h2>

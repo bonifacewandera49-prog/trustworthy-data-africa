@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Users, Monitor, Globe, Building2, Search } from "lucide-react";
+import { Users, Monitor, Globe, Building2, Search, CalendarDays } from "lucide-react";
+import WavePattern from "@/components/WavePattern";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import { Input } from "@/components/ui/input";
@@ -100,8 +101,9 @@ export default function Events() {
                           </div>
                         </div>
                         {e.cover_image && (
-                          <div className="w-32 h-24 rounded-lg shrink-0 max-sm:w-20 max-sm:h-16 overflow-hidden flex items-center justify-center" style={{ background: "hsl(var(--muted))" }}>
-                            <img src={e.cover_image} alt={e.title} loading="lazy" className="w-full h-full object-cover" style={{ opacity: 0.55 }} />
+                          <div className="relative w-32 h-24 rounded-lg shrink-0 max-sm:w-20 max-sm:h-16 overflow-hidden flex items-center justify-center" style={{ background: "linear-gradient(155deg, var(--dark-surface) 0%, var(--dark-elevated) 100%)" }}>
+                            <div className="absolute bottom-0 left-0 w-full h-2/3 pointer-events-none"><WavePattern opacity={0.08} /></div>
+                            <CalendarDays className="relative z-[1] w-6 h-6" style={{ color: "var(--orange)", opacity: 0.55 }} />
                           </div>
                         )}
                       </div>

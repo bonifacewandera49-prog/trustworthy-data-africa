@@ -6,17 +6,16 @@ interface SolutionPageProps {
  name: string;
  tagline: string;
  subtitle: string;
- image: string;
  overview: string[];
  capabilities: string[];
 }
 
-function SolutionPage({ name, subtitle, image, overview, capabilities }: SolutionPageProps) {
+function SolutionPage({ name, subtitle, overview, capabilities }: SolutionPageProps) {
  return (
  <>
  <Hero tag="Our Products" title={name} subtitle={subtitle} />
  <Section>
- <SplitSection image={image}>
+ <SplitSection eyebrow={name}>
  {overview.map((p, i) => (
  <p key={i} className="text-[0.93rem] leading-[1.85] mb-4" style={{ color: "var(--dark-text)" }}>{p}</p>
  ))}
@@ -50,7 +49,6 @@ export function CanaryDrop() {
  name="CanaryDrop"
  tagline="Breach detection"
  subtitle="Breach detection and early-warning system calibrated to the threat patterns and attack behaviours observed across global organisations and infrastructure."
- image="/images/canarydrop.jpg"
  overview={[
  "CanaryDrop is our breach detection and early-warning system, calibrated to the threat landscape that organisations actually face.",
  "The system deploys canary tokens and honeypots tuned to the tactics, techniques, and procedures we observe through our active threat intelligence programme.",
@@ -73,7 +71,6 @@ export function Qkabrine() {
  name="Qkabrine"
  tagline="Quantum ML & AutoML"
  subtitle="Qkabrine searches quantum circuits, encodings, and hyperparameters automatically, so you can focus on results, not circuit design."
- image="/images/qkabrine.jpg"
  overview={[
  "Qkabrine is our Quantum ML and AutoML platform, designed to make machine learning and quantum computing accessible to research teams worldwide.",
  "The platform handles the full ML lifecycle from data preparation through model training, evaluation, and deployment, with built-in fairness auditing and quantum circuit optimisation at every stage.",

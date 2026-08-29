@@ -31,7 +31,7 @@ export default function Footer() {
               <h4 className="text-[0.68rem] font-semibold tracking-wider uppercase mb-2" style={{ color: "var(--dark-text-secondary)" }}>
                 What We Do
               </h4>
-              <Link to="/work" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Core Activities</Link>
+              <Link to="/work" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Research Areas</Link>
               <Link to="/consultancy" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Consultancy</Link>
             </div>
             <div className="flex flex-col gap-1 min-w-[110px]">
@@ -46,7 +46,7 @@ export default function Footer() {
               <h4 className="text-[0.68rem] font-semibold tracking-wider uppercase mb-2" style={{ color: "var(--dark-text-secondary)" }}>
                 Get Involved
               </h4>
-              <Link to="/donate" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Support Us</Link>
+              <Link to="/partnerships" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Partnerships</Link>
               <Link to="/opportunities" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Opportunities</Link>
               <Link to="/events" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Events</Link>
               <Link to="/apply" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Join the Team</Link>

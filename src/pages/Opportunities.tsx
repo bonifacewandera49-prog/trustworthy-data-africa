@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 const opps = [
  { type: "Fellowship", duration: "12 months", title: "Graduate Research Fellowship \u2013 Cybersecurity", desc: "Work alongside our security research team on active threat intelligence projects. Full-time position with mentorship, publication support, and direct involvement in tool development.", label: "Apply \u2192" },
  { type: "Internship", duration: "6 months", title: "Research Internship \u2013 Privacy Engineering", desc: "Join our privacy engineering team to work on synthetic data generation, differential privacy implementations, and compliance frameworks.", label: "Apply \u2192" },
- { type: "Fellowship", duration: "12 months", title: "Data Science Fellowship", desc: "Contribute to our data programme spanning field collection, synthetic dataset development, and fairness auditing. Work directly on Qkabrine.", label: "Apply \u2192" },
+ { type: "Fellowship", duration: "12 months", title: "Data Science Fellowship", desc: "Contribute to our data programme spanning field collection, synthetic dataset development, and fairness auditing. Work directly on our AI & data tooling.", label: "Apply \u2192" },
  { type: "Internship", duration: "3 months", title: "Field Operations Internship", desc: "Deploy alongside our field team across health, agriculture, and government programmes. Hands-on experience with data collection protocols.", label: "Apply \u2192" },
 ];
 

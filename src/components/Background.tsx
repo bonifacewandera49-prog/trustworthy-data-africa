@@ -160,7 +160,7 @@ export default function Background() {
         }}
       />
 
-      {/* Warm atmospheric glows — breathing + mouse parallax */}
+      {/* Warm atmospheric glows: breathing + mouse parallax */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div
           ref={glow1Ref}

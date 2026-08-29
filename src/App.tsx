@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Layout from "@/components/Layout";
 import AdminLayout from "@/components/AdminLayout";
 import Index from "@/pages/Index";
@@ -23,7 +23,7 @@ import EventAccess from "@/pages/EventAccess";
 import Opportunities from "@/pages/Opportunities";
 import Apply from "@/pages/Apply";
 import Contact from "@/pages/Contact";
-import Donate from "@/pages/Donate";
+import Partnerships from "@/pages/Partnerships";
 import Policies from "@/pages/Policies";
 import NotFound from "@/pages/NotFound";
 import AdminLogin from "@/pages/AdminLogin";
@@ -37,7 +37,7 @@ import AdminTeam from "@/pages/admin/AdminTeam";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Layout><Index /></Layout>} />
         <Route path="/about" element={<Layout><About /></Layout>} />
@@ -63,7 +63,7 @@ function App() {
         <Route path="/opportunities" element={<Layout><Opportunities /></Layout>} />
         <Route path="/apply" element={<Layout><Apply /></Layout>} />
         <Route path="/contact" element={<Layout><Contact /></Layout>} />
-        <Route path="/donate" element={<Layout><Donate /></Layout>} />
+        <Route path="/partnerships" element={<Layout><Partnerships /></Layout>} />
         <Route path="/policies" element={<Layout><Policies /></Layout>} />
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/admin" element={<AdminLayout><AdminBlog /></AdminLayout>} />
@@ -75,7 +75,7 @@ function App() {
         <Route path="/admin/team" element={<AdminLayout><AdminTeam /></AdminLayout>} />
         <Route path="*" element={<Layout><NotFound /></Layout>} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
