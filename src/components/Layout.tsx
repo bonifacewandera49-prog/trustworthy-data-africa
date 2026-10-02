@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Background from "./Background";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { pathname } = useLocation();
@@ -41,7 +40,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <Background />
       <Navbar />
       <main className="relative z-[1]">{children}</main>
       <Footer />
