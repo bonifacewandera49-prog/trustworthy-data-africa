@@ -5,13 +5,13 @@ export default function Footer() {
   return (
     <footer
       className="relative z-[1] border-t"
-      style={{ background: "hsl(var(--footer))", borderColor: "hsl(var(--footer-foreground) / 0.12)" }}
+      style={{ background: "var(--dark-surface)", borderColor: "var(--dark-hairline)" }}
     >
       <div className="py-12 px-[clamp(1.5rem,4vw,4rem)]">
         <div className="max-w-[1240px] mx-auto flex justify-between gap-11 flex-wrap">
           <div className="max-w-[280px]">
             <img src={logo} alt="Solid Elf" className="h-16 w-auto mb-3.5" />
-            <p className="text-[0.8rem] leading-relaxed" style={{ color: "hsl(var(--footer-foreground) / 0.62)" }}>
+            <p className="text-[0.8rem] leading-relaxed" style={{ color: "var(--dark-text-muted)" }}>
               A Cybersecurity and Data Research Lab. We build the tools,
               frameworks, and datasets that keep systems secure and make data
               trustworthy and usable.
@@ -19,10 +19,10 @@ export default function Footer() {
           </div>
           <div className="flex gap-10 flex-wrap">
             <div className="flex flex-col gap-1 min-w-[110px]">
-              <h4 className="text-[0.68rem] font-semibold tracking-wider uppercase mb-2" style={{ color: "hsl(var(--footer-foreground))" }}>
+              <h4 className="text-[0.68rem] font-semibold tracking-wider uppercase mb-2" style={{ color: "var(--dark-text-secondary)" }}>
                 Who We Are
               </h4>
-               <Link to="/about" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "hsl(var(--footer-foreground) / 0.62)" }}>About</Link>
+              <Link to="/about" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>About</Link>
               <Link to="/mission" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Mission</Link>
               <Link to="/team" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Team</Link>
               <Link to="/sectors" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Sectors</Link>

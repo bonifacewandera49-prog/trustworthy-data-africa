@@ -1,7 +1,7 @@
-@import '@fontsource/work-sans/400.css';
-@import '@fontsource/work-sans/500.css';
-@import '@fontsource/work-sans/600.css';
-@import '@fontsource/instrument-serif/400.css';
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/dm-sans/600.css';
+@import '@fontsource/dm-sans/700.css';
 @import '@fontsource/jetbrains-mono/400.css';
 @import '@fontsource/jetbrains-mono/500.css';
 
@@ -17,21 +17,21 @@
 @layer base {
   :root {
     /* Brand accent -- saturated orange */
-    --orange: #F26A3D;
-    --orange-hover: #D9552D;
-    --orange-glow: rgba(242,106,61,0.2);
+    --orange: #FF7A3D;
+    --orange-hover: #FF9057;
+    --orange-glow: rgba(255,122,61,0.28);
 
     /* -- Elevation ladder (4 steps) -- */
-    --dark-base: #F5F3EE;
-    --dark-surface: #FFFFFF;
-    --dark-elevated: #E8E4DD;
-    --dark-top: #2D2D2D;
-    --dark-hairline: rgba(45,45,45,0.14);
+    --dark-base: #191410;
+    --dark-surface: #211A14;
+    --dark-elevated: #2A231B;
+    --dark-top: #332B22;
+    --dark-hairline: rgba(255,255,255,0.09);
 
     /* -- Text (lifted, warm) -- */
-    --dark-text: #2D2D2D;
-    --dark-text-secondary: #5F5A54;
-    --dark-text-muted: #7E7871;
+    --dark-text: #F7F1EA;
+    --dark-text-secondary: #C9BDB1;
+    --dark-text-muted: #8D8175;
 
     /* -- Light navbar surface -- */
     --nav-bg: rgba(252,250,247,0.92);
@@ -43,30 +43,26 @@
     --nav-text-muted: #8A7F73;
 
     /* -- Card/surface aliases -- */
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 18%;
-    --background: 43 26% 95%;
-    --foreground: 0 0% 18%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 18%;
-    --primary: 16 87% 59%;
-    --primary-foreground: 43 26% 98%;
-    --secondary: 43 15% 89%;
-    --secondary-foreground: 0 0% 18%;
-    --muted: 43 13% 91%;
-    --muted-foreground: 32 6% 39%;
-    --accent: 16 87% 59%;
-    --accent-foreground: 43 26% 98%;
+    --card: 18 16% 9%;
+    --card-foreground: 30 14% 88%;
+    --background: 18 16% 9%;
+    --foreground: 30 14% 88%;
+    --popover: 18 16% 9%;
+    --popover-foreground: 30 14% 88%;
+    --primary: 16 100% 60%;
+    --primary-foreground: 30 14% 88%;
+    --secondary: 18 16% 12%;
+    --secondary-foreground: 30 14% 88%;
+    --muted: 18 14% 14%;
+    --muted-foreground: 24 10% 56%;
+    --accent: 16 100% 60%;
+    --accent-foreground: 30 14% 88%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-    --border: 36 10% 78%;
-    --input: 36 10% 78%;
-    --ring: 16 87% 59%;
-    --hero-overlay: 20 15% 8%;
-    --footer: 0 0% 16%;
-    --footer-foreground: 43 26% 95%;
-    --shadow-float: 0 24px 60px -22px rgba(45,45,45,0.32);
-    --radius: 0.25rem;
+    --border: 20 12% 18%;
+    --input: 20 12% 18%;
+    --ring: 16 100% 60%;
+    --radius: 0.625rem;
   }
 }
 
@@ -78,16 +74,10 @@
   body {
     background: var(--dark-base);
     color: var(--dark-text-secondary);
-    font-family: 'Work Sans', system-ui, sans-serif;
+    font-family: 'DM Sans', system-ui, sans-serif;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1, h2, h3 {
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-weight: 400;
-    letter-spacing: 0;
   }
 
   ::selection {
@@ -169,4 +159,15 @@
 }
 
 /* Warm ambient wash so pages don't read flat */
-body::before { display: none; }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 150;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(1100px 700px at 8% 0%, rgba(255,122,61,0.09), transparent 62%),
+    radial-gradient(900px 600px at 100% 45%, rgba(255,160,90,0.06), transparent 65%),
+    radial-gradient(800px 500px at 40% 100%, rgba(255,122,61,0.05), transparent 65%);
+}
