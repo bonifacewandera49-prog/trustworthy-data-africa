@@ -17,7 +17,8 @@ import {
   Monitor,
 } from "lucide-react";
 import { blogPosts } from "@/data/blog";
-import { activityAreas } from "@/data/activities";
+import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { supabase } from "@/integrations/supabase/client";
 import type { EventRow } from "@/lib/events";
 
@@ -126,12 +127,14 @@ function TrustedSolutions() {
           We pair field expertise with tooling, research, and hands-on training,
           so the systems and data you rely on hold up under real-world conditions.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <Carousel opts={{ align: "start" }} aria-label="Our work">
+          <CarouselContent className="-ml-5">
           {solutionCards.map((c) => (
+            <CarouselItem key={c.title} className="pl-5 basis-[88%] sm:basis-1/2 lg:basis-1/3">
             <Link
               key={c.title}
               to={c.to}
-              className="relative rounded-2xl overflow-hidden no-underline group min-h-[260px] flex flex-col justify-end p-6"
+              className="relative rounded-lg overflow-hidden no-underline group h-[300px] flex flex-col justify-end p-6"
             >
               <img
                 src={c.img}
@@ -160,8 +163,17 @@ function TrustedSolutions() {
                 </span>
               </div>
             </Link>
+            </CarouselItem>
           ))}
-        </div>
+          </CarouselContent>
+          <div className="flex items-center justify-between gap-4 mt-6">
+            <Button asChild variant="link" className="px-0"><Link to="/work">All our work <ArrowRight /></Link></Button>
+            <div className="flex gap-2">
+              <CarouselPrevious className="static translate-y-0" aria-label="Previous work" title="Previous work" />
+              <CarouselNext className="static translate-y-0" aria-label="Next work" title="Next work" />
+            </div>
+          </div>
+        </Carousel>
       </div>
     </section>
   );
@@ -233,20 +245,18 @@ function WhateverYourWorld() {
           sector. Our aim is the same everywhere: to put rigour behind the systems
           that matter.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <Carousel opts={{ align: "start" }} aria-label="Sectors">
+          <CarouselContent className="-ml-5">
           {worldCards.map((c) => (
+            <CarouselItem key={c.title} className="pl-5 basis-[88%] sm:basis-1/2 lg:basis-1/3">
             <Link
               key={c.title}
               to={c.to}
-              className="rounded-lg overflow-hidden no-underline group border transition-all flex flex-col"
-              style={{ background: "var(--dark-base)", borderColor: "var(--dark-hairline)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(255,122,61,0.35)")}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--dark-hairline)")}
+              className="rounded-lg overflow-hidden no-underline group border border-border bg-background transition-colors hover:border-primary flex flex-col h-full"
             >
               <div className="p-6 pb-5 flex-1">
                 <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
-                  style={{ background: "rgba(255,122,61,0.12)" }}
+                  className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-primary/10"
                 >
                   <c.icon className="w-5 h-5" style={{ color: "var(--orange)" }} />
                 </div>
@@ -267,79 +277,17 @@ function WhateverYourWorld() {
                 <img src={c.img} alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
             </Link>
+            </CarouselItem>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════
-   OUR SERVICES: real activity areas + view-all button
-   ═══════════════════════════════════════════ */
-function OurServices() {
-  const shown = activityAreas.slice(0, 6);
-
-  return (
-    <section
-      style={{ background: "var(--dark-base)" }}
-      className="py-16 md:py-20 px-[clamp(1.5rem,4vw,4rem)] border-t border-[var(--dark-hairline)]"
-    >
-      <div className="max-w-[1240px] mx-auto">
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-7">
-          <div>
-            <h2
-              className="font-normal mb-2"
-              style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)", lineHeight: 1.25, color: "var(--dark-text)" }}
-            >
-              Our services
-            </h2>
-            <p className="text-[0.9rem] max-w-[560px]" style={{ color: "var(--dark-text-secondary)" }}>
-              Nine areas of work spanning security, data, privacy, and AI,
-              from field data collection to quantum machine learning.
-            </p>
+          </CarouselContent>
+          <div className="flex items-center justify-between gap-4 mt-6">
+            <Button asChild variant="link" className="px-0"><Link to="/sectors">All sectors <ArrowRight /></Link></Button>
+            <div className="flex gap-2">
+              <CarouselPrevious className="static translate-y-0" aria-label="Previous sectors" title="Previous sectors" />
+              <CarouselNext className="static translate-y-0" aria-label="Next sectors" title="Next sectors" />
+            </div>
           </div>
-          <Link
-            to="/work"
-            className="hidden sm:inline-flex items-center gap-1.5 px-6 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border shrink-0"
-            style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
-          >
-            View all services <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {shown.map((a) => (
-            <Link
-              key={a.slug}
-              to={`/work/${a.slug}`}
-              className="rounded-2xl p-6 no-underline border transition-all group flex flex-col"
-              style={{ background: "var(--dark-surface)", borderColor: "var(--dark-hairline)" }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(255,122,61,0.35)"; e.currentTarget.style.transform = "translateY(-3px)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--dark-hairline)"; e.currentTarget.style.transform = "none"; }}
-            >
-              <h3 className="text-[0.98rem] font-semibold mb-2.5 leading-snug" style={{ color: "var(--dark-text)" }}>
-                {a.title}
-              </h3>
-              <p className="text-[0.82rem] leading-relaxed mb-5 flex-1" style={{ color: "var(--dark-text-secondary)" }}>
-                {a.desc}
-              </p>
-              <span className="inline-flex items-center gap-1 text-[0.8rem] font-semibold" style={{ color: "var(--orange)" }}>
-                Learn more <ArrowRight className="w-3.5 h-3.5" />
-              </span>
-            </Link>
-          ))}
-        </div>
-        <div className="text-center mt-8 sm:hidden">
-          <Link
-            to="/work"
-            className="inline-flex items-center gap-1.5 px-7 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border"
-            style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
-          >
-            View all services <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
+        </Carousel>
       </div>
     </section>
   );
@@ -655,7 +603,6 @@ export default function Index() {
       <Hero />
       <TrustedSolutions />
       <WhateverYourWorld />
-      <OurServices />
       <Testimonial />
       <UpcomingEvents />
       <LatestStories />
