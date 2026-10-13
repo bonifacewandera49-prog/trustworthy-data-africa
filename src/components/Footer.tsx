@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="max-w-[280px]">
             <img src={logo} alt="Solid Elf" className="h-16 w-auto mb-3.5" />
             <p className="text-[0.8rem] leading-relaxed" style={{ color: "var(--dark-text-muted)" }}>
-              A Cybersecurity and Data Research Lab. We build the tools,
+              A Security and Data Research Firm. We build the tools,
               frameworks, and datasets that keep systems secure and make data
               trustworthy and usable.
             </p>
@@ -58,7 +58,7 @@ export default function Footer() {
       <div className="px-[clamp(1.5rem,4vw,4rem)] py-4 border-t" style={{ background: "rgba(0,0,0,0.2)", borderColor: "var(--dark-hairline)" }}>
         <div className="max-w-[1240px] mx-auto flex justify-between items-center flex-wrap gap-2.5">
           <span className="text-[0.7rem]" style={{ color: "var(--dark-text-muted)" }}>
-            &copy; 2026 Solid Elf Security and Data Lab. All rights reserved.
+            &copy; 2026 Solid Elf Security and Data Research. All rights reserved.
           </span>
           <div className="flex gap-4">
             <Link to="/policies" className="text-[0.7rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Privacy Policy</Link>

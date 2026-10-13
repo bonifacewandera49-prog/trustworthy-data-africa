@@ -6,7 +6,6 @@ const partners = [
   { name: "Tonative", logo: "/images/partners/tonative.png" },
   { name: "IntelliSys", logo: "/images/partners/intellisys.png" },
   { name: "AI Eswatini", logo: "/images/partners/aieswatini.png" },
-  { name: "Zindi Africa", logo: "/images/partners/zindi.png" },
 ];
 
 export default function PartnersSection() {

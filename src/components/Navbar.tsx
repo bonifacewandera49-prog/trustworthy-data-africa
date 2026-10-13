@@ -39,7 +39,7 @@ const megaMenus: Record<string, MegaMenuData> = {
     items: [
       { to: "/about", label: "About Us", desc: "Our story, values, and what sets us apart", icon: <Users className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
       { to: "/mission", label: "Mission & Vision", desc: "The commitments that guide our work", icon: <Target className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
-      { to: "/team", label: "Our Team", desc: "The researchers and practitioners behind the lab", icon: <GraduationCap className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
+      { to: "/team", label: "Our Team", desc: "The researchers and practitioners behind our work", icon: <GraduationCap className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
       { to: "/sectors", label: "Sectors", desc: "Health, finance, agriculture, education, government", icon: <Briefcase className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
     ],
     featured: {
@@ -71,7 +71,7 @@ const megaMenus: Record<string, MegaMenuData> = {
       to: "/research",
       title: "Open knowledge, open data.",
       desc: "All our research outputs are freely accessible - because data challenges need collaborative solutions.",
-      img: "/images/about-lab.jpg",
+      img: "/images/about-research.jpg",
     },
   },
   "Our Products": {
@@ -116,9 +116,9 @@ export default function Navbar() {
       className={`sticky top-0 z-[200] border-b transition-shadow ${scrolled ? "shadow-lg shadow-black/20" : ""}`}
       style={{ background: "var(--nav-bg)", backdropFilter: "blur(16px) saturate(140%)", WebkitBackdropFilter: "blur(16px) saturate(140%)", borderColor: "var(--nav-hairline)" }}
     >
-      <div className="max-w-[1240px] mx-auto flex items-center justify-between px-8 h-[72px]">
+      <div className="max-w-[1240px] mx-auto flex items-center justify-between px-[clamp(1rem,4vw,2rem)] h-[72px]">
         <Link to="/" className="flex items-center gap-2.5 shrink-0">
-          <img src={logo} alt="Solid Elf - Security and Data Research Lab" className="h-14 w-auto" />
+          <img src={logo} alt="Solid Elf - Security and Data Research Firm" className="h-14 w-auto" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-0.5">
