@@ -11,8 +11,12 @@ export default defineConfig({
     port: 3000,
   },
   resolve: {
+    dedupe: ["react", "react-dom"],
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  optimizeDeps: {
+    include: ["react", "react-dom/client", "react/jsx-runtime", "embla-carousel-react"],
   },
 });
