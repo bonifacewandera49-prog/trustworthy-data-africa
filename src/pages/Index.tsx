@@ -8,6 +8,9 @@ import {
   Shield,
   Landmark,
   FlaskConical,
+  Sprout,
+  GraduationCap,
+  Building2,
   Quote,
   Calendar,
   MapPin,
@@ -165,27 +168,48 @@ function TrustedSolutions() {
 }
 
 /* ═══════════════════════════════════════════
-   WHATEVER YOUR WORLD: 3 sector pillar cards
+   WHATEVER YOUR WORLD: all six sectors
    ═══════════════════════════════════════════ */
 const worldCards = [
   {
     icon: Shield,
-    title: "Health & Government",
-    desc: "Securing patient data, sovereign systems, and citizen-facing services from field clinics to national infrastructure.",
+    title: "Health",
+    desc: "Securing patient data across its lifecycle, from paper records in rural clinics to digital hospital systems.",
     img: "/images/security-ops.jpg",
     to: "/sectors",
   },
   {
     icon: Landmark,
-    title: "Finance & Enterprise",
+    title: "Finance",
     desc: "Adversarial testing, fraud models, and fairness auditing grounded in local, real-world threat intelligence.",
     img: "/images/canarydrop.jpg",
     to: "/sectors",
   },
   {
+    icon: Sprout,
+    title: "Agriculture",
+    desc: "Protecting field data on yields, weather, soil, and supply chains, with responsible sharing across the sector.",
+    img: "/images/fieldwork.jpg",
+    to: "/sectors",
+  },
+  {
+    icon: GraduationCap,
+    title: "Education",
+    desc: "Safeguarding student information, securing digital learning platforms, and auditing AI for fairness in education.",
+    img: "/images/team-working.jpg",
+    to: "/sectors",
+  },
+  {
+    icon: Building2,
+    title: "Government",
+    desc: "Strengthening sovereign data systems, critical infrastructure, and privacy protections for citizen-facing services.",
+    img: "/images/data-lifecycle.jpg",
+    to: "/sectors",
+  },
+  {
     icon: FlaskConical,
-    title: "Research, AI & Emerging Tech",
-    desc: "Independent technology assessment, interpretability tooling, and ethical data collection for research and NGOs.",
+    title: "Research & NGOs",
+    desc: "Enabling ethical data collection, privacy-preserving analysis, and secure collaboration without exposing participants.",
     img: "/images/qkabrine.jpg",
     to: "/sectors",
   },
@@ -209,17 +233,17 @@ function WhateverYourWorld() {
           sector. Our aim is the same everywhere: to put rigour behind the systems
           that matter.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {worldCards.map((c) => (
             <Link
               key={c.title}
               to={c.to}
-              className="rounded-2xl overflow-hidden no-underline group border transition-all"
+              className="rounded-lg overflow-hidden no-underline group border transition-all flex flex-col"
               style={{ background: "var(--dark-base)", borderColor: "var(--dark-hairline)" }}
               onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(255,122,61,0.35)")}
               onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--dark-hairline)")}
             >
-              <div className="p-6 pb-5">
+              <div className="p-6 pb-5 flex-1">
                 <div
                   className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
                   style={{ background: "rgba(255,122,61,0.12)" }}
