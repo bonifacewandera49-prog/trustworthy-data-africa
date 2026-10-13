@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { blogPosts } from "@/data/blog";
 import { Button } from "@/components/ui/button";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselDots } from "@/components/ui/carousel";
 import { supabase } from "@/integrations/supabase/client";
 import type { EventRow } from "@/lib/events";
 
@@ -130,7 +130,7 @@ function TrustedSolutions() {
         <Carousel opts={{ align: "start" }} aria-label="Our work">
           <CarouselContent className="-ml-5">
           {solutionCards.map((c) => (
-            <CarouselItem key={c.title} className="pl-5 basis-[88%] sm:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={c.title} className="pl-5 basis-[86%] sm:basis-[46%] lg:basis-[30%]">
             <Link
               key={c.title}
               to={c.to}
@@ -168,9 +168,12 @@ function TrustedSolutions() {
           </CarouselContent>
           <div className="flex items-center justify-between gap-4 mt-6">
             <Button asChild variant="link" className="px-0"><Link to="/work">All our work <ArrowRight /></Link></Button>
-            <div className="flex gap-2">
-              <CarouselPrevious className="static translate-y-0" aria-label="Previous work" title="Previous work" />
-              <CarouselNext className="static translate-y-0" aria-label="Next work" title="Next work" />
+            <div className="flex items-center gap-4">
+              <CarouselDots />
+              <div className="flex gap-2">
+                <CarouselPrevious className="static translate-y-0" aria-label="Previous work" title="Previous work" />
+                <CarouselNext className="static translate-y-0" aria-label="Next work" title="Next work" />
+              </div>
             </div>
           </div>
         </Carousel>
@@ -248,7 +251,7 @@ function WhateverYourWorld() {
         <Carousel opts={{ align: "start" }} aria-label="Sectors">
           <CarouselContent className="-ml-5">
           {worldCards.map((c) => (
-            <CarouselItem key={c.title} className="pl-5 basis-[88%] sm:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={c.title} className="pl-5 basis-[86%] sm:basis-[46%] lg:basis-[30%]">
             <Link
               key={c.title}
               to={c.to}
@@ -282,9 +285,12 @@ function WhateverYourWorld() {
           </CarouselContent>
           <div className="flex items-center justify-between gap-4 mt-6">
             <Button asChild variant="link" className="px-0"><Link to="/sectors">All sectors <ArrowRight /></Link></Button>
-            <div className="flex gap-2">
-              <CarouselPrevious className="static translate-y-0" aria-label="Previous sectors" title="Previous sectors" />
-              <CarouselNext className="static translate-y-0" aria-label="Next sectors" title="Next sectors" />
+            <div className="flex items-center gap-4">
+              <CarouselDots />
+              <div className="flex gap-2">
+                <CarouselPrevious className="static translate-y-0" aria-label="Previous sectors" title="Previous sectors" />
+                <CarouselNext className="static translate-y-0" aria-label="Next sectors" title="Next sectors" />
+              </div>
             </div>
           </div>
         </Carousel>
