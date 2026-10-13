@@ -9,9 +9,9 @@ import WavePattern from "@/components/WavePattern";
 const papers = [
  { id: 1, title: "Differential Privacy for Mobile Health Data Collection in Low-Resource Environments", journal: "IEEE Security & Privacy", year: 2026, authors: "Okonkwo A., Mensah K., Diallo F.", tag: "Privacy & Security", url: "#" },
  { id: 2, title: "Automated Quantum Circuit Search for Hybrid Classical-Quantum Classification", journal: "Nature Quantum Information", year: 2025, authors: "Nkrumah S., Diallo F.", tag: "Quantum Computing", url: "#" },
- { id: 3, title: "Phishing Ecosystem Dynamics in West African Mobile Money Platforms", journal: "ACM CCS", year: 2025, authors: "Mensah K., Moyo T.", tag: "Cybersecurity", url: "#" },
+ { id: 3, title: "Phishing Ecosystem Dynamics in Digital Payment Platforms", journal: "ACM CCS", year: 2025, authors: "Mensah K., Moyo T.", tag: "Cybersecurity", url: "#" },
  { id: 4, title: "Synthetic Data Generation for Smallholder Agricultural Yield Prediction", journal: "NeurIPS", year: 2025, authors: "Nkrumah S., Dlamini Z.", tag: "Synthetic Data", url: "#" },
- { id: 5, title: "Cross-Border Data Governance Frameworks for the African Union", journal: "Data & Policy", year: 2024, authors: "Bello A., Okonkwo A.", tag: "Data Governance", url: "#" },
+ { id: 5, title: "Cross-Border Data Governance Frameworks for Multi-Jurisdiction Data Sharing", journal: "Data & Policy", year: 2024, authors: "Bello A., Okonkwo A.", tag: "Data Governance", url: "#" },
  { id: 6, title: "Explainable AI for Credit Scoring in Resource-Constrained Settings", journal: "FAccT", year: 2024, authors: "Habimana J.-P., Eze N.", tag: "AI Fairness", url: "#" },
 ];
 

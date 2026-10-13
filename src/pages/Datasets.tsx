@@ -8,10 +8,10 @@ import FilterDropdown from "@/components/FilterDropdown";
 import WavePattern from "@/components/WavePattern";
 
 const datasets = [
- { id: 1, title: "African Mobile Money Transaction Patterns (Synthetic)", description: "Synthetic dataset modelled on real mobile money transaction patterns across East and West Africa.", tag: "Synthetic", status: "Available", zenodo_url: "#", doi: "10.5281/zenodo.1234567" },
+ { id: 1, title: "Digital Wallet Transaction Patterns (Synthetic)", description: "Synthetic dataset modelled on real mobile money transaction patterns across varied transaction environments.", tag: "Synthetic", status: "Available", zenodo_url: "#", doi: "10.5281/zenodo.1234567" },
  { id: 2, title: "Rural Health Facility Data Collection Protocols Dataset", description: "Structured data from health facility surveys, including paper-to-digital translation examples.", tag: "Field Collected", status: "Available", zenodo_url: "#", doi: "10.5281/zenodo.2345678" },
- { id: 3, title: "Phishing Corpus: French-Language Threat Vectors Targeting African Institutions", description: "Annotated collection of phishing materials targeting government and financial institutions.", tag: "Translated", status: "In Progress", zenodo_url: "#", doi: "10.5281/zenodo.3456789" },
- { id: 4, title: "Smallholder Farming Yield Data: Structured & Anonymised", description: "Cleaned agricultural yield data from smallholder farms across four African countries.", tag: "Field Collected", status: "Available", zenodo_url: "#", doi: "10.5281/zenodo.4567890" },
+ { id: 3, title: "Phishing Corpus: Multilingual Threat Vectors Targeting Institutions", description: "Annotated collection of phishing materials targeting government and financial institutions.", tag: "Translated", status: "In Progress", zenodo_url: "#", doi: "10.5281/zenodo.3456789" },
+ { id: 4, title: "Smallholder Farming Yield Data: Structured & Anonymised", description: "Cleaned agricultural yield data from smallholder farms across four study regions.", tag: "Field Collected", status: "Available", zenodo_url: "#", doi: "10.5281/zenodo.4567890" },
  { id: 5, title: "Quantum Circuit Benchmark Suite for Classification Tasks", description: "Standardised quantum circuit designs evaluated across multiple classification datasets.", tag: "Synthetic", status: "Available", zenodo_url: "#", doi: "10.5281/zenodo.5678901" },
  { id: 6, title: "Government Portal Security Assessment Dataset", description: "Anonymised security assessment results from government digital service portals across 12 countries.", tag: "Field Collected", status: "Available", zenodo_url: "#", doi: "10.5281/zenodo.6789012" },
 ];

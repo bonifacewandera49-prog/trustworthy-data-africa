@@ -21,15 +21,16 @@ import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselDots } from "@/components/ui/carousel";
 import { supabase } from "@/integrations/supabase/client";
 import type { EventRow } from "@/lib/events";
+import { fallbackEvents } from "@/data/events";
 
 /* ═══════════════════════════════════════════
    HERO: full-bleed image, big two-line headline, CTA
    ═══════════════════════════════════════════ */
 function Hero() {
   return (
-    <section className="pt-8 px-[clamp(1rem,4vw,4rem)]">
+    <section className="pt-5 sm:pt-8 px-[clamp(1rem,4vw,4rem)]">
       <div
-        className="max-w-[1240px] mx-auto relative rounded-2xl overflow-hidden min-h-[520px] md:min-h-[600px] flex items-end"
+        className="max-w-[1240px] mx-auto relative rounded-2xl overflow-hidden min-h-[480px] sm:min-h-[520px] md:min-h-[600px] flex items-end"
         style={{ background: "var(--dark-elevated)" }}
       >
         <img
@@ -44,7 +45,7 @@ function Hero() {
               "linear-gradient(100deg, rgba(25,20,16,0.97) 0%, rgba(25,20,16,0.88) 30%, rgba(25,20,16,0.35) 62%, rgba(25,20,16,0.15) 100%)",
           }}
         />
-        <div className="relative z-[1] p-8 md:p-16 pb-12 md:pb-16 max-w-[640px]">
+        <div className="relative z-[1] p-6 sm:p-8 md:p-16 pb-10 sm:pb-12 md:pb-16 max-w-[640px]">
           <h1
             className="font-bold mb-6"
             style={{
@@ -61,9 +62,7 @@ function Hero() {
             className="text-[0.95rem] md:text-[1rem] leading-relaxed mb-8 max-w-[480px]"
             style={{ color: "var(--dark-text-secondary)" }}
           >
-            We're a security, data, and AI lab, building tools, running
-            research, and training teams so businesses, governments, and
-            communities across Africa can trust the systems they depend on.
+            We're a security and data research firm building practical tools, conducting applied research, and strengthening the teams responsible for sensitive data and critical systems.
           </p>
           <Link
             to="/about"
@@ -190,21 +189,21 @@ const worldCards = [
     icon: Shield,
     title: "Health",
     desc: "Securing patient data across its lifecycle, from paper records in rural clinics to digital hospital systems.",
-    img: "/images/security-ops.jpg",
+    img: "/images/sector-health.webp",
     to: "/sectors",
   },
   {
     icon: Landmark,
     title: "Finance",
     desc: "Adversarial testing, fraud models, and fairness auditing grounded in local, real-world threat intelligence.",
-    img: "/images/canarydrop.jpg",
+    img: "/images/sector-finance.webp",
     to: "/sectors",
   },
   {
     icon: Sprout,
     title: "Agriculture",
     desc: "Protecting field data on yields, weather, soil, and supply chains, with responsible sharing across the sector.",
-    img: "/images/fieldwork.jpg",
+    img: "/images/sector-agriculture.webp",
     to: "/sectors",
   },
   {
@@ -311,7 +310,7 @@ const testimonials = [
   },
   {
     quote:
-      "The data governance framework the lab built with us is the first one that actually reflected how our field teams collect data: paper records, USSD, and all. It's now core to how we onboard new partners.",
+      "The data governance framework Solid Elf built with us is the first one that actually reflected how our field teams collect data: paper records, USSD, and all. It's now core to how we onboard new partners.",
     name: "Sector Collaborator",
     role: "Programme Lead, Research & NGOs",
   },
@@ -387,7 +386,8 @@ function UpcomingEvents() {
       .order("start_date", { ascending: true })
       .limit(3)
       .then(({ data }) => {
-        setEvents((data as EventRow[]) || []);
+        const live = (data as EventRow[]) || [];
+        setEvents(live.length ? live : fallbackEvents.slice(0, 3));
         setLoading(false);
       });
   }, []);

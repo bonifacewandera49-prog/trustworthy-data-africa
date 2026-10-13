@@ -39,7 +39,7 @@ export default function Partnerships() {
       <Hero
         tag="Partnerships & Funding"
         title="Fund the research that secures data."
-        subtitle="We're a consultancy and research lab. Most of our work is funded through client engagements, but we also take on grants, contracts, and institutional partnerships that extend our research and keep our tools and datasets open."
+        subtitle="We're a security and data research firm. Most of our work is funded through client engagements, alongside grants, contracts, and institutional partnerships that extend our research and keep selected tools and datasets open."
       />
       <Section>
         <div className="mb-8">

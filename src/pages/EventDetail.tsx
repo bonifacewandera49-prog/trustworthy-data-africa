@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import { supabase } from "@/integrations/supabase/client";
 import { formatEventDate, type EventRow } from "@/lib/events";
+import { fallbackEvents } from "@/data/events";
 
 const locationIcon = (type: string) => {
   if (type === "online") return <Monitor className="w-4 h-4" />;
@@ -22,7 +23,8 @@ export default function EventDetail() {
     if (!slug) return;
     setLoading(true);
     supabase.from("events").select("*").eq("slug", slug).eq("published", true).maybeSingle().then(async ({ data }) => {
-      setEvent((data as EventRow) || null);
+      const fallback = fallbackEvents.find((item) => item.slug === slug) || null;
+      setEvent((data as EventRow) || fallback);
       setLoading(false);
       if (data) {
         const { data: av } = await supabase.rpc("event_availability", { _event_id: (data as EventRow).id });
@@ -72,17 +74,17 @@ export default function EventDetail() {
               <span className="text-sm" style={{ color: "var(--dark-text-muted)" }}>This event has already taken place.</span>
             ) : event.registration_open ? (
               <>
-                <Link to={`/events/${slug}/register`} className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
+                <Link to={event.id.startsWith("local-") ? "/contact" : `/events/${slug}/register`} className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")}
                   onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
-                  {isFull ? "Join Waitlist" : "Register Now"}
+                  {event.id.startsWith("local-") ? "Enquire to attend" : isFull ? "Join Waitlist" : "Register Now"}
                 </Link>
                 {event.require_approval && <span className="text-xs" style={{ color: "#fbbf24" }}>Registration requires approval</span>}
               </>
             ) : (
               <span className="text-sm" style={{ color: "var(--dark-text-muted)" }}>Registration is closed for this event.</span>
             )}
-            <Link to={`/events/${slug}/access`} className="text-xs underline" style={{ color: "var(--dark-text-muted)" }}>Already registered?</Link>
+            {!event.id.startsWith("local-") && <Link to={`/events/${slug}/access`} className="text-xs underline" style={{ color: "var(--dark-text-muted)" }}>Already registered?</Link>}
           </div>
         </div>
       </Section>

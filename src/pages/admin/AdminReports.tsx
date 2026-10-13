@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 const reports = [
- { id: 1, title: "State of Cybersecurity Threats in African Financial Services 2025", tag: "Threat Intelligence", year: 2025, published: true },
+ { id: 1, title: "State of Cybersecurity Threats in Digital Financial Services 2025", tag: "Threat Intelligence", year: 2025, published: true },
  { id: 2, title: "Data Governance Framework for Cross-Border Health Information Sharing", tag: "Data Governance", year: 2025, published: true },
- { id: 3, title: "Fairness Auditing of Automated Credit Scoring Systems in East Africa", tag: "AI Fairness", year: 2024, published: true },
+ { id: 3, title: "Fairness Auditing of Automated Credit Scoring Systems", tag: "AI Fairness", year: 2024, published: true },
 ];
 
 export default function AdminReports() {

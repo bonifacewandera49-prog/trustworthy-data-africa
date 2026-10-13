@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const datasets = [
- { id: 1, title: "African Mobile Money Transaction Patterns (Synthetic)", tag: "Synthetic", status: "Available" },
+ { id: 1, title: "Digital Wallet Transaction Patterns (Synthetic)", tag: "Synthetic", status: "Available" },
  { id: 2, title: "Rural Health Facility Data Collection Protocols Dataset", tag: "Field Collected", status: "Available" },
  { id: 3, title: "Phishing Corpus: French-Language Threat Vectors", tag: "Translated", status: "In Progress" },
  { id: 4, title: "Smallholder Farming Yield Data: Structured & Anonymised", tag: "Field Collected", status: "Available" },

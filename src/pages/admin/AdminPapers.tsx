@@ -3,7 +3,7 @@ import { useState } from "react";
 const papers = [
  { id: 1, title: "Differential Privacy for Mobile Health Data Collection in Low-Resource Environments", journal: "IEEE Security & Privacy", year: 2026, published: true },
  { id: 2, title: "Automated Quantum Circuit Search for Hybrid Classical-Quantum Classification", journal: "Nature Quantum Information", year: 2025, published: true },
- { id: 3, title: "Phishing Ecosystem Dynamics in West African Mobile Money Platforms", journal: "ACM CCS", year: 2025, published: true },
+ { id: 3, title: "Phishing Ecosystem Dynamics in Digital Payment Platforms", journal: "ACM CCS", year: 2025, published: true },
  { id: 4, title: "Synthetic Data Generation for Smallholder Agricultural Yield Prediction", journal: "NeurIPS", year: 2025, published: true },
 ];
 

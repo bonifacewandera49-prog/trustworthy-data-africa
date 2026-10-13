@@ -26,7 +26,7 @@ const activities: Record<string, ActivityData> = {
     index: 2, tagline: "Understanding threats before they reach your systems.",
     overview: "Security threats affecting organisations follow distinct patterns shaped by local platforms, languages, and social engineering methods. We gather intelligence on these patterns, develop tools calibrated to the threats we observe, and deliver training that prepares teams to recognise and respond.",
     whatWeDo: [
-      "Monitor and analyse phishing and social engineering campaigns targeting African institutions",
+      "Monitor and analyse phishing and social engineering campaigns targeting organisations and digital services",
       "Develop threat intelligence feeds calibrated to local attack patterns",
       "Develop and deploy breach detection tooling for early warning",
       "Conduct adversarial testing and security assessments",
@@ -92,7 +92,7 @@ const activities: Record<string, ActivityData> = {
     index: 8, tagline: "Frameworks that govern data responsibly.",
     overview: "We produce peer-reviewed research and frameworks that inform data governance policy globally. Our work spans cross-border data sharing, sovereign data strategies, compliance frameworks, and the governance of AI systems, always grounded in the realities of implementation.",
     whatWeDo: [
-      "Research cross-border data governance frameworks for the African Union and beyond",
+      "Research cross-border data governance frameworks for cross-border and multi-jurisdiction environments",
       "Develop sovereign data strategy recommendations for governments",
       "Analyse compliance requirements across jurisdictions",
       "Design governance frameworks for AI and automated systems",
