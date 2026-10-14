@@ -201,6 +201,8 @@
 /* Restrained, section-local lighting: no wash across the logo or footer. */
 .brand { display:inline-flex; align-items:center; gap:10px; width:224px; min-height:62px; flex-shrink:0; }
 .brand-symbol { position:relative; display:block; width:48px; height:48px; overflow:hidden; border-radius:3px; flex-shrink:0; background:#fff; }
+.brand-logo { display:block; height:54px; width:auto; }
+.site-footer .brand-logo { height:60px; }
 .brand-symbol img { position:absolute; height:48px; width:150px; max-width:none; left:0; top:0; }
 .brand-type { display:flex; flex-direction:column; gap:4px; }
 .brand-name { font-size:29px; line-height:1; letter-spacing:-1px; font-weight:650; color:#ed8a5d; }
