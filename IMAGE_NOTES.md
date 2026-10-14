@@ -1,46 +1,61 @@
-# Website image inventory
+# Image provenance and assignments
 
-All nine editorial assets were newly generated with the built-in image generation tool, then compressed to WebP for web delivery. They illustrate topics and do not depict Solid Elf staff, offices, equipment, customers, or facilities. No people were generated.
+Only the five supplied team portraits represent Solid Elf people. They remain unchanged. All other photographic scenes are generic editorial illustrations, never representations of company premises or staff.
 
-The five supplied team portraits are unchanged. Existing brand and partner marks remain. The supplied logo's old caption is excluded from the displayed layout and replaced with live text: Security and Data Research Firm.
+## New cybersecurity covers
 
-Removed legacy photography: hero-bg.jpg, fieldwork.jpg, security-ops.jpg, data-lifecycle.jpg, team-working.jpg, canarydrop.jpg, qkabrine.jpg, about-research.jpg, default-thumbnail.jpg, sector-health.webp, sector-finance.webp, sector-agriculture.webp.
+blog-recovery, blog-mfa, blog-api and blog-response were reimagined with the built-in image-generation tool using this downloaded Unsplash stock reference: https://images.unsplash.com/photo-1558494949-ef010cbdcc31 . Reference downloaded 14 October 2026. Unsplash licence permits modification and commercial use: https://unsplash.com/license . These outputs are AI-reimagined editorial images, not unmodified documentary stock photographs.
 
-## Final assets and generation prompts
+## Other images
 
-### public/images/editorial/security.webp
+The remaining new illustrations were created with the built-in image-generation tool. The original nine editorial topic images from the previous revision remain where relevant. Images are compressed to local WebP files; no remote image dependency is required. Card thumbnails intentionally match their destination page. Unrelated page headers and all ten article covers have distinct assignments.
 
-Photorealistic 16:9 close-up of fibre optic connectors and network switch; dark negative space on left; no people, logos, office, overlays or company infrastructure claims.
+## Prompt subjects
 
-### public/images/editorial/health.webp
+The common direction was realistic wide photography, simple composition, charcoal and restrained copper lighting, no people, offices, logos, readable text or holograms.
 
-Use case: photorealistic-natural. Asset type: generic editorial website header photograph, wide 16:9. A medical stethoscope resting beside a closed tablet and a plain unlabeled patient folder on a clean neutral surface. Close-up still life, soft daylight, sharp realistic brushed metal and silicone texture, no personal data. Professional high resolution natural photography, believable scale and proportions, relevant subject prominent to right with quiet space to left. No logos, watermarks, text overlays, fabricated employees or company premises. Not a website mockup. No people.
-
-### public/images/editorial/finance.webp
-
-Use case: photorealistic-natural. Asset type: generic editorial website header photograph, wide 16:9. A black contactless payment terminal with an unbranded blank bank card beside it, on a warm neutral countertop. Close-up realistic materials, subtle amber light, screen dark, no invented numbers or readable text. Professional high resolution natural photography, believable scale and proportions, relevant subject prominent to right with quiet space to left. No logos, watermarks, text overlays, fabricated employees or company premises. Not a website mockup. No people.
-
-### public/images/editorial/agriculture.webp
-
-Use case: photorealistic-natural. Asset type: generic editorial website header photograph, wide 16:9. Rows of thriving green crops in a broad agricultural field with a small realistic soil moisture sensor in the near foreground, landscape extending to low distant hills, clear morning light, detailed leaves and soil, no people or buildings. Professional high resolution natural photography, believable scale and proportions, relevant subject prominent to right with quiet space to left. No logos, watermarks, text overlays, fabricated employees or company premises. Not a website mockup. No people.
-
-### public/images/editorial/education.webp
-
-Use case: photorealistic-natural. Asset type: generic editorial website header photograph, wide 16:9. Close-up still life of open study books, a simple pencil and an unbranded closed laptop on a warm wooden table beside a window, softly blurred shelves far behind. Crisp paper texture and natural daylight. No readable text. Professional high resolution natural photography, believable scale and proportions, relevant subject prominent to right with quiet space to left. No logos, watermarks, text overlays, fabricated employees or company premises. Not a website mockup. No people.
-
-### public/images/editorial/research.webp
-
-Use case: photorealistic-natural. Asset type: generic editorial website header photograph, wide 16:9. A close-up of handwritten-style unlabeled chart marks on paper, a plain notebook, magnifying glass and compact digital recorder on a dark warm wood surface. Credible research materials, no readable text or fake scientific claims. Professional high resolution natural photography, believable scale and proportions, relevant subject prominent to right with quiet space to left. No logos, watermarks, text overlays, fabricated employees or company premises. Not a website mockup. No people.
-
-### public/images/editorial/data.webp
-
-Use case: photorealistic-natural. Asset type: generic editorial website header photograph, wide 16:9. Macro editorial photograph of a real circuit board with processor, fine copper traces and small electronic components, technically plausible physical texture, dark brown and green, restrained warm side light, no glowing holograms. Professional high resolution natural photography, believable scale and proportions, relevant subject prominent to right with quiet space to left. No logos, watermarks, text overlays, fabricated employees or company premises. Not a website mockup. No people.
-
-### public/images/editorial/government.webp
-
-Use case: photorealistic-natural. Asset type: generic editorial website header photograph, wide 16:9. Close-up of orderly plain archival document folders on a shelf with a small metal key resting in foreground. Public records and information stewardship, natural paper and metal detail, warm neutral light, no seals, flags, labels, people or building. Professional high resolution natural photography, believable scale and proportions, relevant subject prominent to right with quiet space to left. No logos, watermarks, text overlays, fabricated employees or company premises. Not a website mockup. No people.
-
-### public/images/editorial/field.webp
-
-Use case: photorealistic-natural. Asset type: generic editorial website header photograph, wide 16:9. Rugged unbranded handheld GPS recorder and a closed field notebook on a weathered outdoor wooden surface, leafy landscape softly out of focus beyond, natural daylight, crisp realistic materials, no people or readable text. Professional high resolution natural photography, believable scale and proportions, relevant subject prominent to right with quiet space to left. No logos, watermarks, text overlays, fabricated employees or company premises. Not a website mockup. No people.
-
+- `public/images/editorial/about.webp`: a precision optical glass prism refracting a narrow warm light beam on a dark stone surface
+- `public/images/editorial/mission.webp`: a surveying compass beside a clean topographic contour map, macro photograph
+- `public/images/editorial/team.webp`: interwoven copper and charcoal cable strands, close-up material study symbolising complementary skills
+- `public/images/editorial/work.webp`: electronic measurement probes testing an unbranded circuit on a black work mat
+- `public/images/editorial/consultancy.webp`: a clean architectural technical drawing with brass ruler and pencil, top-down detail
+- `public/images/editorial/research-header.webp`: open scientific notebook with abstract hand drawn graphs, mechanical pencil and optical lens
+- `public/images/editorial/datasets.webp`: neatly aligned small archival data storage cartridges, unbranded, close-up
+- `public/images/editorial/reports.webp`: a stack of carefully bound blank technical reports with copper page tabs, dramatic side view
+- `public/images/editorial/blog-header.webp`: open blank editorial journal with fountain pen in warm window light
+- `public/images/editorial/events-header.webp`: close-up of a studio microphone and out of focus sound waveform on dark screen
+- `public/images/editorial/opportunities.webp`: a sharp graphite pencil on an unwritten ruled notebook with morning light
+- `public/images/editorial/apply.webp`: a kraft paper portfolio with a pen and plain index cards on black desk
+- `public/images/editorial/contact.webp`: an unbranded classic black telephone receiver coiled cord on dark background
+- `public/images/editorial/partnerships.webp`: two precision machined metal connectors being aligned, no hands, macro
+- `public/images/editorial/policies.webp`: sealed plain archival document envelope and brass paper clip, no lettering
+- `public/images/editorial/reviews.webp`: flowing real optical fibres with restrained copper and cool white pinpoint bokeh, very dark wide photo
+- `public/images/editorial/home.webp`: macro view of a silicon processor with subtle copper traces and dark natural reflections
+- `public/images/editorial/cta.webp`: single beam of sunlight across layered black stone and translucent glass, realistic material study
+- `public/images/editorial/blog-recovery.webp`: Reimagine the stock server photograph as a close-up tabletop still-life of two disconnected backup drives beside a single neatly coiled data cable; shallow depth of field, metallic textures inspired by the reference, composition entirely different.
+- `public/images/editorial/blog-mfa.webp`: Reimagine the stock server photograph as macro product-style editorial photograph of a small unbranded USB security key next to the USB-C port of a dark laptop; circuit details inspired by reference, no screens, no padlock symbols.
+- `public/images/editorial/blog-api.webp`: Reimagine the stock server photograph as a close-up realistic photograph of three differently coloured network patch cables plugged into distinct ethernet ports, isolated on dark background. Focus on physical boundaries and connections, no text.
+- `public/images/editorial/blog-response.webp`: Reimagine the stock server photograph as a documentary close-up of an unplugged network cable beside an unbranded digital recorder and incident-response notebook, no readable text. Equipment only, not a room.
+- `public/images/editorial/service-security.webp`: an unbranded ethernet diagnostic tester and two probes on dark slate
+- `public/images/editorial/service-privacy.webp`: a mechanical document shredder cutting blank sheets in close-up, no office visible
+- `public/images/editorial/service-governance.webp`: index cards organised into five copper tabbed groups in a slim file tray
+- `public/images/editorial/service-ai.webp`: a glass optical lens revealing fine patterns of an electronic circuit
+- `public/images/editorial/service-training.webp`: a closed charcoal notebook, orange pencil and a compact unbranded tablet
+- `public/images/editorial/service-tools.webp`: a precision screwdriver set next to an open unbranded embedded computer board
+- `public/images/editorial/activity-collection.webp`: rugged unbranded handheld field sensor on a detailed contour map
+- `public/images/editorial/activity-security.webp`: a network patch panel with carefully organised blue and copper cable loops
+- `public/images/editorial/activity-privacy.webp`: frosted glass panels partially concealing abstract printed data tables
+- `public/images/editorial/activity-ai.webp`: macro photograph of a microprocessor on black circuit board, green traces
+- `public/images/editorial/activity-quantum.webp`: a realistic optical laboratory beam splitter and tiny mirror assembly, only equipment close-up
+- `public/images/editorial/activity-explain.webp`: a clear glass magnifying lens over a printed line chart with no legible text
+- `public/images/editorial/activity-blockchain.webp`: three connected brushed metal chain links resting on graphite surface, tactile close-up
+- `public/images/editorial/activity-governance.webp`: an unbranded archival drawer with plain tabbed paper folders, close crop
+- `public/images/editorial/activity-training.webp`: a pair of empty dark notebooks, wooden pencil and blackboard corner with abstract geometry
+- `public/images/editorial/canarydrop.webp`: macro photograph of an unbranded tiny passive electronic sensor and copper signal wire
+- `public/images/editorial/qkabrine.webp`: close-up salt crystal geometric structure with copper highlights against a black backdrop
+- `public/images/editorial/phishing.webp`: unbranded laptop corner beside a sealed plain envelope and small USB key
+- `public/images/editorial/ai-audit.webp`: a precision balance with two clear glass cubes beside a circuit board, realistic tabletop
+- `public/images/editorial/event-threat.webp`: a tabletop threat modelling exercise made of blank amber and grey sticky notes linked by pencil arrows on dark paper, no writing
+- `public/images/editorial/event-governance.webp`: an open ring binder with plain lifecycle flowchart sheets and colored paper tabs, no text
+- `public/images/editorial/event-ai.webp`: a small unbranded single board computer beside a glass cube on a matte black surface
+- `public/images/editorial/blog-governance.webp`: four clearly separated stacks of data index cards with distinct copper, white, grey and black tabs, side angle

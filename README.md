@@ -10,19 +10,20 @@ Run `python3 -m http.server 8080 --directory dist` from this folder, then open h
 
 Run `npm ci`, then `npm run dev`. Run `npm run build` for the production build.
 
-## Revision
+## Revision — complete visual refinement
 
-- Homepage section order and carousel layout retained; photos replaced.
-- Twelve old non-team photos removed. Nine new editorial topic images installed; no generated employees or company premises.
-- All five supplied team portraits retained unchanged. Sample employees removed from public and admin team listings.
-- About, Mission, Team, and Sectors reworked with text-led content and no blank image panels.
-- Photographic headers for sectors, services, research, resources, products, blogs, and events. About, Mission, Team, contact, and legal pages use typography-led headers.
-- Six full blog guides at /#/blog, visible covers, article navigation, and related reading. Articles are bundled in src/data/blog.ts and do not need database publication.
-- Placeholder image panels removed from resource listings. Fake publication metadata and DOI links removed; verified resource files still need to be supplied.
-- Suggested events clearly labelled provisional. Contact enquiries open an email draft instead of claiming an unconfigured email was sent.
-- Invented testimonial copy replaced with approach statements in the same homepage layout.
-- Logo caption corrected in layout while retaining the supplied symbol and wordmark.
-- New photos compressed to WebP. Narrow grids, visibility, and navigation labels improved.
+- Homepage layout and section order preserved. Dedicated homepage hero, approach-carousel photo background and CTA image.
+- Unique imagery for the main pages, nine research detail pages, six consultancy details, two products, ten articles and three proposed events. A card and its destination intentionally share the same subject image.
+- All five supplied team portraits retained unchanged. Other imagery is editorial illustration; none represents Solid Elf staff or premises.
+- Removed wave separators and text-section divider lines. Subtle charcoal/brown section variations and restrained copper lighting.
+- Larger, readable logo descriptor: Security and Data Research Firm. Original symbol retained with a live-text wordmark. Near-black footer with brighter typography.
+- Improved research/service cards, consultancy outputs, engagement process, FAQ and detail-page handover guidance.
+- Ten full blog articles, including four new 635–705-word cybersecurity guides with source links and distinct stock-reference-reimagined covers.
+- Who We Are pages remain text-led below the photographic headers, without empty photo panels.
+- Existing sample-event labels, contact email-draft behaviour and removal of invented testimonials retained.
+- Images bundled locally in WebP; no external image service required to view the site.
+
+See IMAGE_NOTES.md for image provenance and VERIFICATION.md for checks performed.
 
 ## Backend and maintenance
 
