@@ -4,8 +4,8 @@ import Brand from "@/components/Brand";
 export default function Footer() {
   return (
     <footer
-      className="relative z-[1] border-t"
-      style={{ background: "var(--dark-surface)", borderColor: "var(--dark-hairline)" }}
+      className="site-footer relative z-[1]"
+      style={{ background: "#0b0b0b", borderColor: "var(--dark-hairline)" }}
     >
       <div className="py-12 px-[clamp(1.5rem,4vw,4rem)]">
         <div className="max-w-[1240px] mx-auto flex justify-between gap-11 flex-wrap">

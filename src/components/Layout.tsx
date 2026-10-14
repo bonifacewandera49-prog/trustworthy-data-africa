@@ -43,7 +43,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <Background />
       <Navbar />
-      <main className="relative z-[1]">{children}</main>
+      <main className={`relative z-[1] ${pathname === "/" ? "home-page" : "inner-page"}`}>{children}</main>
       <Footer />
     </>
   );
