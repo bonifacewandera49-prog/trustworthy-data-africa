@@ -1,73 +1,31 @@
-# React + TypeScript + Vite
+# Solid Elf — Security and Data Research Firm
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Includes revised source and the compiled website in `dist/`.
 
-Currently, two official plugins are available:
+## View
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Run `python3 -m http.server 8080 --directory dist` from this folder, then open http://localhost:8080. Do not open index.html directly through file://.
 
-## React Compiler
+## Develop
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Run `npm ci`, then `npm run dev`. Run `npm run build` for the production build.
 
-## Expanding the ESLint configuration
+## Revision
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Homepage section order and carousel layout retained; photos replaced.
+- Twelve old non-team photos removed. Nine new editorial topic images installed; no generated employees or company premises.
+- All five supplied team portraits retained unchanged. Sample employees removed from public and admin team listings.
+- About, Mission, Team, and Sectors reworked with text-led content and no blank image panels.
+- Photographic headers for sectors, services, research, resources, products, blogs, and events. About, Mission, Team, contact, and legal pages use typography-led headers.
+- Six full blog guides at /#/blog, visible covers, article navigation, and related reading. Articles are bundled in src/data/blog.ts and do not need database publication.
+- Placeholder image panels removed from resource listings. Fake publication metadata and DOI links removed; verified resource files still need to be supplied.
+- Suggested events clearly labelled provisional. Contact enquiries open an email draft instead of claiming an unconfigured email was sent.
+- Invented testimonial copy replaced with approach statements in the same homepage layout.
+- Logo caption corrected in layout while retaining the supplied symbol and wordmark.
+- New photos compressed to WebP. Narrow grids, visibility, and navigation labels improved.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Backend and maintenance
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Existing Supabase configuration is retained. Live registration and applications require the corresponding backend. Several original admin pages remain static prototypes, not a complete CMS; admin toggles do not update bundled articles. Maintain the public blog in src/data/blog.ts. Suggested events are in src/data/events.ts.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+See IMAGE_NOTES.md for provenance and prompts, and VERIFICATION.md for checks.
