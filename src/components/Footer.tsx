@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "/images/solid-elf-logo.png";
+import Brand from "@/components/Brand";
 
 export default function Footer() {
   return (
@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="py-12 px-[clamp(1.5rem,4vw,4rem)]">
         <div className="max-w-[1240px] mx-auto flex justify-between gap-11 flex-wrap">
           <div className="max-w-[280px]">
-            <img src={logo} alt="Solid Elf" className="h-16 w-auto mb-3.5" />
+            <Brand />
             <p className="text-[0.8rem] leading-relaxed" style={{ color: "var(--dark-text-muted)" }}>
               A Security and Data Research Firm. We build the tools,
               frameworks, and datasets that keep systems secure and make data

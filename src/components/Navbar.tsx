@@ -15,7 +15,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import logo from "/images/solid-elf-logo.png";
+import Brand from "@/components/Brand";
 
 interface MegaMenuItem {
   to: string;
@@ -46,7 +46,7 @@ const megaMenus: Record<string, MegaMenuData> = {
       to: "/about",
       title: "Cybersecurity. Data. Global.",
       desc: "We build the tools, frameworks, and datasets that keep systems secure and make data trustworthy and usable.",
-      img: "/images/hero-bg.jpg",
+      img: "/images/editorial/security.webp",
     },
   },
   "What We Do": {
@@ -58,7 +58,7 @@ const megaMenus: Record<string, MegaMenuData> = {
       to: "/work",
       title: "Data lifecycle, end to end.",
       desc: "From collection to governance - we research, build, and train across every stage of the data pipeline.",
-      img: "/images/data-lifecycle.jpg",
+      img: "/images/editorial/government.webp",
     },
   },
   Resources: {
@@ -71,7 +71,7 @@ const megaMenus: Record<string, MegaMenuData> = {
       to: "/research",
       title: "Open knowledge, open data.",
       desc: "All our research outputs are freely accessible - because data challenges need collaborative solutions.",
-      img: "/images/about-research.jpg",
+      img: "/images/editorial/research.webp",
     },
   },
   "Our Products": {
@@ -83,7 +83,7 @@ const megaMenus: Record<string, MegaMenuData> = {
       to: "/solutions/qkabrine",
       title: "Tools built for the future.",
       desc: "Purpose-built solutions addressing security and data challenges with cutting-edge quantum and classical approaches.",
-      img: "/images/qkabrine.jpg",
+      img: "/images/editorial/data.webp",
     },
   },
 };
@@ -118,7 +118,7 @@ export default function Navbar() {
     >
       <div className="max-w-[1240px] mx-auto flex items-center justify-between px-[clamp(1rem,4vw,2rem)] h-[72px]">
         <Link to="/" className="flex items-center gap-2.5 shrink-0">
-          <img src={logo} alt="Solid Elf - Security and Data Research Firm" className="h-14 w-auto" />
+          <Brand />
         </Link>
 
         <div className="hidden lg:flex items-center gap-0.5">
@@ -144,7 +144,7 @@ export default function Navbar() {
                     </div>
                     {data.featured && (
                       <Link to={data.featured.to} className="no-underline flex flex-col border-l" style={{ borderColor: "var(--nav-hairline)", background: "var(--nav-elevated)" }}>
-                        <img src={data.featured.img} alt="" className="w-full h-36 object-cover" />
+                        
                         <div className="p-4 flex flex-col gap-1.5 flex-1">
                           <span className="text-[0.82rem] font-semibold leading-tight" style={{ color: "var(--nav-text-strong)" }}>{data.featured.title}</span>
                           <span className="text-[0.72rem] leading-relaxed" style={{ color: "var(--nav-text)" }}>{data.featured.desc}</span>
@@ -165,7 +165,7 @@ export default function Navbar() {
           Partner With Us
         </Link>
 
-        <button className="lg:hidden flex items-center justify-center p-2 bg-transparent border-none cursor-pointer" style={{ color: "var(--nav-text)" }} onClick={() => setMobileOpen(!mobileOpen)}>
+        <button aria-label={mobileOpen ? "Close navigation" : "Open navigation"} aria-expanded={mobileOpen} className="lg:hidden flex items-center justify-center p-2 bg-transparent border-none cursor-pointer" style={{ color: "var(--nav-text)" }} onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
@@ -174,7 +174,7 @@ export default function Navbar() {
         <div className="lg:hidden flex flex-col p-4 px-7 overflow-y-auto" style={{ maxHeight: "calc(100vh - 72px)", background: "var(--nav-elevated)", borderTop: "1px solid var(--nav-hairline)" }}>
           {Object.entries(megaMenus).map(([label, data]) => (
             <div key={label} style={{ borderBottom: "1px solid var(--nav-hairline)" }}>
-              <button onClick={() => toggleMobileSection(label)} className="flex items-center justify-between w-full text-left text-[0.82rem] font-semibold tracking-wider uppercase py-3 bg-transparent border-none cursor-pointer" style={{ color: "var(--nav-text-muted)" }}>
+              <button aria-expanded={mobileExpanded === label} onClick={() => toggleMobileSection(label)} className="flex items-center justify-between w-full text-left text-[0.82rem] font-semibold tracking-wider uppercase py-3 bg-transparent border-none cursor-pointer" style={{ color: "var(--nav-text-muted)" }}>
                 {label}
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileExpanded === label ? "rotate-180" : ""}`} />
               </button>
