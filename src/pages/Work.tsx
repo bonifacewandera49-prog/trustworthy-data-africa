@@ -29,12 +29,12 @@ export default function Work() {
           </h2>
           <div className="rv w-16 h-1 rounded-full" style={{ background: "var(--orange)" }} />
         </div>
-        <div className="space-y-0">
+        <div className="practice-grid">
           {areas.map((a, i) => (
             <Link
               to={`/work/${a.slug}`}
               key={a.slug}
-              className="rv flex gap-5 py-6 border-b no-underline transition-all group"
+              className="rv practice-card flex gap-5 no-underline group"
               style={{ borderColor: "var(--dark-hairline)" }}
             >
               <span className="font-mono text-[1.25rem] md:text-[1.5rem] font-bold min-w-[48px] pt-0.5" style={{ color: "var(--orange)" }}>{String(i + 1).padStart(2, "0")}</span>
@@ -51,7 +51,7 @@ export default function Work() {
       </Section>
       <Section narrow className="text-center">
         <p className="rv" style={{ fontSize: "clamp(1.1rem, 2.2vw, 1.35rem)", lineHeight: "1.4", color: "var(--dark-text-secondary)" }}>
-          Every activity produces open research. Explore our published papers, datasets, and reports, or hire us to apply this expertise to your organisation.
+          Explore our research themes, or discuss how we can apply this expertise to a specific challenge in your organisation.
         </p>
         <div className="rv mt-5 flex gap-3 justify-center flex-wrap">
           <Link to="/research" className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}

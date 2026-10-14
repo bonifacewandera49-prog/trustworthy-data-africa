@@ -113,9 +113,9 @@ export default function ConsultancyDetail() {
           <h2 className="rv text-[1.75rem] md:text-[2rem] font-bold tracking-tight mb-2" style={{ color: "var(--dark-text)" }}>What We Do</h2>
           <div className="rv w-16 h-1 rounded-full" style={{ background: "var(--orange)" }} />
         </div>
-        <div className="space-y-0">
+        <div className="practice-grid">
           {service.whatWeDo.map((item, i) => (
-            <div key={i} className="rv flex gap-5 py-6 border-b" style={{ borderColor: "var(--dark-hairline)" }}>
+            <div key={i} className="rv practice-card flex gap-5" style={{ borderColor: "var(--dark-hairline)" }}>
               <span className="font-mono text-[0.9rem] md:text-[1.1rem] font-bold min-w-[36px] pt-0.5" style={{ color: "var(--orange)" }}>
                 {String(service.index).padStart(2, "0")}.{String(i + 1).padStart(2, "0")}
               </span>
@@ -125,6 +125,13 @@ export default function ConsultancyDetail() {
         </div>
       </Section>
 
+      <Section>
+        <div className="engagement-steps">
+          <div><span style={{color:"var(--orange)"}}>Scope</span><h3>Clear boundaries</h3><p>Agree the systems, data and decisions involved, along with access permissions and operational constraints.</p></div>
+          <div><span style={{color:"var(--orange)"}}>Delivery</span><h3>Evidence you can use</h3><p>Review findings and limitations together. Connect each recommendation to the risk or decision it addresses.</p></div>
+          <div><span style={{color:"var(--orange)"}}>Handover</span><h3>A practical next step</h3><p>Prioritise the actions, identify responsible owners and agree any follow-up assessment or implementation support.</p></div>
+        </div>
+      </Section>
       {/* Prev / Next */}
       <Section>
         <div className="flex items-center justify-between gap-4">

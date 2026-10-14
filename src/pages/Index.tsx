@@ -35,7 +35,7 @@ function Hero() {
         style={{ background: "var(--dark-elevated)" }}
       >
         <img
-          src="/images/editorial/security.webp"
+          src="/images/editorial/home.webp"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -87,25 +87,25 @@ const solutionCards = [
   {
     title: "Secure Data Collection",
     desc: "We design collection protocols and train field teams so data stays trustworthy from the very first entry point.",
-    img: "/images/editorial/field.webp",
+    img: "/images/editorial/activity-collection.webp",
     to: "/work/data-collection-translation-integrity",
   },
   {
     title: "Cybersecurity & Threat Intel",
     desc: "We track real-world threat patterns and build detection tools that catch breaches before they spread.",
-    img: "/images/editorial/security.webp",
+    img: "/images/editorial/activity-security.webp",
     to: "/work/cybersecurity-threat-intelligence",
   },
   {
     title: "Privacy Engineering",
     desc: "We turn data protection legislation into practical engineering: synthetic data, differential privacy, secure computation.",
-    img: "/images/editorial/government.webp",
+    img: "/images/editorial/activity-privacy.webp",
     to: "/work/privacy-engineering-data-protection",
   },
   {
     title: "AI, ML & Quantum Research",
     desc: "We build fairness-audited models and explore quantum-classical hybrid approaches to machine learning.",
-    img: "/images/editorial/data.webp",
+    img: "/images/editorial/activity-ai.webp",
     to: "/work/ai-machine-learning-fairness",
   },
 ];
@@ -326,7 +326,7 @@ function Testimonial() {
   return (
     <section
       className="py-16 md:py-24 px-[clamp(1.5rem,4vw,4rem)]"
-      style={{ background: "linear-gradient(120deg, var(--dark-base) 0%, #3a2415 45%, var(--orange) 130%)" }}
+      style={{ background: "linear-gradient(90deg,rgba(12,12,12,.93),rgba(12,12,12,.65)),url(/images/editorial/reviews.webp) center/cover" }}
     >
       <div className="max-w-[1240px] mx-auto">
         <span className="font-mono text-[0.72rem] tracking-widest uppercase mb-8 block" style={{ color: "rgba(255,255,255,0.75)" }}>
@@ -556,7 +556,7 @@ function CareersBanner() {
     <section className="px-[clamp(1.5rem,4vw,4rem)] py-16 md:py-20" style={{ background: "var(--dark-base)" }}>
       <div className="max-w-[1240px] mx-auto">
         <div className="relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-[400px]">
-          <img src="/images/editorial/research.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img src="/images/editorial/cta.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "rgba(25,20,16,0.45)" }} />
           <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 max-w-[380px] rounded-2xl p-8 md:p-10 shadow-2xl border" style={{ background: "var(--dark-surface)", borderColor: "var(--dark-hairline)" }}>
             <h2 className="font-normal mb-6" style={{ fontSize: "clamp(1.2rem, 2vw, 1.5rem)", lineHeight: 1.3, color: "var(--dark-text)" }}>

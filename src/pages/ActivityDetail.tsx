@@ -146,9 +146,9 @@ export default function ActivityDetail() {
           <h2 className="rv text-[1.75rem] md:text-[2rem] font-bold tracking-tight mb-2" style={{ color: "var(--dark-text)" }}>What We Do</h2>
           <div className="rv w-16 h-1 rounded-full" style={{ background: "var(--orange)" }} />
         </div>
-        <div className="space-y-0">
+        <div className="practice-grid">
           {activity.whatWeDo.map((item, i) => (
-            <div key={i} className="rv flex gap-5 py-6 border-b" style={{ borderColor: "var(--dark-hairline)" }}>
+            <div key={i} className="rv practice-card flex gap-5" style={{ borderColor: "var(--dark-hairline)" }}>
               <span className="font-mono text-[0.9rem] md:text-[1.1rem] font-bold min-w-[36px] pt-0.5" style={{ color: "var(--orange)" }}>
                 {String(activity.index).padStart(2, "0")}.{String(i + 1).padStart(2, "0")}
               </span>
