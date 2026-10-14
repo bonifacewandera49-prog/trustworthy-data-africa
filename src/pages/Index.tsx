@@ -1,3 +1,4 @@
+import { editorialImage } from "@/lib/editorial-images";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -34,7 +35,7 @@ function Hero() {
         style={{ background: "var(--dark-elevated)" }}
       >
         <img
-          src="/images/hero-bg.jpg"
+          src="/images/editorial/security.webp"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -86,25 +87,25 @@ const solutionCards = [
   {
     title: "Secure Data Collection",
     desc: "We design collection protocols and train field teams so data stays trustworthy from the very first entry point.",
-    img: "/images/fieldwork.jpg",
+    img: "/images/editorial/field.webp",
     to: "/work/data-collection-translation-integrity",
   },
   {
     title: "Cybersecurity & Threat Intel",
     desc: "We track real-world threat patterns and build detection tools that catch breaches before they spread.",
-    img: "/images/security-ops.jpg",
+    img: "/images/editorial/security.webp",
     to: "/work/cybersecurity-threat-intelligence",
   },
   {
     title: "Privacy Engineering",
     desc: "We turn data protection legislation into practical engineering: synthetic data, differential privacy, secure computation.",
-    img: "/images/data-lifecycle.jpg",
+    img: "/images/editorial/government.webp",
     to: "/work/privacy-engineering-data-protection",
   },
   {
     title: "AI, ML & Quantum Research",
     desc: "We build fairness-audited models and explore quantum-classical hybrid approaches to machine learning.",
-    img: "/images/qkabrine.jpg",
+    img: "/images/editorial/data.webp",
     to: "/work/ai-machine-learning-fairness",
   },
 ];
@@ -165,7 +166,7 @@ function TrustedSolutions() {
             </CarouselItem>
           ))}
           </CarouselContent>
-          <div className="flex items-center justify-between gap-4 mt-6">
+          <div className="flex flex-wrap items-center justify-between gap-4 mt-6">
             <Button asChild variant="link" className="px-0"><Link to="/work">All our work <ArrowRight /></Link></Button>
             <div className="flex items-center gap-4">
               <CarouselDots />
@@ -189,43 +190,43 @@ const worldCards = [
     icon: Shield,
     title: "Health",
     desc: "Securing patient data across its lifecycle, from paper records in rural clinics to digital hospital systems.",
-    img: "/images/sector-health.webp",
-    to: "/sectors",
+    img: "/images/editorial/health.webp",
+    to: "/sectors?sector=health",
   },
   {
     icon: Landmark,
     title: "Finance",
     desc: "Adversarial testing, fraud models, and fairness auditing grounded in local, real-world threat intelligence.",
-    img: "/images/sector-finance.webp",
-    to: "/sectors",
+    img: "/images/editorial/finance.webp",
+    to: "/sectors?sector=finance",
   },
   {
     icon: Sprout,
     title: "Agriculture",
     desc: "Protecting field data on yields, weather, soil, and supply chains, with responsible sharing across the sector.",
-    img: "/images/sector-agriculture.webp",
-    to: "/sectors",
+    img: "/images/editorial/agriculture.webp",
+    to: "/sectors?sector=agriculture",
   },
   {
     icon: GraduationCap,
     title: "Education",
     desc: "Safeguarding student information, securing digital learning platforms, and auditing AI for fairness in education.",
-    img: "/images/team-working.jpg",
-    to: "/sectors",
+    img: "/images/editorial/education.webp",
+    to: "/sectors?sector=education",
   },
   {
     icon: Building2,
     title: "Government",
     desc: "Strengthening sovereign data systems, critical infrastructure, and privacy protections for citizen-facing services.",
-    img: "/images/data-lifecycle.jpg",
-    to: "/sectors",
+    img: "/images/editorial/government.webp",
+    to: "/sectors?sector=government",
   },
   {
     icon: FlaskConical,
     title: "Research & NGOs",
     desc: "Enabling ethical data collection, privacy-preserving analysis, and secure collaboration without exposing participants.",
-    img: "/images/qkabrine.jpg",
-    to: "/sectors",
+    img: "/images/editorial/research.webp",
+    to: "/sectors?sector=research",
   },
 ];
 
@@ -282,7 +283,7 @@ function WhateverYourWorld() {
             </CarouselItem>
           ))}
           </CarouselContent>
-          <div className="flex items-center justify-between gap-4 mt-6">
+          <div className="flex flex-wrap items-center justify-between gap-4 mt-6">
             <Button asChild variant="link" className="px-0"><Link to="/sectors">All sectors <ArrowRight /></Link></Button>
             <div className="flex items-center gap-4">
               <CarouselDots />
@@ -304,15 +305,15 @@ function WhateverYourWorld() {
 const testimonials = [
   {
     quote:
-      "Solid Elf's threat intelligence work gave us a real, ground-level picture of the phishing patterns actually hitting our users, not a generic global model. It changed how we prioritise security training.",
-    name: "Partner Organisation",
-    role: "Technology & Data Partner",
+      "Security work should begin with the systems people actually use, the information they depend on, and the risks that matter to their organisation. Clear evidence makes better decisions possible.",
+    name: "Security grounded in context",
+    role: "Our approach",
   },
   {
     quote:
-      "The data governance framework Solid Elf built with us is the first one that actually reflected how our field teams collect data: paper records, USSD, and all. It's now core to how we onboard new partners.",
-    name: "Sector Collaborator",
-    role: "Programme Lead, Research & NGOs",
+      "Responsible data practice connects collection, quality, access, and accountability. We aim to turn those principles into practical workflows that teams can understand and maintain.",
+    name: "Data with a clear purpose",
+    role: "Our approach",
   },
 ];
 
@@ -329,7 +330,7 @@ function Testimonial() {
     >
       <div className="max-w-[1240px] mx-auto">
         <span className="font-mono text-[0.72rem] tracking-widest uppercase mb-8 block" style={{ color: "rgba(255,255,255,0.75)" }}>
-          What our partners think
+          What guides our work
         </span>
         <div className="max-w-[760px]">
           <Quote className="w-8 h-8 mb-5" style={{ color: "rgba(255,255,255,0.55)" }} />
@@ -374,8 +375,8 @@ function locationIcon(type: string) {
 }
 
 function UpcomingEvents() {
-  const [events, setEvents] = useState<EventRow[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [events, setEvents] = useState<EventRow[]>(fallbackEvents.slice(0, 3));
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     supabase
@@ -386,7 +387,7 @@ function UpcomingEvents() {
       .order("start_date", { ascending: true })
       .limit(3)
       .then(({ data }) => {
-        const live = (data as EventRow[]) || [];
+        const live = ((data as EventRow[]) || []).map(event => ({ ...event, cover_image: editorialImage(event.cover_image) }));
         setEvents(live.length ? live : fallbackEvents.slice(0, 3));
         setLoading(false);
       });
@@ -409,7 +410,7 @@ function UpcomingEvents() {
               Upcoming events
             </h2>
             <p className="text-[0.9rem] max-w-[560px]" style={{ color: "var(--dark-text-secondary)" }}>
-              Workshops, webinars, and training sessions, open to the organisations and communities we work with.
+              Workshops, webinars, and training sessions. Proposed programme dates are provisional; contact us to register interest.
             </p>
           </div>
           <Link
@@ -455,7 +456,7 @@ function UpcomingEvents() {
                     </span>
                   )}
                   <span className="inline-flex items-center gap-1 text-[0.8rem] font-semibold mt-auto" style={{ color: "var(--orange)" }}>
-                    {e.registration_open ? "Register" : "Details"} <ArrowRight className="w-3.5 h-3.5" />
+                    {e.id.startsWith("local-") ? "Proposed session · details" : e.registration_open ? "Register" : "Details"} <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
               </Link>
@@ -485,7 +486,7 @@ function LatestStories() {
           className="font-normal mb-8"
           style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)", lineHeight: 1.25, color: "var(--dark-text)" }}
         >
-          Latest stories
+          Latest articles
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Link
@@ -555,7 +556,7 @@ function CareersBanner() {
     <section className="px-[clamp(1.5rem,4vw,4rem)] py-16 md:py-20" style={{ background: "var(--dark-base)" }}>
       <div className="max-w-[1240px] mx-auto">
         <div className="relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-[400px]">
-          <img src="/images/team-working.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img src="/images/editorial/research.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "rgba(25,20,16,0.45)" }} />
           <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 max-w-[380px] rounded-2xl p-8 md:p-10 shadow-2xl border" style={{ background: "var(--dark-surface)", borderColor: "var(--dark-hairline)" }}>
             <h2 className="font-normal mb-6" style={{ fontSize: "clamp(1.2rem, 2vw, 1.5rem)", lineHeight: 1.3, color: "var(--dark-text)" }}>

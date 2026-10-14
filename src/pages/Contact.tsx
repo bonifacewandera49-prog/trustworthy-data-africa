@@ -26,18 +26,18 @@ export default function Contact() {
  <h3 className="rv text-[0.95rem] font-semibold mb-4" style={{ color: "var(--dark-text)" }}>Send a Message</h3>
  {submitted ? (
  <div className="rv liquid-glass-light-light p-6 text-center">
- <p style={{ color: "var(--dark-text-secondary)" }}>Thank you for your message. We'll get back to you soon.</p>
+ <p style={{ color: "var(--dark-text-secondary)" }}>Your email draft has been opened. Send it from your email application, or contact info@solidelf.org directly.</p>
  </div>
  ) : (
- <form className="space-y-2.5" onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
- <input placeholder="Your name" required className={inputCls} style={{ background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" }} />
- <input placeholder="Email address" required type="email" className={inputCls} style={{ background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" }} />
- <input placeholder="Organisation (optional)" className={inputCls} style={{ background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" }} />
- <textarea placeholder="Your message" required rows={5} className={`${inputCls} resize-none`} style={{ background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" }} />
+ <form className="space-y-2.5" onSubmit={(e) => { e.preventDefault(); const data = new FormData(e.currentTarget); window.location.href = `mailto:info@solidelf.org?subject=${encodeURIComponent("Website enquiry from " + data.get("name"))}&body=${encodeURIComponent(`Name: ${data.get("name")}\nEmail: ${data.get("email")}\nOrganisation: ${data.get("organisation")}\n\n${data.get("message")}`)}`; setSubmitted(true); }}>
+ <input name="name" aria-label="Your name" placeholder="Your name" required className={inputCls} style={{ background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" }} />
+ <input name="email" aria-label="Email address" placeholder="Email address" required type="email" className={inputCls} style={{ background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" }} />
+ <input name="organisation" aria-label="Organisation" placeholder="Organisation (optional)" className={inputCls} style={{ background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" }} />
+ <textarea name="message" aria-label="Your message" placeholder="Your message" required rows={5} className={`${inputCls} resize-none`} style={{ background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" }} />
  <button type="submit" className="rv py-2.5 px-6 rounded-lg font-semibold text-[0.86rem] border-none cursor-pointer transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
  onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")}
  onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
- Send Message
+ Open email draft
  </button>
  </form>
  )}

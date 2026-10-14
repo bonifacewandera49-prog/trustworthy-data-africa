@@ -1,41 +1,35 @@
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import SplitSection from "@/components/SplitSection";
-import WavePattern from "@/components/WavePattern";
 
 const sectors = [
  { name: "Health", desc: "Patient data is among the most sensitive information any organisation holds. Health data is collected from fully digital hospital systems to paper records in rural clinics.", points: ["Securing patient data across its complete lifecycle", "Designing collection protocols for low-resource environments", "Auditing AI diagnostics for bias and reliability", "Privacy frameworks that protect individuals while enabling research", "Cybersecurity training for frontline health workers"] },
- { name: "Finance", desc: "Financial data moves through mobile money, USSD, agent banking, and informal lending platforms.", points: ["Adversarial testing of financial data infrastructure", "Privacy-preserving transaction analysis", "Fraud models grounded in local threat intelligence", "Security frameworks for formal and informal financial activity", "Fairness auditing of automated credit scoring"] },
- { name: "Agriculture", desc: "Smallholder farming data on yields, weather, soil, market prices, and supply chains holds enormous untapped value.", points: ["Secure, integrity-preserving data collection in field conditions", "Synthetic datasets modelling smallholder farming patterns", "Structuring and analysing existing agricultural data", "Governance frameworks for responsible cross-sector data sharing"] },
+ { name: "Finance", desc: "Financial services depend on trusted transactions, resilient digital channels, and responsible use of customer information. We consider payments, lending, fraud monitoring, and access controls together.", points: ["Adversarial testing of financial data infrastructure", "Privacy-preserving transaction analysis", "Fraud models grounded in local threat intelligence", "Security frameworks for formal and informal financial activity", "Fairness auditing of automated credit scoring"] },
+ { name: "Agriculture", desc: "Agriculture connects field observations, sensors, weather, markets, and supply chains. Reliable decisions depend on the quality of that evidence and on clear rules for collecting and sharing it.", points: ["Secure, integrity-preserving data collection in field conditions", "Synthetic datasets modelling smallholder farming patterns", "Structuring and analysing existing agricultural data", "Governance frameworks for responsible cross-sector data sharing"] },
  { name: "Education", desc: "Student data carries long-term sensitivity. Educational institutions increasingly use digital platforms.", points: ["Data governance frameworks for student information systems", "Privacy compliance under applicable legislation", "Security testing of digital learning platforms", "Fairness auditing of AI in educational decision-making"] },
  { name: "Government", desc: "Government systems hold the most consequential data in any country. Digitisation of public services is accelerating.", points: ["Sovereign data architecture for national datasets", "Threat resilience for critical infrastructure", "Privacy-by-design for citizen-facing digital services", "Accountability frameworks for automated public decisions"] },
  { name: "Research & NGOs", desc: "Organisations conducting research and delivering humanitarian programmes collect deeply sensitive data.", points: ["Ethical data collection for sensitive population research", "Privacy-preserving analysis protecting participant identities", "Secure data sharing for multi-organisation collaboration", "Synthetic datasets enabling research without exposing participants"] },
 ];
 
 export default function Sectors() {
- const [active, setActive] = useState(0);
+ const [params, setParams] = useSearchParams();
+ const active = Math.max(0, sectors.findIndex(x => x.name.toLowerCase().split(" ")[0] === params.get("sector")));
+ const setActive = (i: number) => setParams({ sector: sectors[i].name.toLowerCase().split(" ")[0] });
+ const images = ["health", "finance", "agriculture", "education", "government", "research"];
  const s = sectors[active];
 
  return (
  <>
- <Hero tag="Sectors" title="The same rigour, calibrated to your context." subtitle="Data security, privacy, and governance challenges appear in every sector that handles sensitive information. We work across all of them." />
+ <Hero image={`/images/editorial/${images[active]}.webp`} tag="Sectors" title="Security and data, in context." subtitle="Data security, privacy, and governance challenges appear in every sector that handles sensitive information. We work across all of them." />
  <Section>
- <div className="rv rounded-lg border relative overflow-hidden p-8 mb-6" style={{ borderColor: "var(--dark-hairline)", background: "linear-gradient(155deg, var(--dark-surface) 0%, var(--dark-elevated) 100%)" }}>
- <div className="absolute bottom-0 left-0 w-full h-2/3 pointer-events-none">
- <WavePattern opacity={0.09} />
- </div>
- <p className="relative z-[1] text-[0.88rem] leading-relaxed max-w-[560px]" style={{ color: "var(--dark-text-secondary)" }}>
- One standard of rigour, applied across every sector we work in. Select a tab below to see how it plays out.
- </p>
- </div>
  <div className="rv flex flex-wrap gap-1.5 mb-7">
  {sectors.map((sec, i) => (
  <button
  key={sec.name}
  className="text-[0.82rem] font-medium px-4 py-2 rounded-lg cursor-pointer transition-all border"
  style={i === active ? { background: "var(--orange)", color: "var(--dark-text)", borderColor: "var(--orange)" } : { background: "transparent", color: "var(--dark-text-secondary)", borderColor: "var(--dark-hairline)" }}
- onClick={() => setActive(i)}
+ aria-pressed={i === active} onClick={() => setActive(i)}
  >
  {sec.name}
  </button>
@@ -60,10 +54,10 @@ export default function Sectors() {
  Cross-Sector Expertise
  </h2>
  <p className="text-[0.93rem] leading-[1.85] mb-4" style={{ color: "var(--dark-text)" }}>
- Our work across sectors is interconnected. The threat intelligence we develop through our financial sector research strengthens the security guidance we provide to government agencies.
+ Many sectors face shared challenges: controlling access, establishing data quality, tracing decisions, and responding to incidents. We adapt these methods to the information, people, and operating conditions involved.
  </p>
  <p className="text-[0.93rem] leading-[1.85]" style={{ color: "var(--dark-text)" }}>
- This cross-sector experience means that every organisation we work with benefits from the cumulative knowledge of our entire programme.
+ An engagement starts with the decisions you need to support, the information you hold, and the consequences of failure. That context determines the research questions, technical checks, and practical recommendations.
  </p>
  </SplitSection>
  </Section>

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import SplitSection from "@/components/SplitSection";
-import PartnersSection from "@/components/PartnersSection";
 
 const principles = [
   { title: "Integrity First", description: "Every method, tool, finding, and dataset we produce is held to a rigorous and reviewable standard." },
@@ -78,7 +77,12 @@ export default function About() {
         </SplitSection>
       </Section>
 
-      <Section><PartnersSection /></Section>
+      <Section><SplitSection eyebrow="An Engagement"><h2 className="text-2xl font-semibold mb-5" style={{color:"var(--dark-text)"}}>From the first question to a practical handover</h2><ol className="space-y-5">{[
+["Understand the problem", "Agree the decision, the affected systems, and the people who need to use the result. Define scope, access, and confidentiality before the work begins."],
+["Gather and assess evidence", "Review the relevant architecture, information flows, data, and working practices. Select research and testing methods that answer the agreed questions."],
+["Turn findings into action", "Explain the evidence and its limitations. Prioritise the changes, assign responsibilities, and identify the resources needed to carry them out."],
+["Support implementation", "Provide the documentation and handover needed to use the findings. Where agreed, support testing, training, and follow-up review."]
+].map(([title,body],i)=><li key={title} className="flex gap-4"><span className="font-mono text-sm pt-1" style={{color:"var(--orange)"}}>0{i+1}</span><div><h3 className="font-semibold mb-1" style={{color:"var(--dark-text)"}}>{title}</h3><p>{body}</p></div></li>)}</ol></SplitSection></Section>
 
       <Section narrow className="text-center">
         <p className="rv" style={{ fontSize: "clamp(1.1rem, 2.2vw, 1.35rem)", lineHeight: "1.4", color: "var(--dark-text-secondary)" }}>

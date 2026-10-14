@@ -1,3 +1,4 @@
+import { editorialImage } from "@/lib/editorial-images";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, Users, Monitor, Globe, Building2 } from "lucide-react";
@@ -15,16 +16,18 @@ const locationIcon = (type: string) => {
 
 export default function EventDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const [event, setEvent] = useState<EventRow | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [event, setEvent] = useState<EventRow | null>(fallbackEvents.find(e => e.slug === slug) || null);
+  const [loading, setLoading] = useState(!fallbackEvents.some(e => e.slug === slug));
   const [taken, setTaken] = useState<number | null>(null);
 
   useEffect(() => {
     if (!slug) return;
+    const local = fallbackEvents.find(e => e.slug === slug);
+    if (local) { setEvent(local); setLoading(false); return; }
     setLoading(true);
     supabase.from("events").select("*").eq("slug", slug).eq("published", true).maybeSingle().then(async ({ data }) => {
       const fallback = fallbackEvents.find((item) => item.slug === slug) || null;
-      setEvent((data as EventRow) || fallback);
+      setEvent(data ? { ...(data as EventRow), cover_image: editorialImage((data as EventRow).cover_image) } : fallback);
       setLoading(false);
       if (data) {
         const { data: av } = await supabase.rpc("event_availability", { _event_id: (data as EventRow).id });
@@ -56,9 +59,10 @@ export default function EventDetail() {
 
   return (
     <>
-      <Hero title={event.title} subtitle={formatEventDate(event.start_date, event.end_date)} />
+      <Hero image={event.cover_image || undefined} tag={event.id.startsWith("local-") ? "Proposed event" : "Event"} title={event.title} subtitle={formatEventDate(event.start_date, event.end_date)} />
       <Section narrow>
         <div className="space-y-6">
+          {event.id.startsWith("local-") && <p className="border-l-2 pl-4 text-sm" style={{borderColor:"var(--orange)"}}>Proposed session. The date and format are provisional. <Link to="/contact" className="underline">Contact us to register interest.</Link></p>}
           <div className="flex flex-wrap gap-4 mb-4">
             {event.location && <span className="flex items-center gap-1.5 text-xs" style={{ color: "var(--dark-text-muted)" }}>{locationIcon(event.location_type)} {event.location}</span>}
             {event.max_capacity != null && (

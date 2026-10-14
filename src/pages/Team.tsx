@@ -1,15 +1,7 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import SplitSection from "@/components/SplitSection";
-
-const tabs = [
- { value: "core_team", label: "Core Team" },
- { value: "researchers", label: "Researchers" },
- { value: "students", label: "Students" },
- { value: "alumni", label: "Alumni" },
-];
 
 const members = [
  { id: "d1", name: "Eric Jagwara", role: "Founder & Director", bio: "Sets research strategy and institutional direction. Leads the firm's overall direction across security, data research, and product development.", image: "/images/team/eric-jagwara.jpg", category: "core_team" },
@@ -17,20 +9,10 @@ const members = [
  { id: "d3", name: "Dr. Abubakhari Sserwadda", role: "Head of Data & Cybersecurity", bio: "Leads security research and the data protection agenda, overseeing threat intelligence and secure systems design.", image: "/images/team/abubakhari-sserwadda.webp", category: "core_team" },
  { id: "d4", name: "Soddo Paul", role: "Head of Embedded Systems & Firmware", bio: "Directs embedded systems and firmware development for field and hardware-facing research tools.", image: "/images/team/soddo-paul.jpg", category: "core_team" },
  { id: "d5", name: "Irene Akitwi", role: "Head of Computational Social Science & Product Strategy", bio: "Leads computational social science research and shapes product strategy, connecting research findings to real-world deployment.", image: "/images/team/irene-akitwi.webp", category: "core_team", link: "https://www.researchgate.net/profile/Irene-Akitwi-2" },
- { id: "d6", name: "Dr. Nkechi Eze", role: "Senior Researcher - AI Fairness", bio: "Investigates bias and reliability in machine learning models used in healthcare and financial decision systems.", image: "/images/qkabrine.jpg", category: "researchers" },
- { id: "d7", name: "Tendai Moyo", role: "Researcher - Threat Intelligence", bio: "Tracks phishing and social engineering campaigns targeting financial services, digital platforms, and public-facing systems.", image: "/images/canarydrop.jpg", category: "researchers" },
- { id: "d8", name: "Amina Bello", role: "Researcher - Data Governance", bio: "Focuses on policy frameworks for cross-border data sharing and compliance across evolving data protection and privacy regimes.", image: "/images/data-lifecycle.jpg", category: "researchers" },
- { id: "d9", name: "Jean-Pierre Habimana", role: "Researcher - Interpretability", bio: "Works on making automated decision-making systems explainable for regulators and affected communities.", image: "/images/default-thumbnail.jpg", category: "researchers" },
- { id: "d10", name: "Grace Achieng", role: "Graduate Fellow - Privacy Engineering", bio: "Researching privacy-preserving techniques for mobile and distributed health data collection environments.", image: "/images/fieldwork.jpg", category: "students" },
- { id: "d11", name: "Moussa Traore", role: "Research Intern - Security", bio: "Contributing to phishing simulation engine with a focus on French-language threat vectors.", image: "/images/security-ops.jpg", category: "students" },
- { id: "d12", name: "Zinhle Dlamini", role: "Graduate Fellow - Data Science", bio: "Building quality assurance models for multi-channel data ingestion pipeline.", image: "/images/data-lifecycle.jpg", category: "students" },
- { id: "d13", name: "Dr. Oluwaseun Adeyemi", role: "Former Lead Researcher (2021–2024)", bio: "Now leads data governance in the health sector. Contributed to foundational privacy engineering research.", image: "/images/about-research.jpg", category: "alumni" },
- { id: "d14", name: "Esther Wanjiku", role: "Former Research Intern (2023)", bio: "Currently pursuing a PhD in cybersecurity at the University of Cape Town. Co-authored two of our published papers.", image: "/images/team-working.jpg", category: "alumni" },
 ];
 
 export default function Team() {
- const [activeTab, setActiveTab] = useState("core_team");
- const filtered = members.filter((m) => m.category === activeTab);
+
 
  return (
  <>
@@ -40,24 +22,8 @@ export default function Team() {
  subtitle="A dedicated group of investigators and problem-solvers. We are committed to transparency, thorough research, and the continuous pursuit of emerging technological frontiers."
  />
  <Section>
- <div className="flex flex-wrap gap-2 mb-8">
- {tabs.map((tab) => (
- <button
- key={tab.value}
- onClick={() => setActiveTab(tab.value)}
- className="px-4 py-2 rounded-lg text-sm font-medium transition-colors border cursor-pointer"
- style={
- activeTab === tab.value
- ? { background: "var(--orange)", color: "var(--dark-text)", borderColor: "var(--orange)" }
- : { background: "transparent", color: "var(--dark-text-muted)", borderColor: "var(--dark-hairline)" }
- }
- >
- {tab.label}
- </button>
- ))}
- </div>
- <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
- {filtered.map((p) => (
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+ {members.map((p) => (
  <div
  key={p.id}
  className="rv rounded-lg overflow-hidden border transition-all"
@@ -74,8 +40,8 @@ export default function Team() {
  }}
  >
  {p.category === "core_team" && (
- <div className="aspect-square overflow-hidden" style={{ background: "hsl(var(--muted))" }}>
- <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
+ <div className="aspect-[4/3] overflow-hidden" style={{ background: "hsl(var(--muted))" }}>
+ <img src={p.image} alt={p.name} className="w-full h-full object-cover object-top" loading="lazy" />
  </div>
  )}
  <div className="p-5">
@@ -94,7 +60,7 @@ export default function Team() {
  </div>
  </Section>
  <Section>
- <SplitSection image="/images/team-working.jpg">
+ <SplitSection eyebrow="Working Together">
  <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>
  How We Work
  </h2>
@@ -108,13 +74,13 @@ export default function Team() {
  </Section>
  <Section narrow className="text-center">
  <p className="rv" style={{ fontSize: "clamp(1.1rem, 2.2vw, 1.35rem)", lineHeight: "1.4", color: "var(--dark-text-secondary)" }}>
- Interested in joining our team? We offer research internships and graduate fellowships.
+ Interested in contributing to security and data research? Tell us about your expertise, interests, and the problems you want to work on.
  </p>
  <div className="rv mt-5">
- <Link to="/apply" className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
+ <Link to="/contact" className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
  onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")}
  onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
- Apply now
+ Start a conversation
  </Link>
  </div>
  </Section>

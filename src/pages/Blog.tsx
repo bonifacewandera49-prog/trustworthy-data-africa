@@ -1,52 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Newspaper } from "lucide-react";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import FilterDropdown from "@/components/FilterDropdown";
-import WavePattern from "@/components/WavePattern";
 import { blogPosts } from "@/data/blog";
-
-const posts = blogPosts;
-
-const allCategories = ["All", ...Array.from(new Set(posts.map((p) => p.tag)))];
-
+const categories = ["All", ...new Set(blogPosts.map(p => p.tag))];
 export default function Blog() {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const filtered = activeCategory === "All" ? posts : posts.filter((p) => p.tag === activeCategory);
-
-  return (
-    <>
-      <Hero tag="Blog" title="Insights and Innovations" subtitle="Explore a collection of deep dives, industry analysis, and technical guides designed to bridge the gap between complex data and actionable strategy." />
-      <Section>
-        <FilterDropdown
-          categories={allCategories}
-          active={activeCategory}
-          onChange={setActiveCategory}
-        />
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
-          {filtered.map((p) => (
-            <Link to={`/blog/${p.slug}`} key={p.id} className="rv rounded-lg overflow-hidden border transition-colors no-underline group" style={{ background: "hsl(var(--card))", borderColor: "var(--dark-hairline)" }}>
-              <div className="relative aspect-[16/9] flex flex-col items-center justify-center gap-2 overflow-hidden" style={{ background: "linear-gradient(155deg, var(--dark-surface) 0%, var(--dark-elevated) 100%)" }}>
-                <div className="absolute bottom-0 left-0 w-full h-2/3 pointer-events-none"><WavePattern opacity={0.08} /></div>
-                <Newspaper className="relative z-[1] w-6 h-6" style={{ color: "var(--orange)", opacity: 0.6 }} />
-                <span className="relative z-[1] font-mono text-[0.62rem] tracking-widest uppercase" style={{ color: "var(--dark-text-muted)" }}>{p.tag}</span>
-              </div>
-              <div className="p-5">
-                <span className="font-mono text-[0.66rem] tracking-widest uppercase mb-2 block" style={{ color: "var(--orange)" }}>{p.tag}</span>
-                <h3 className="text-[0.9rem] font-semibold mb-2 leading-snug transition-colors group-hover:underline" style={{ color: "var(--dark-text)" }}>{p.title}</h3>
-                <p className="text-[0.8rem] leading-relaxed mb-2.5 line-clamp-2" style={{ color: "var(--dark-text-muted)" }}>{p.excerpt}</p>
-                <span className="font-mono text-[0.68rem]" style={{ color: "var(--dark-text-muted)" }}>
-                  {p.published_at ? new Date(p.published_at).toLocaleDateString("en-GB", { month: "long", year: "numeric" }) : ""}
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
-        {filtered.length === 0 && (
-          <p className="text-center py-16" style={{ color: "var(--dark-text-muted)" }}>No posts in this category.</p>
-        )}
-      </Section>
-    </>
-  );
+ const [category, setCategory] = useState("All");
+ const posts = blogPosts.filter(p => category === "All" || p.tag === category);
+ return <><Hero tag="Blog" title="Practical thinking. Clearer decisions." subtitle="Guides to security, data governance, privacy, and responsible AI. Written to help teams turn complex questions into practical next steps." />
+ <Section><div className="flex flex-wrap items-center justify-between gap-4 mb-7"><h2 className="text-2xl font-semibold" style={{color:"var(--dark-text)"}}>Articles & guides</h2><p className="text-sm">{posts.length} articles</p></div>
+ <FilterDropdown categories={categories} active={category} onChange={setCategory} />
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{posts.map(p => <Link key={p.slug} to={`/blog/${p.slug}`} className="border rounded-xl overflow-hidden no-underline group flex flex-col" style={{borderColor:"var(--dark-hairline)",background:"var(--dark-surface)"}}>
+ <img src={p.cover_image} alt="" loading="lazy" className="aspect-[16/9] w-full object-cover" />
+ <div className="p-6 flex-1 flex flex-col"><p className="font-mono text-xs uppercase tracking-wider mb-3" style={{color:"var(--orange)"}}>{p.tag}</p><h3 className="text-xl font-semibold leading-snug mb-3 group-hover:underline" style={{color:"var(--dark-text)"}}>{p.title}</h3><p className="text-sm leading-relaxed mb-5">{p.excerpt}</p><span className="text-sm font-semibold mt-auto" style={{color:"var(--orange)"}}>Read article →</span></div></Link>)}</div></Section></>;
 }

@@ -1,10 +1,7 @@
+import { blogPosts } from "@/data/blog";
 import { useState } from "react";
 
-const posts = [
- { id: 1, title: "Securing Health Data in Low-Resource Environments", tag: "Cybersecurity", published: true },
- { id: 2, title: "A Primer on Quantum Machine Learning for Research Teams", tag: "Quantum Computing", published: true },
- { id: 3, title: "Phishing in 2026: The Patterns Security Teams Should Be Watching", tag: "Threat Intelligence", published: true },
-];
+const posts = blogPosts.map(p => ({ ...p, published: true }));
 
 export default function AdminBlog() {
  const [items, setItems] = useState(posts);

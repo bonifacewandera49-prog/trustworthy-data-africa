@@ -1,7 +1,7 @@
+import { editorialImage } from "@/lib/editorial-images";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Users, Monitor, Globe, Building2, Search, CalendarDays } from "lucide-react";
-import WavePattern from "@/components/WavePattern";
+import { Users, Monitor, Globe, Building2, Search } from "lucide-react";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import { Input } from "@/components/ui/input";
@@ -19,8 +19,8 @@ const locationIcon = (type: string) => {
 export default function Events() {
   const [search, setSearch] = useState("");
   const [view, setView] = useState<"upcoming" | "past">("upcoming");
-  const [events, setEvents] = useState<EventRow[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [events, setEvents] = useState<EventRow[]>(fallbackEvents);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     supabase
@@ -29,7 +29,7 @@ export default function Events() {
       .eq("published", true)
       .order("start_date", { ascending: true })
       .then(({ data }) => {
-        const live = (data as EventRow[]) || [];
+        const live = ((data as EventRow[]) || []).map(event => ({ ...event, cover_image: editorialImage(event.cover_image) }));
         setEvents(live.length ? live : fallbackEvents);
         setLoading(false);
       });
@@ -53,6 +53,7 @@ export default function Events() {
     <>
       <Hero tag="Events" title="Calendar & Events" subtitle="An overview of upcoming workshops, webinars, and research presentations. Stay connected with our latest activities." />
       <Section>
+        {events.some(e => e.id.startsWith("local-")) && <p className="mb-8 border-l-2 pl-4 text-sm" style={{borderColor:"var(--orange)"}}>Proposed programme: the sessions and dates below are provisional. Contact us to register interest; attendance is not yet confirmed.</p>}
         <div className="flex items-center justify-between mb-8 gap-4 flex-wrap">
           <div className="relative flex-1 min-w-[200px] max-w-sm">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--dark-text-muted)" }} />
@@ -96,17 +97,14 @@ export default function Events() {
                           </div>
                           <p className="text-xs mt-2 line-clamp-2 max-sm:hidden" style={{ color: "var(--dark-text-muted)" }}>{e.description}</p>
                           <div className="flex items-center gap-2 mt-3 flex-wrap">
-                            <Badge variant="secondary" className="rounded font-mono text-[0.55rem] tracking-widest uppercase" style={{ background: "hsl(var(--muted))" }}>{e.event_type}</Badge>
+                            <Badge variant="secondary" className="rounded font-mono text-[0.55rem] tracking-widest uppercase" style={{ background: "hsl(var(--muted))" }}>{e.id.startsWith("local-") ? "Proposed " : ""}{e.event_type}</Badge>
                             {e.require_approval && <Badge className="rounded font-mono text-[0.55rem] tracking-widest uppercase" style={{ background: "rgba(245,158,11,0.1)", color: "#fbbf24", borderColor: "rgba(245,158,11,0.2)" }}>Approval Required</Badge>}
                             {!e.is_free && <Badge variant="outline" className="rounded font-mono text-[0.55rem] tracking-widest uppercase" style={{ borderColor: "var(--dark-hairline)", color: "var(--dark-text-muted)" }}>Paid</Badge>}
                             {e.registration_open && new Date(e.start_date) >= now && <span className="text-[0.7rem] font-semibold ml-auto" style={{ color: "var(--orange)" }}>Register &rarr;</span>}
                           </div>
                         </div>
                         {e.cover_image && (
-                          <div className="relative w-32 h-24 rounded-lg shrink-0 max-sm:w-20 max-sm:h-16 overflow-hidden flex items-center justify-center" style={{ background: "linear-gradient(155deg, var(--dark-surface) 0%, var(--dark-elevated) 100%)" }}>
-                            <div className="absolute bottom-0 left-0 w-full h-2/3 pointer-events-none"><WavePattern opacity={0.08} /></div>
-                            <CalendarDays className="relative z-[1] w-6 h-6" style={{ color: "var(--orange)", opacity: 0.55 }} />
-                          </div>
+                          <img src={e.cover_image} alt="" loading="lazy" className="w-32 h-24 rounded-lg object-cover shrink-0 max-sm:w-20 max-sm:h-16" />
                         )}
                       </div>
                     </Link>

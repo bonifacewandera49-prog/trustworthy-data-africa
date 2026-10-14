@@ -5,15 +5,14 @@ import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import SplitSection from "@/components/SplitSection";
 import FilterDropdown from "@/components/FilterDropdown";
-import WavePattern from "@/components/WavePattern";
 
 const datasets = [
- { id: 1, title: "Digital Wallet Transaction Patterns (Synthetic)", description: "Synthetic dataset modelled on real mobile money transaction patterns across varied transaction environments.", tag: "Synthetic", status: "Available", zenodo_url: "#", doi: "10.5281/zenodo.1234567" },
- { id: 2, title: "Rural Health Facility Data Collection Protocols Dataset", description: "Structured data from health facility surveys, including paper-to-digital translation examples.", tag: "Field Collected", status: "Available", zenodo_url: "#", doi: "10.5281/zenodo.2345678" },
- { id: 3, title: "Phishing Corpus: Multilingual Threat Vectors Targeting Institutions", description: "Annotated collection of phishing materials targeting government and financial institutions.", tag: "Translated", status: "In Progress", zenodo_url: "#", doi: "10.5281/zenodo.3456789" },
- { id: 4, title: "Smallholder Farming Yield Data: Structured & Anonymised", description: "Cleaned agricultural yield data from smallholder farms across four study regions.", tag: "Field Collected", status: "Available", zenodo_url: "#", doi: "10.5281/zenodo.4567890" },
- { id: 5, title: "Quantum Circuit Benchmark Suite for Classification Tasks", description: "Standardised quantum circuit designs evaluated across multiple classification datasets.", tag: "Synthetic", status: "Available", zenodo_url: "#", doi: "10.5281/zenodo.5678901" },
- { id: 6, title: "Government Portal Security Assessment Dataset", description: "Anonymised security assessment results from government digital service portals across 12 countries.", tag: "Field Collected", status: "Available", zenodo_url: "#", doi: "10.5281/zenodo.6789012" },
+ { id: 1, title: "Digital Wallet Transaction Patterns (Synthetic)", description: "Synthetic dataset modelled on real mobile money transaction patterns across varied transaction environments.", tag: "Synthetic", status: "Proposed", zenodo_url: "", doi: "" },
+ { id: 2, title: "Rural Health Facility Data Collection Protocols Dataset", description: "Structured data from health facility surveys, including paper-to-digital translation examples.", tag: "Field Collected", status: "Proposed", zenodo_url: "", doi: "" },
+ { id: 3, title: "Phishing Corpus: Multilingual Threat Vectors Targeting Institutions", description: "Annotated collection of phishing materials targeting government and financial institutions.", tag: "Translated", status: "Proposed", zenodo_url: "", doi: "" },
+ { id: 4, title: "Smallholder Farming Yield Data: Structured & Anonymised", description: "Cleaned agricultural yield data from smallholder farms across four study regions.", tag: "Field Collected", status: "Proposed", zenodo_url: "", doi: "" },
+ { id: 5, title: "Quantum Circuit Benchmark Suite for Classification Tasks", description: "Standardised quantum circuit designs evaluated across multiple classification datasets.", tag: "Synthetic", status: "Proposed", zenodo_url: "", doi: "" },
+ { id: 6, title: "Government Portal Security Assessment Dataset", description: "Anonymised security assessment results from government digital service portals across 12 countries.", tag: "Field Collected", status: "Proposed", zenodo_url: "", doi: "" },
 ];
 
 const allCategories = ["All", ...Array.from(new Set(datasets.map((d) => d.tag)))];
@@ -38,21 +37,17 @@ export default function DatasetsPage() {
  </Section>
  <Section>
  <div className="mb-8">
- <h2 className="font-mono text-[0.75rem] font-semibold tracking-widest uppercase mb-1" style={{ color: "var(--dark-text-muted)" }}>Available Datasets</h2>
- <p className="text-[0.85rem]" style={{ color: "var(--dark-text-muted)" }}>Browse our open datasets, each released with a DOI on Zenodo for proper citation.</p>
+ <h2 className="font-mono text-[0.75rem] font-semibold tracking-widest uppercase mb-1" style={{ color: "var(--dark-text-muted)" }}>Dataset Themes</h2>
+ <p className="text-[0.85rem]" style={{ color: "var(--dark-text-muted)" }}>These are dataset themes. Verified releases and persistent download links will be added when available.</p>
  </div>
  <FilterDropdown
  categories={allCategories}
  active={activeCategory}
  onChange={setActiveCategory}
  />
- <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
+ <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,300px),1fr))] gap-4">
  {filtered.map((d) => (
  <div key={d.id} className="rv rounded-xl overflow-hidden border transition-all group" style={{ background: "hsl(var(--card))", borderColor: "var(--dark-hairline)" }}>
- <div className="relative aspect-[16/9] flex items-center justify-center overflow-hidden" style={{ background: "linear-gradient(155deg, var(--dark-surface) 0%, var(--dark-elevated) 100%)" }}>
- <div className="absolute bottom-0 left-0 w-full h-2/3 pointer-events-none"><WavePattern opacity={0.08} /></div>
- <Database className="relative z-[1] w-8 h-8" style={{ color: "var(--orange)", opacity: 0.55 }} />
- </div>
  <div className="p-5">
  <div className="flex items-center gap-3 mb-2.5 flex-wrap">
  <span className="font-mono text-[0.62rem] tracking-widest uppercase" style={{ color: "var(--orange)" }}>{d.tag}</span>
@@ -79,7 +74,7 @@ export default function DatasetsPage() {
  <div className="liquid-glass p-7 text-center">
  <Database className="w-8 h-8 mx-auto mb-3 opacity-70" style={{ color: "var(--orange)" }} />
  <p className="text-[0.93rem] leading-[1.85] max-w-[600px] mx-auto mb-4" style={{ color: "var(--dark-text-secondary)" }}>
- All datasets are released under open licenses. Cite using the DOI provided with each dataset.
+ Contact us about dataset availability, documentation, permitted uses, and research collaboration.
  </p>
  <div className="flex gap-2.5 justify-center flex-wrap">
  <a href="https://zenodo.org" target="_blank" rel="noopener noreferrer" className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
