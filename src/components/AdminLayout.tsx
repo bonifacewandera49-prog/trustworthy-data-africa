@@ -1,5 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { FileText, Calendar, BookOpen, Database, BarChart3, Users, LogOut } from "lucide-react";
+import RequireAdmin from "./RequireAdmin";
+import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
 
 const navItems = [
   { to: "/admin/courses", label: "Short Courses", icon: <BookOpen className="w-4 h-4"/> },
@@ -16,9 +19,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const location = useLocation();
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row" style={{ background: "hsl(var(--background))" }}>
+    <RequireAdmin><div className="min-h-screen flex flex-col md:flex-row bg-background text-foreground">
       <aside className="w-full md:w-56 border-r flex flex-col gap-1 shrink-0 p-4" style={{ background: "hsl(var(--card))", borderColor: "hsl(var(--hairline))" }}>
-        <h2 className="font-bold text-sm mb-4 px-3" style={{ color: "var(--dark-text)" }}>Content Draft Editor</h2>
+        <h2 className="font-bold text-sm mb-4 px-3 text-foreground">Website Content</h2>
         {navItems.map((n) => (
           <Link key={n.to} to={n.to}
             className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm no-underline transition-colors"
@@ -28,11 +31,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         ))}
         <div className="mt-auto pt-4 border-t" style={{ borderColor: "hsl(var(--hairline))" }}>
           <Link to="/" className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm no-underline transition-colors" style={{ color: "var(--dark-text-muted)" }}>
-            <LogOut className="w-4 h-4" /> Exit Admin
+            View website
           </Link>
+          <Button variant="ghost" onClick={()=>supabase.auth.signOut()}><LogOut/> Sign out</Button>
         </div>
       </aside>
       <main className="flex-1 min-w-0 p-4 md:p-8 overflow-y-auto">{children}</main>
-    </div>
+    </div></RequireAdmin>
   );
 }
