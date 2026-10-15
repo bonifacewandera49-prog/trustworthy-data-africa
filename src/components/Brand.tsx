@@ -1,7 +1,9 @@
-import logo from "/images/solid-elf-logo.png";
+import { useId } from "react";
+// Render the supplied artwork itself. The SVG filter removes only its light paper background.
 export default function Brand() {
- return <span className="brand" role="img" aria-label="Solid Elf — Security and Data Research Firm">
-  <span className="brand-symbol"><img src={logo} alt="" /></span>
-  <span className="brand-type"><span className="brand-name">Solid Elf</span><span className="brand-caption">Security and Data<br className="brand-caption-break" /> Research Firm</span></span>
+ const filterId = `brand-ink-${useId().replace(/:/g, "")}`;
+ return <span className="brand-artwork" role="img" aria-label="Solid Elf — Security and Data Research Firm">
+  <svg width="0" height="0" aria-hidden="true" className="absolute"><defs><filter id={filterId} colorInterpolationFilters="sRGB"><feColorMatrix result="inkMask" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 -4 0 3.8" /><feFlood floodColor="currentColor" result="inkColor"/><feComposite in="inkColor" in2="inkMask" operator="in"/></filter></defs></svg>
+  <img src="/images/solid-elf-supplied.png" alt="" style={{filter:`url(#${filterId})`}} />
  </span>;
 }

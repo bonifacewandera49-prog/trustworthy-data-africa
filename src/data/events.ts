@@ -58,4 +58,67 @@ export const fallbackEvents: EventRow[] = [
     published: true,
     created_at: "2026-10-01T00:00:00.000Z",
   },
+{
+  "location_type": "online",
+  "location": "Online \u00b7 proposed",
+  "meeting_url": null,
+  "max_capacity": null,
+  "is_free": true,
+  "registration_open": false,
+  "require_approval": false,
+  "published": true,
+  "created_at": "2026-10-15T00:00:00.000Z",
+  "id": "local-4",
+  "slug": "incident-response-tabletop",
+  "title": "Incident Response Tabletop: The First Hour",
+  "description": "A facilitated exercise exploring incident coordination, trustworthy communications, containment decisions and recovery dependencies. Intended for operational leads and technical teams. Proposed agenda: validate the alert, assign roles, consider containment options and agree improvement actions.",
+  "cover_image": "/images/editorial/event-recovery.webp",
+  "event_type": "Workshop",
+  "start_date": "2026-11-19T10:00:00.000Z",
+  "end_date": "2026-11-19T12:00:00.000Z"
+},
+{
+  "location_type": "online",
+  "location": "Online \u00b7 proposed",
+  "meeting_url": null,
+  "max_capacity": null,
+  "is_free": true,
+  "registration_open": false,
+  "require_approval": false,
+  "published": true,
+  "created_at": "2026-10-15T00:00:00.000Z",
+  "id": "local-5",
+  "slug": "digital-safety-everyday-work",
+  "title": "Digital Safety for Everyday Work",
+  "description": "A practical session on phishing, impersonation, safer sharing, account recovery and reporting concerns without blame. Intended for staff and community members of varied technical experience. Participants will work through example messages and everyday account-safety decisions.",
+  "cover_image": "/images/editorial/event-safety.webp",
+  "event_type": "Training",
+  "start_date": "2026-11-26T10:00:00.000Z",
+  "end_date": "2026-11-26T12:00:00.000Z"
+},
+{
+  "location_type": "online",
+  "location": "Online \u00b7 proposed",
+  "meeting_url": null,
+  "max_capacity": null,
+  "is_free": true,
+  "registration_open": false,
+  "require_approval": false,
+  "published": true,
+  "created_at": "2026-10-15T00:00:00.000Z",
+  "id": "local-6",
+  "slug": "data-analytics-decisions-clinic",
+  "title": "Data Analytics Clinic: From Records to Decisions",
+  "description": "Explore how to turn an operational question into a useful analysis. The proposed session covers metric definitions, data-quality checks, clear charts and interpretation. Intended for analysts, programme teams and decision-makers; exercises use illustrative data.",
+  "cover_image": "/images/editorial/event-analytics.webp",
+  "event_type": "Workshop",
+  "start_date": "2026-12-10T10:00:00.000Z",
+  "end_date": "2026-12-10T12:00:00.000Z"
+},
 ];
+
+export function mergeEvents(live: EventRow[]) {
+ const bySlug = new Map(fallbackEvents.map(e => [e.slug, e]));
+ live.forEach(e => bySlug.set(e.slug, e));
+ return [...bySlug.values()].sort((a,b)=>a.start_date.localeCompare(b.start_date));
+}

@@ -51,8 +51,10 @@ const megaMenus: Record<string, MegaMenuData> = {
   },
   "What We Do": {
     items: [
-      { to: "/work", label: "Research Areas", desc: "The areas we actively research, publish, and build tools in", icon: <Microscope className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
-      { to: "/consultancy", label: "Consultancy", desc: "Hire us: advisory, audits, and training built on that research", icon: <BookOpen className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
+      { to: "/consultancy", label: "Consultancy", desc: "Security, digital safety, data analytics and practical advisory", icon: <BookOpen className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
+      { to: "/work", label: "Services & Research", desc: "The areas we actively research, publish, and build tools in", icon: <Microscope className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
+      { to: "/consultancy/data-analytics-business-intelligence", label: "Data Analytics", desc: "Analysis, dashboards and business intelligence", icon: <Database className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
+      { to: "/consultancy/cybersecurity-digital-safety", label: "Cybersecurity & Digital Safety", desc: "Practical security strategy and incident readiness", icon: <Bug className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
     ],
     featured: {
       to: "/work",
@@ -116,18 +118,18 @@ export default function Navbar() {
       className={`sticky top-0 z-[200] border-b transition-shadow ${scrolled ? "shadow-lg shadow-black/20" : ""}`}
       style={{ background: "var(--nav-bg)", backdropFilter: "blur(16px) saturate(140%)", WebkitBackdropFilter: "blur(16px) saturate(140%)", borderColor: "var(--nav-hairline)" }}
     >
-      <div className="max-w-[1240px] mx-auto flex items-center justify-between px-[clamp(1rem,4vw,2rem)] h-[72px]">
+      <div className="max-w-[1240px] mx-auto flex items-center justify-between px-[clamp(1rem,4vw,2rem)] min-h-[108px]">
         <Link to="/" className="flex items-center gap-2.5 shrink-0">
           <Brand />
         </Link>
 
-        <div className="hidden lg:flex items-center gap-0.5">
+        <div className="hidden xl:flex items-center gap-0.5">
           {Object.entries(megaMenus).map(([label, data]) => (
             <div key={label} className="relative" onMouseEnter={() => setOpenMenu(label)} onMouseLeave={() => setOpenMenu(null)}>
-              <span className="text-[0.83rem] font-medium px-3 py-2 cursor-pointer flex items-center gap-1 rounded-lg transition-colors" style={{ color: "var(--nav-text)" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--nav-text-strong)")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--nav-text)")}>
+              <button type="button" aria-expanded={openMenu === label} onClick={() => setOpenMenu(openMenu === label ? null : label)} className="text-[0.83rem] font-medium px-3 py-2 cursor-pointer flex items-center gap-1 rounded-lg transition-colors" style={{ color: "var(--nav-text)" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--nav-text-strong)")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--nav-text)")}>
                 {label} <small className="text-[0.6rem] opacity-40">&#9662;</small>
-              </span>
-              <div className={`fixed left-1/2 -translate-x-1/2 pt-3 z-[300] transition-all duration-200 ${openMenu === label ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"}`} style={{ width: "min(680px, 90vw)" }}>
+              </button>
+              <div inert={openMenu !== label} className={`fixed left-1/2 -translate-x-1/2 pt-3 z-[300] transition-all duration-200 ${openMenu === label ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"}`} style={{ width: "min(680px, 90vw)" }}>
                 <div className="rounded-2xl overflow-hidden" style={{ background: "var(--nav-surface)", border: "1px solid var(--nav-hairline)", boxShadow: "0 24px 48px -16px rgba(23,18,14,0.28)" }}>
                   <div className="grid grid-cols-[1fr_240px]">
                     <div className="p-4 flex flex-col gap-0.5">
@@ -161,24 +163,24 @@ export default function Navbar() {
           <Link to="/contact" className="text-[0.83rem] font-medium px-3 py-2 no-underline rounded-lg transition-colors" style={{ color: "var(--nav-text)" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--nav-text-strong)")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--nav-text)")}>Contact</Link>
         </div>
 
-        <Link to="/partnerships" className="hidden lg:inline-flex text-[0.78rem] font-semibold px-5 py-2.5 rounded-lg no-underline transition-colors ml-2 whitespace-nowrap" style={{ background: "var(--orange)", color: "#fff" }} onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")} onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
+        <Link to="/partnerships" className="hidden xl:inline-flex text-[0.78rem] font-semibold px-5 py-2.5 rounded-lg no-underline transition-colors ml-2 whitespace-nowrap" style={{ background: "var(--orange)", color: "#fff" }} onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")} onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
           Partner With Us
         </Link>
 
-        <button aria-label={mobileOpen ? "Close navigation" : "Open navigation"} aria-expanded={mobileOpen} className="lg:hidden flex items-center justify-center p-2 bg-transparent border-none cursor-pointer" style={{ color: "var(--nav-text)" }} onClick={() => setMobileOpen(!mobileOpen)}>
+        <button aria-label={mobileOpen ? "Close navigation" : "Open navigation"} aria-expanded={mobileOpen} className="xl:hidden flex items-center justify-center p-2 bg-transparent border-none cursor-pointer" style={{ color: "var(--nav-text)" }} onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden flex flex-col p-4 px-7 overflow-y-auto" style={{ maxHeight: "calc(100vh - 72px)", background: "var(--nav-elevated)", borderTop: "1px solid var(--nav-hairline)" }}>
+        <div className="xl:hidden flex flex-col p-4 px-7 overflow-y-auto" style={{ maxHeight: "calc(100vh - 108px)", background: "var(--nav-elevated)", borderTop: "1px solid var(--nav-hairline)" }}>
           {Object.entries(megaMenus).map(([label, data]) => (
             <div key={label} style={{ borderBottom: "1px solid var(--nav-hairline)" }}>
               <button aria-expanded={mobileExpanded === label} onClick={() => toggleMobileSection(label)} className="flex items-center justify-between w-full text-left text-[0.82rem] font-semibold tracking-wider uppercase py-3 bg-transparent border-none cursor-pointer" style={{ color: "var(--nav-text-muted)" }}>
                 {label}
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileExpanded === label ? "rotate-180" : ""}`} />
               </button>
-              <div className={`overflow-hidden transition-all duration-200 ${mobileExpanded === label ? "max-h-[500px] pb-2" : "max-h-0"}`}>
+              <div inert={mobileExpanded !== label} className={`overflow-hidden transition-all duration-200 ${mobileExpanded === label ? "max-h-[500px] pb-2" : "max-h-0"}`}>
                 {data.items.map((item) => (
                   <Link key={item.to} to={item.to} className="flex items-center gap-2.5 text-[0.9rem] py-2.5 pl-2 no-underline" style={{ color: "var(--nav-text)" }}>
                     {item.icon} {item.label}
