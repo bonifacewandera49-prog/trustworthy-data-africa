@@ -63,7 +63,6 @@ const megaMenus: Record<string, MegaMenuData> = {
   },
   Resources: {
     items: [
-      { to: "/short-courses", label: "Short Courses", desc: "Cybersecurity, NVivo, MAXQDA and Power BI", icon: <GraduationCap className="w-5 h-5" style={{color:"var(--orange)"}} /> },
       { to: "/research", label: "Research Papers", desc: "Peer-reviewed publications and findings", icon: <FileText className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
       { to: "/datasets", label: "Datasets", desc: "Open, citable datasets on Zenodo", icon: <Database className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
       { to: "/reports", label: "Reports", desc: "In-depth analysis and methodology reports", icon: <BookOpen className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
@@ -117,7 +116,7 @@ export default function Navbar() {
       className={`sticky top-0 z-[200] border-b transition-shadow ${scrolled ? "shadow-lg shadow-black/20" : ""}`}
       style={{ background: "var(--nav-bg)", backdropFilter: "blur(16px) saturate(140%)", WebkitBackdropFilter: "blur(16px) saturate(140%)", borderColor: "var(--nav-hairline)" }}
     >
-      <div className="max-w-[1240px] mx-auto flex items-center justify-between px-[clamp(1rem,4vw,2rem)] min-h-[80px]">
+      <div className="max-w-[1240px] mx-auto flex items-center justify-between px-[clamp(1rem,4vw,2rem)] min-h-[72px]">
         <Link to="/" className="flex items-center gap-2.5 shrink-0">
           <Brand />
         </Link>
@@ -157,6 +156,7 @@ export default function Navbar() {
               </div>
             </div>
           ))}
+          <Link to="/short-courses" className="text-[0.83rem] font-medium px-3 py-2 no-underline rounded-lg whitespace-nowrap" style={{color:"var(--nav-text)"}}>Short Courses</Link>
           <Link to="/blog" className="text-[0.83rem] font-medium px-3 py-2 no-underline rounded-lg transition-colors" style={{ color: "var(--nav-text)" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--nav-text-strong)")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--nav-text)")}>Blog</Link>
           <Link to="/events" className="text-[0.83rem] font-medium px-3 py-2 no-underline rounded-lg transition-colors" style={{ color: "var(--nav-text)" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--nav-text-strong)")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--nav-text)")}>Events</Link>
           <Link to="/contact" className="text-[0.83rem] font-medium px-3 py-2 no-underline rounded-lg transition-colors" style={{ color: "var(--nav-text)" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--nav-text-strong)")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--nav-text)")}>Contact</Link>
@@ -188,6 +188,7 @@ export default function Navbar() {
               </div>
             </div>
           ))}
+          <Link to="/short-courses" className="text-[0.9rem] py-3 no-underline" style={{color:"var(--nav-text)"}}>Short Courses</Link>
           <Link to="/blog" className="text-[0.9rem] py-2.5 no-underline" style={{ color: "var(--nav-text)", borderBottom: "1px solid var(--nav-hairline)" }}>Blog</Link>
           <Link to="/events" className="text-[0.9rem] py-2.5 no-underline" style={{ color: "var(--nav-text)", borderBottom: "1px solid var(--nav-hairline)" }}>Events</Link>
           <Link to="/contact" className="text-[0.9rem] py-2.5 no-underline" style={{ color: "var(--nav-text)", borderBottom: "1px solid var(--nav-hairline)" }}>Contact</Link>
