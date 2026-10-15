@@ -52,9 +52,7 @@ const megaMenus: Record<string, MegaMenuData> = {
   "What We Do": {
     items: [
       { to: "/consultancy", label: "Consultancy", desc: "Security, digital safety, data analytics and practical advisory", icon: <BookOpen className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
-      { to: "/work", label: "Services & Research", desc: "The areas we actively research, publish, and build tools in", icon: <Microscope className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
-      { to: "/consultancy/data-analytics-business-intelligence", label: "Data Analytics", desc: "Analysis, dashboards and business intelligence", icon: <Database className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
-      { to: "/consultancy/cybersecurity-digital-safety", label: "Cybersecurity & Digital Safety", desc: "Practical security strategy and incident readiness", icon: <Bug className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
+      { to: "/work", label: "Research", desc: "Our research areas, methods and applied investigations", icon: <Microscope className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
     ],
     featured: {
       to: "/work",
@@ -118,7 +116,7 @@ export default function Navbar() {
       className={`sticky top-0 z-[200] border-b transition-shadow ${scrolled ? "shadow-lg shadow-black/20" : ""}`}
       style={{ background: "var(--nav-bg)", backdropFilter: "blur(16px) saturate(140%)", WebkitBackdropFilter: "blur(16px) saturate(140%)", borderColor: "var(--nav-hairline)" }}
     >
-      <div className="max-w-[1240px] mx-auto flex items-center justify-between px-[clamp(1rem,4vw,2rem)] min-h-[108px]">
+      <div className="max-w-[1240px] mx-auto flex items-center justify-between px-[clamp(1rem,4vw,2rem)] min-h-[92px]">
         <Link to="/" className="flex items-center gap-2.5 shrink-0">
           <Brand />
         </Link>

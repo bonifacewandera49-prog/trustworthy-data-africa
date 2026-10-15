@@ -31,8 +31,8 @@ export default function Footer() {
               <h4 className="text-[0.68rem] font-semibold tracking-wider uppercase mb-2" style={{ color: "var(--dark-text-secondary)" }}>
                 What We Do
               </h4>
-              <Link to="/work" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Services & Research</Link>
               <Link to="/consultancy" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Consultancy</Link>
+              <Link to="/work" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Research</Link>
             </div>
             <div className="flex flex-col gap-1 min-w-[110px]">
               <h4 className="text-[0.68rem] font-semibold tracking-wider uppercase mb-2" style={{ color: "var(--dark-text-secondary)" }}>
@@ -60,8 +60,7 @@ export default function Footer() {
           <span className="text-[0.7rem]" style={{ color: "var(--dark-text-muted)" }}>
             &copy; 2026 Solid Elf Security and Data Research. All rights reserved.
           </span>
-          <div className="flex flex-wrap gap-4">
-            <a href="/photography.html" className="text-[0.7rem] no-underline hover:underline" style={{ color: "var(--dark-text-muted)" }}>Photography</a>
+          <div className="flex gap-4">
             <Link to="/policies" className="text-[0.7rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Privacy Policy</Link>
             <Link to="/policies" className="text-[0.7rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Terms</Link>
             <Link to="/policies" className="text-[0.7rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Data Protection</Link>

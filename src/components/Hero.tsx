@@ -9,10 +9,17 @@ interface HeroProps {
   actions?: { label: string; to: string; variant?: "primary" | "outline" | "ghost" }[];
 }
 const covers: Record<string, string> = {
+  "about": "about",
+  "mission": "mission",
+  "team": "team",
   "work": "work",
   "consultancy": "consultancy-relevant",
   "datasets": "datasets",
   "reports": "reports",
+  "opportunities": "opportunities",
+  "apply": "apply",
+  "contact": "contact",
+  "partnerships": "partnerships",
   "policies": "policies",
   "research": "research-header",
   "blog": "blog-header",
@@ -43,7 +50,7 @@ export default function Hero({ tag, title, subtitle, image, actions }: HeroProps
   const cover = image || (topic ? `/images/editorial/${topic}.webp` : undefined);
   const credit = cover ? photoCredits[cover] : undefined;
   return <header className={`page-hero ${cover ? "page-hero-photo" : "page-hero-text"}`}>
-    {cover && <><img className="page-hero-image" src={cover} alt={credit?.alt || ""} fetchPriority="high" style={{ objectPosition: credit?.position || "center" }} /><div className="page-hero-shade" /></>}
+    {cover && <><img className="page-hero-image" src={cover} alt={credit?.alt || ""} fetchPriority="high" /><div className="page-hero-shade" /></>}
     <div className="page-hero-content">
       <Link to="/" className="text-xs no-underline inline-block mb-7" style={{ color: "var(--dark-text-secondary)" }}>Solid Elf <span aria-hidden="true"> / </span> {tag || "Explore"}</Link>
       {tag && <p className="font-mono text-xs uppercase tracking-[0.16em] mb-4" style={{ color: "var(--orange)" }}>{tag}</p>}
@@ -51,6 +58,5 @@ export default function Hero({ tag, title, subtitle, image, actions }: HeroProps
       <p className="max-w-[660px] text-base leading-relaxed" style={{ color: "var(--dark-text-secondary)" }}>{subtitle}</p>
       {actions && <div className="flex flex-wrap gap-3 mt-7">{actions.map(a => <Link key={a.label} to={a.to} className="inline-flex rounded-lg border px-5 py-3 text-sm font-semibold no-underline" style={{ borderColor: "var(--orange)", background: a.variant ? "transparent" : "var(--orange)", color: a.variant ? "var(--dark-text)" : "#211711" }}>{a.label}</Link>)}</div>}
     </div>
-    {credit && <a className="photo-credit" href={credit.url} target="_blank" rel="noreferrer">Editorial stock · {credit.author}</a>}
   </header>;
 }

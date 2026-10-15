@@ -6,10 +6,10 @@ import type { Practice } from "@/data/practices";
 
 export default function PracticeDetail({ practice: p, consultancy = false }: { practice: Practice; consultancy?: boolean }) {
  const base = consultancy ? "/consultancy" : "/work";
- const label = consultancy ? "Consultancy" : "Services & Research";
+ const label = consultancy ? "Consultancy" : "Research";
  const jump = (id:string) => document.getElementById(id)?.scrollIntoView({behavior:"smooth",block:"start"});
  return <>
-  <Hero tag={label} title={p.title} subtitle={p.tagline} image={p.image} actions={[{label:"Discuss this service",to:`/contact?service=${encodeURIComponent(p.title)}`},{label:`All ${consultancy ? "consultancy" : "services"}`,to:base,variant:"outline"}]} />
+  <Hero tag={label} title={p.title} subtitle={p.tagline} image={p.image} actions={[{label:"Discuss this service",to:`/contact?service=${encodeURIComponent(p.title)}`},{label:`All ${consultancy ? "consultancy" : "research areas"}`,to:base,variant:"outline"}]} />
   <nav className="detail-jump" aria-label="On this page"><div><Link to={base}>← {label}</Link>{[["overview","Overview"],["capabilities","Capabilities"],["deliverables","Deliverables"],["approach","Our approach"],["related","Explore further"]].map(([id,name])=><button type="button" key={id} onClick={()=>jump(id)}>{name}</button>)}</div></nav>
   <Section><div className="detail-layout">
     <div className="detail-main">
