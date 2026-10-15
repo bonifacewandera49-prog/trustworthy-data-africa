@@ -3,8 +3,16 @@ import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 import { brokeredPreviewStorage } from './previewAuthStorage';
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://unconfigured.invalid';
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || "unconfigured-public-preview";
+// Public pages must render while a new backend is being configured.
+const configuredUrl = (import.meta.env.VITE_SUPABASE_URL || '').trim();
+const configuredKey = (import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || '').trim();
+function isHttpUrl(value: string): boolean {
+  try { return ['https:', 'http:'].includes(new URL(value).protocol); }
+  catch { return false; }
+}
+export const isSupabaseConfigured = isHttpUrl(configuredUrl) && !!configuredKey && !configuredKey.startsWith('sb_secret_');
+const SUPABASE_URL = isSupabaseConfigured ? configuredUrl : 'https://unconfigured.invalid';
+const SUPABASE_PUBLISHABLE_KEY = isSupabaseConfigured ? configuredKey : 'unconfigured-public-preview';
 
 
 function isNewSupabaseApiKey(value: string): boolean {
@@ -13,6 +21,11 @@ function isNewSupabaseApiKey(value: string): boolean {
 
 function createSupabaseFetch(supabaseKey: string): typeof fetch {
   return (input, init) => {
+    if (!isSupabaseConfigured) {
+      return Promise.resolve(new Response(JSON.stringify({ message: 'Supabase is not configured yet.' }), {
+        status: 503, headers: { 'Content-Type': 'application/json' },
+      }));
+    }
     const headers = new Headers(
       typeof Request !== 'undefined' && input instanceof Request ? input.headers : undefined,
     );

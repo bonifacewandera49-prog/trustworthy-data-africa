@@ -92,6 +92,7 @@ export default function EventDetail() {
           </div>
         </div>
       </Section>
+      <Section><div className="related-grid"><Link className="related-card" to="/apply"><span>Community</span><h3>Join Our Community</h3></Link><Link className="related-card" to="/consultancy/custom-training-programmes"><span>For your team</span><h3>Explore tailored training</h3></Link><Link className="related-card" to="/blog"><span>Keep learning</span><h3>Read practical guides</h3></Link><Link className="related-card" to="/events"><span>Programme</span><h3>View all events</h3></Link></div></Section>
     </>
   );
 }

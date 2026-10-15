@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
@@ -5,6 +6,8 @@ import Section from "@/components/Section";
 const inputCls = "w-full p-3 rounded-lg text-[0.86rem] outline-none transition-colors";
 
 export default function Contact() {
+ const [params] = useSearchParams();
+ const service = params.get("service") || "";
  const [submitted, setSubmitted] = useState(false);
 
  return (
@@ -29,11 +32,11 @@ export default function Contact() {
  <p style={{ color: "var(--dark-text-secondary)" }}>Your email draft has been opened. Send it from your email application, or contact info@solidelf.org directly.</p>
  </div>
  ) : (
- <form className="space-y-2.5" onSubmit={(e) => { e.preventDefault(); const data = new FormData(e.currentTarget); window.location.href = `mailto:info@solidelf.org?subject=${encodeURIComponent("Website enquiry from " + data.get("name"))}&body=${encodeURIComponent(`Name: ${data.get("name")}\nEmail: ${data.get("email")}\nOrganisation: ${data.get("organisation")}\n\n${data.get("message")}`)}`; setSubmitted(true); }}>
+ <form className="space-y-2.5" onSubmit={(e) => { e.preventDefault(); const data = new FormData(e.currentTarget); window.location.href = `mailto:info@solidelf.org?subject=${encodeURIComponent((service ? service + " — " : "Website enquiry from ") + data.get("name"))}&body=${encodeURIComponent(`Name: ${data.get("name")}\nEmail: ${data.get("email")}\nOrganisation: ${data.get("organisation")}\n\n${data.get("message")}`)}`; setSubmitted(true); }}>
  <input name="name" aria-label="Your name" placeholder="Your name" required className={inputCls} style={{ background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" }} />
  <input name="email" aria-label="Email address" placeholder="Email address" required type="email" className={inputCls} style={{ background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" }} />
  <input name="organisation" aria-label="Organisation" placeholder="Organisation (optional)" className={inputCls} style={{ background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" }} />
- <textarea name="message" aria-label="Your message" placeholder="Your message" required rows={5} className={`${inputCls} resize-none`} style={{ background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" }} />
+ <textarea defaultValue={service ? `I would like to discuss ${service}.\n\n` : ""} name="message" aria-label="Your message" placeholder="Your message" required rows={5} className={`${inputCls} resize-none`} style={{ background: "hsl(var(--card))", border: "1px solid var(--dark-hairline)", color: "var(--dark-text)" }} />
  <button type="submit" className="rv py-2.5 px-6 rounded-lg font-semibold text-[0.86rem] border-none cursor-pointer transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
  onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")}
  onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>

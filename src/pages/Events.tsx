@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
 import type { EventRow } from "@/lib/events";
-import { fallbackEvents } from "@/data/events";
+import { fallbackEvents, mergeEvents } from "@/data/events";
 
 const locationIcon = (type: string) => {
   if (type === "online") return <Monitor className="w-3.5 h-3.5" />;
@@ -30,7 +30,7 @@ export default function Events() {
       .order("start_date", { ascending: true })
       .then(({ data }) => {
         const live = ((data as EventRow[]) || []).map(event => ({ ...event, cover_image: editorialImage(event.cover_image) }));
-        setEvents(live.length ? live : fallbackEvents);
+        setEvents(mergeEvents(live));
         setLoading(false);
       });
   }, []);

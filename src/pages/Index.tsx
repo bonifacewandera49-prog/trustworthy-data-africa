@@ -1,3 +1,4 @@
+import { photoCredits } from "@/data/photo-credits";
 import { editorialImage } from "@/lib/editorial-images";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -22,7 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselDots } from "@/components/ui/carousel";
 import { supabase } from "@/integrations/supabase/client";
 import type { EventRow } from "@/lib/events";
-import { fallbackEvents } from "@/data/events";
+import { fallbackEvents, mergeEvents } from "@/data/events";
 
 /* ═══════════════════════════════════════════
    HERO: full-bleed image, big two-line headline, CTA
@@ -87,13 +88,13 @@ const solutionCards = [
   {
     title: "Secure Data Collection",
     desc: "We design collection protocols and train field teams so data stays trustworthy from the very first entry point.",
-    img: "/images/editorial/activity-collection.webp",
+    img: "/images/editorial/collection-real.webp",
     to: "/work/data-collection-translation-integrity",
   },
   {
     title: "Cybersecurity & Threat Intel",
-    desc: "We track real-world threat patterns and build detection tools that catch breaches before they spread.",
-    img: "/images/editorial/activity-security.webp",
+    desc: "We assess cyber risks, investigate threat patterns and help teams improve detection, response and digital safety.",
+    img: "/images/editorial/cyber-real.webp",
     to: "/work/cybersecurity-threat-intelligence",
   },
   {
@@ -103,10 +104,10 @@ const solutionCards = [
     to: "/work/privacy-engineering-data-protection",
   },
   {
-    title: "AI, ML & Quantum Research",
-    desc: "We build fairness-audited models and explore quantum-classical hybrid approaches to machine learning.",
-    img: "/images/editorial/activity-ai.webp",
-    to: "/work/ai-machine-learning-fairness",
+    title: "Data Analytics & AI",
+    desc: "We turn fragmented data into reliable analysis, clear dashboards and responsible models that support better decisions.",
+    img: "/images/editorial/analytics-practice.webp",
+    to: "/work/data-analytics-insights",
   },
 ];
 
@@ -138,7 +139,7 @@ function TrustedSolutions() {
             >
               <img
                 src={c.img}
-                alt=""
+                alt={photoCredits[c.img]?.alt || ""}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div
@@ -148,6 +149,7 @@ function TrustedSolutions() {
                     "linear-gradient(180deg, rgba(25,20,16,0.05) 0%, rgba(25,20,16,0.55) 55%, rgba(25,20,16,0.92) 100%)",
                 }}
               />
+              {photoCredits[c.img] && <span className="card-photo-credit">Stock photo · {photoCredits[c.img].author}</span>}
               <div className="relative z-[1]">
                 <h3 className="text-[1.05rem] font-semibold mb-1.5" style={{ color: "var(--dark-text)" }}>
                   {c.title}
@@ -193,13 +195,7 @@ const worldCards = [
     img: "/images/editorial/health.webp",
     to: "/sectors?sector=health",
   },
-  {
-    icon: Landmark,
-    title: "Finance",
-    desc: "Adversarial testing, fraud models, and fairness auditing grounded in local, real-world threat intelligence.",
-    img: "/images/editorial/finance.webp",
-    to: "/sectors?sector=finance",
-  },
+
   {
     icon: Sprout,
     title: "Agriculture",
@@ -227,6 +223,13 @@ const worldCards = [
     desc: "Enabling ethical data collection, privacy-preserving analysis, and secure collaboration without exposing participants.",
     img: "/images/editorial/research.webp",
     to: "/sectors?sector=research",
+  },
+  {
+    icon: Landmark,
+    title: "Finance",
+    desc: "Adversarial testing, fraud models, and fairness auditing grounded in local, real-world threat intelligence.",
+    img: "/images/editorial/finance.webp",
+    to: "/sectors?sector=finance",
   },
 ];
 
@@ -388,7 +391,7 @@ function UpcomingEvents() {
       .limit(3)
       .then(({ data }) => {
         const live = ((data as EventRow[]) || []).map(event => ({ ...event, cover_image: editorialImage(event.cover_image) }));
-        setEvents(live.length ? live : fallbackEvents.slice(0, 3));
+        setEvents(mergeEvents(live).slice(0, 3));
         setLoading(false);
       });
   }, []);
@@ -472,7 +475,7 @@ function UpcomingEvents() {
    LATEST STORIES: big card + two smaller
    ═══════════════════════════════════════════ */
 function LatestStories() {
-  const posts = [...blogPosts].sort((a, b) => b.published_at.localeCompare(a.published_at)).slice(0, 3);
+  const posts = [...blogPosts].sort((a, b) => b.published_at.localeCompare(a.published_at)).slice(0, 4);
   const [main, ...rest] = posts;
   const dateFmt = (d: string) => new Date(d).toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" });
 
@@ -552,30 +555,16 @@ function LatestStories() {
    CAREERS BANNER
    ═══════════════════════════════════════════ */
 function CareersBanner() {
-  return (
-    <section className="px-[clamp(1.5rem,4vw,4rem)] py-16 md:py-20" style={{ background: "var(--dark-base)" }}>
-      <div className="max-w-[1240px] mx-auto">
-        <div className="relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-[400px]">
-          <img src="/images/editorial/cta.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "rgba(25,20,16,0.45)" }} />
-          <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 max-w-[380px] rounded-2xl p-8 md:p-10 shadow-2xl border" style={{ background: "var(--dark-surface)", borderColor: "var(--dark-hairline)" }}>
-            <h2 className="font-normal mb-6" style={{ fontSize: "clamp(1.2rem, 2vw, 1.5rem)", lineHeight: 1.3, color: "var(--dark-text)" }}>
-              Our research owes everything to its talents
-            </h2>
-            <Link
-              to="/opportunities"
-              className="inline-flex items-center px-7 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border"
-              style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
-            >
-              Find out about opportunities
-            </Link>
-          </div>
-        </div>
+  return <section className="px-[clamp(1.5rem,4vw,4rem)] py-16 md:py-20" style={{ background:"var(--dark-base)" }}>
+    <div className="community-art max-w-[1240px] mx-auto rounded-2xl p-8 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-8">
+      <div className="max-w-[650px]">
+        <p className="font-mono text-xs uppercase tracking-widest mb-4" style={{color:"var(--orange)"}}>Learn. Contribute. Connect.</p>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-4" style={{color:"var(--dark-text)"}}>Better questions. Shared knowledge. Safer systems.</h2>
+        <p className="text-sm leading-relaxed" style={{color:"var(--dark-text-secondary)"}}>Explore ideas in cybersecurity, digital safety and data research with our community.</p>
       </div>
-    </section>
-  );
+      <Link to="/apply" className="inline-flex items-center justify-center gap-3 shrink-0 rounded-lg px-6 py-3 text-sm font-semibold no-underline" style={{background:"var(--orange)",color:"#211711"}}>Join Our Community <ArrowRight className="w-4 h-4" /></Link>
+    </div>
+  </section>;
 }
 
 /* ═══════════════════════════════════════════

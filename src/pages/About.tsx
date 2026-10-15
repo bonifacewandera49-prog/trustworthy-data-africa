@@ -17,10 +17,19 @@ export default function About() {
     <>
       <Hero
         tag="About Solid Elf"
-        title="A security and data research firm built for complex systems."
-        subtitle="Solid Elf combines applied research, security engineering, data practice, and organisational capacity building. We help teams understand risk, strengthen critical systems, govern sensitive information, and make better decisions from trustworthy evidence."
+        title="Security for systems. Safety for people. Insight from data."
+        subtitle="Solid Elf is a Security and Data Research Firm. We connect cybersecurity, digital safety, privacy engineering and data analytics to help organisations protect critical systems, reduce harm and make sound decisions from trustworthy evidence."
       />
 
+      <Section>
+        <p className="detail-eyebrow">Our focus</p><h2 className="text-3xl font-semibold mb-8">Protect what matters. Understand what comes next.</h2>
+        <div className="related-grid">
+          <Link className="related-card" to="/consultancy/security-assessment-penetration-testing"><span>Cybersecurity</span><h3>Find weaknesses and strengthen systems</h3><p className="text-sm leading-7">Assess applications, identities and integrations, then prioritise practical remediation.</p></Link>
+          <Link className="related-card" to="/consultancy/cybersecurity-digital-safety"><span>Security & safety</span><h3>Support safer digital decisions</h3><p className="text-sm leading-7">Connect account protection, staff awareness, incident readiness and responsible information handling.</p></Link>
+          <Link className="related-card" to="/consultancy/data-analytics-business-intelligence"><span>Data analytics</span><h3>Turn evidence into usable insight</h3><p className="text-sm leading-7">Bring data preparation, analysis and reporting together around decisions that matter.</p></Link>
+          <Link className="related-card" to="/consultancy/privacy-engineering-compliance"><span>Privacy</span><h3>Build protection into the workflow</h3><p className="text-sm leading-7">Minimise unnecessary exposure and design proportionate controls throughout the data lifecycle.</p></Link>
+        </div>
+      </Section>
       <Section>
         <SplitSection eyebrow="What We Do">
           <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>
@@ -82,7 +91,7 @@ export default function About() {
 ["Gather and assess evidence", "Review the relevant architecture, information flows, data, and working practices. Select research and testing methods that answer the agreed questions."],
 ["Turn findings into action", "Explain the evidence and its limitations. Prioritise the changes, assign responsibilities, and identify the resources needed to carry them out."],
 ["Support implementation", "Provide the documentation and handover needed to use the findings. Where agreed, support testing, training, and follow-up review."]
-].map(([title,body],i)=><li key={title} className="flex gap-4"><span className="font-mono text-sm pt-1" style={{color:"var(--orange)"}}>0{i+1}</span><div><h3 className="font-semibold mb-1" style={{color:"var(--dark-text)"}}>{title}</h3><p>{body}</p></div></li>)}</ol></SplitSection></Section>
+].map(([title,body])=><li key={title} className="flex gap-4"><div><h3 className="font-semibold mb-1" style={{color:"var(--dark-text)"}}>{title}</h3><p>{body}</p></div></li>)}</ol></SplitSection></Section>
 
       <Section narrow className="text-center">
         <p className="rv" style={{ fontSize: "clamp(1.1rem, 2.2vw, 1.35rem)", lineHeight: "1.4", color: "var(--dark-text-secondary)" }}>

@@ -10,7 +10,7 @@ const areas = activityAreas;
 export default function Work() {
   return (
     <>
-      <Hero tag="Research Areas" title="From first collection to final decision." subtitle="These are the areas we actively research, publish, and build tools in. It's where our expertise comes from. Looking to hire us? See our consultancy services." />
+      <Hero tag="Services & Research" title="Safer systems. More useful data." subtitle="Explore our work in cybersecurity, digital safety, data collection, analytics, privacy and responsible technology. Each area connects practical expertise with a clear route to consultancy." actions={[{label:"Explore consultancy",to:"/consultancy"}]} />
       <Section>
         <SplitSection eyebrow="Research Areas">
           <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>The Full Data Lifecycle</h2>
@@ -25,19 +25,18 @@ export default function Work() {
       <Section>
         <div className="mb-8">
           <h2 className="rv text-[1.75rem] md:text-[2rem] font-bold tracking-tight mb-2" style={{ color: "var(--dark-text)" }}>
-            Our Research and Practice Areas
+            Our Services & Research Areas
           </h2>
           <div className="rv w-16 h-1 rounded-full" style={{ background: "var(--orange)" }} />
         </div>
         <div className="practice-grid">
-          {areas.map((a, i) => (
+          {areas.map((a) => (
             <Link
               to={`/work/${a.slug}`}
               key={a.slug}
               className="rv practice-card flex gap-5 no-underline group"
               style={{ borderColor: "var(--dark-hairline)" }}
             >
-              <span className="font-mono text-[1.25rem] md:text-[1.5rem] font-bold min-w-[48px] pt-0.5" style={{ color: "var(--orange)" }}>{String(i + 1).padStart(2, "0")}</span>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
                   <h3 className="text-[0.95rem] font-semibold" style={{ color: "var(--dark-text)" }}>{a.title}</h3>

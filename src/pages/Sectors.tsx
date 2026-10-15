@@ -5,18 +5,18 @@ import SplitSection from "@/components/SplitSection";
 
 const sectors = [
  { name: "Health", desc: "Patient data is among the most sensitive information any organisation holds. Health data is collected from fully digital hospital systems to paper records in rural clinics.", points: ["Securing patient data across its complete lifecycle", "Designing collection protocols for low-resource environments", "Auditing AI diagnostics for bias and reliability", "Privacy frameworks that protect individuals while enabling research", "Cybersecurity training for frontline health workers"] },
- { name: "Finance", desc: "Financial services depend on trusted transactions, resilient digital channels, and responsible use of customer information. We consider payments, lending, fraud monitoring, and access controls together.", points: ["Adversarial testing of financial data infrastructure", "Privacy-preserving transaction analysis", "Fraud models grounded in local threat intelligence", "Security frameworks for formal and informal financial activity", "Fairness auditing of automated credit scoring"] },
  { name: "Agriculture", desc: "Agriculture connects field observations, sensors, weather, markets, and supply chains. Reliable decisions depend on the quality of that evidence and on clear rules for collecting and sharing it.", points: ["Secure, integrity-preserving data collection in field conditions", "Synthetic datasets modelling smallholder farming patterns", "Structuring and analysing existing agricultural data", "Governance frameworks for responsible cross-sector data sharing"] },
  { name: "Education", desc: "Student data carries long-term sensitivity. Educational institutions increasingly use digital platforms.", points: ["Data governance frameworks for student information systems", "Privacy compliance under applicable legislation", "Security testing of digital learning platforms", "Fairness auditing of AI in educational decision-making"] },
  { name: "Government", desc: "Government systems hold the most consequential data in any country. Digitisation of public services is accelerating.", points: ["Sovereign data architecture for national datasets", "Threat resilience for critical infrastructure", "Privacy-by-design for citizen-facing digital services", "Accountability frameworks for automated public decisions"] },
  { name: "Research & NGOs", desc: "Organisations conducting research and delivering humanitarian programmes collect deeply sensitive data.", points: ["Ethical data collection for sensitive population research", "Privacy-preserving analysis protecting participant identities", "Secure data sharing for multi-organisation collaboration", "Synthetic datasets enabling research without exposing participants"] },
+ { name: "Finance", desc: "Financial services depend on trusted transactions, resilient digital channels, and responsible use of customer information. We consider payments, lending, fraud monitoring, and access controls together.", points: ["Adversarial testing of financial data infrastructure", "Privacy-preserving transaction analysis", "Fraud models grounded in local threat intelligence", "Security frameworks for formal and informal financial activity", "Fairness auditing of automated credit scoring"] },
 ];
 
 export default function Sectors() {
  const [params, setParams] = useSearchParams();
  const active = Math.max(0, sectors.findIndex(x => x.name.toLowerCase().split(" ")[0] === params.get("sector")));
  const setActive = (i: number) => setParams({ sector: sectors[i].name.toLowerCase().split(" ")[0] });
- const images = ["health", "finance", "agriculture", "education", "government", "research"];
+ const images = ["health", "agriculture", "education", "government", "research", "finance"];
  const s = sectors[active];
 
  return (
