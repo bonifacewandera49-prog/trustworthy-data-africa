@@ -106,7 +106,7 @@ const solutionCards = [
   {
     title: "Data Analytics & AI",
     desc: "We turn fragmented data into reliable analysis, clear dashboards and responsible models that support better decisions.",
-    img: "/images/editorial/analytics-practice.webp",
+    img: "/images/editorial/activity-ai.webp",
     to: "/work/data-analytics-insights",
   },
 ];
@@ -149,7 +149,6 @@ function TrustedSolutions() {
                     "linear-gradient(180deg, rgba(25,20,16,0.05) 0%, rgba(25,20,16,0.55) 55%, rgba(25,20,16,0.92) 100%)",
                 }}
               />
-              {photoCredits[c.img] && <span className="card-photo-credit">Stock photo · {photoCredits[c.img].author}</span>}
               <div className="relative z-[1]">
                 <h3 className="text-[1.05rem] font-semibold mb-1.5" style={{ color: "var(--dark-text)" }}>
                   {c.title}
@@ -555,16 +554,30 @@ function LatestStories() {
    CAREERS BANNER
    ═══════════════════════════════════════════ */
 function CareersBanner() {
-  return <section className="px-[clamp(1.5rem,4vw,4rem)] py-16 md:py-20" style={{ background:"var(--dark-base)" }}>
-    <div className="community-art max-w-[1240px] mx-auto rounded-2xl p-8 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-8">
-      <div className="max-w-[650px]">
-        <p className="font-mono text-xs uppercase tracking-widest mb-4" style={{color:"var(--orange)"}}>Learn. Contribute. Connect.</p>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-4" style={{color:"var(--dark-text)"}}>Better questions. Shared knowledge. Safer systems.</h2>
-        <p className="text-sm leading-relaxed" style={{color:"var(--dark-text-secondary)"}}>Explore ideas in cybersecurity, digital safety and data research with our community.</p>
+  return (
+    <section className="px-[clamp(1.5rem,4vw,4rem)] py-16 md:py-20" style={{ background: "var(--dark-base)" }}>
+      <div className="max-w-[1240px] mx-auto">
+        <div className="relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-[400px]">
+          <img src="/images/editorial/cta.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "rgba(25,20,16,0.45)" }} />
+          <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 max-w-[380px] rounded-2xl p-8 md:p-10 shadow-2xl border" style={{ background: "var(--dark-surface)", borderColor: "var(--dark-hairline)" }}>
+            <h2 className="font-normal mb-6" style={{ fontSize: "clamp(1.2rem, 2vw, 1.5rem)", lineHeight: 1.3, color: "var(--dark-text)" }}>
+              Our research owes everything to its talents
+            </h2>
+            <Link
+              to="/opportunities"
+              className="inline-flex items-center px-7 py-2.5 rounded-lg text-[0.85rem] font-semibold no-underline transition-all border"
+              style={{ borderColor: "var(--orange)", color: "var(--orange)" }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "var(--orange)"; e.currentTarget.style.color = "#fff"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--orange)"; }}
+            >
+              Find out about opportunities
+            </Link>
+          </div>
+        </div>
       </div>
-      <Link to="/apply" className="inline-flex items-center justify-center gap-3 shrink-0 rounded-lg px-6 py-3 text-sm font-semibold no-underline" style={{background:"var(--orange)",color:"#211711"}}>Join Our Community <ArrowRight className="w-4 h-4" /></Link>
-    </div>
-  </section>;
+    </section>
+  );
 }
 
 /* ═══════════════════════════════════════════

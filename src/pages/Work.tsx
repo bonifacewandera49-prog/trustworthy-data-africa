@@ -10,7 +10,7 @@ const areas = activityAreas;
 export default function Work() {
   return (
     <>
-      <Hero tag="Services & Research" title="Safer systems. More useful data." subtitle="Explore our work in cybersecurity, digital safety, data collection, analytics, privacy and responsible technology. Each area connects practical expertise with a clear route to consultancy." actions={[{label:"Explore consultancy",to:"/consultancy"}]} />
+      <Hero tag="Research" title="Safer systems. More useful data." subtitle="Explore our work in cybersecurity, digital safety, data collection, analytics, privacy and responsible technology. Each area connects practical expertise with a clear route to consultancy." actions={[{label:"Explore consultancy",to:"/consultancy"}]} />
       <Section>
         <SplitSection eyebrow="Research Areas">
           <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>The Full Data Lifecycle</h2>
@@ -25,7 +25,7 @@ export default function Work() {
       <Section>
         <div className="mb-8">
           <h2 className="rv text-[1.75rem] md:text-[2rem] font-bold tracking-tight mb-2" style={{ color: "var(--dark-text)" }}>
-            Our Services & Research Areas
+            Our Research Areas
           </h2>
           <div className="rv w-16 h-1 rounded-full" style={{ background: "var(--orange)" }} />
         </div>
@@ -56,7 +56,7 @@ export default function Work() {
           <Link to="/research" className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
-            View our research
+            View research publications
           </Link>
           <Link to="/consultancy" className="inline-block border px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-all" style={{ background: "transparent", borderColor: "var(--dark-hairline)", color: "var(--dark-text-secondary)" }}
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--orange)"; e.currentTarget.style.color = "var(--dark-text)"; }}
