@@ -27,3 +27,13 @@ Added netlify.toml (npm run build, dist, Node 22), .nvmrc, .gitignore and .env.e
 - Logo SVG keeps supplied artwork geometry, removes white edge halos and uses legible orange tones. Header/footer screenshots inspected.
 - Production build passed. Targeted browser checks passed at 320, 375 and 1440 pixels, including no horizontal overflow, menu, article count, sector order, legacy redirects, detail jump navigation, contextual enquiries, events and community page. No runtime errors in that check.
 - No live Netlify deployment or Supabase provisioning performed.
+
+
+## Compact logo correction
+
+Header logo reduced to 244px desktop/224px mobile, footer to 254px/244px. Supplied symbol and Solid Elf wordmark retained; descriptor rendered separately as regular-weight DM Sans (10–10.5px), without image masking. Header height reduced to 80px. Build passed; screenshots inspected and no overflow at 320, 375 and 1440px.
+
+
+## About and security capabilities
+
+Production build passed. Updated About and the consultancy index/detail pages were checked at 375 and 1440 pixels without horizontal overflow or runtime errors. Confirmed the About focus cards are absent and all five requested security services have dedicated content sections in the two existing security detail pages.

@@ -35,3 +35,8 @@ Configure your new Supabase project through the environment variables documented
 ## Visual restoration
 
 Restored the pre-stock-overhaul headers, sector imagery and card treatments, with warm dark shading. Removed on-page image-credit badges. What We Do now contains Consultancy and Research only; analytics and cybersecurity remain within those pages. Corrected logo proportions/colour, strengthened the orange accent and retained the expanded content and GitHub/Netlify configuration.
+
+
+## About and security services update
+
+Removed the About focus-card grid and converted principle cards into plain text. Repositioned the page around consultancy, security services, data expertise and research. Added detailed Incident Response, Endpoint Protection and IAM sections under Cybersecurity Strategy & Digital Safety; added Application Security Assessment and Security Hardening under Security Assessment & Penetration Testing. Updated related service summaries, outputs and cross-links. The menu and footer now say Consultancy and Services.
