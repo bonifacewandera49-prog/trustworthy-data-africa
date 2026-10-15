@@ -299,25 +299,16 @@
 .site-footer > div > div > div:first-child { width:350px; max-width:100%; min-width:0; }
 
 /* Compact supplied symbol/wordmark; live descriptor stays light and legible. */
-.brand-artwork { color:#c95d32; display:flex; align-items:center; gap:9px; width:244px; max-width:100%; flex-shrink:0; }
-.brand-mark { display:block; width:54px; height:54px; flex-shrink:0; }
-.brand-wording { display:flex; flex:1; min-width:0; flex-direction:column; gap:5px; }
-.brand-wordmark { display:block; width:100%; height:auto; aspect-ratio:960/220; }
-.brand-descriptor { display:block; font-family:'DM Sans',sans-serif; font-size:10.5px; line-height:1.35; font-weight:400; letter-spacing:0; white-space:nowrap; color:#50443c; }
-.site-footer .brand-artwork { width:254px; margin-bottom:20px; color:#ff702e; }
-.site-footer .brand-descriptor { color:#e0d8d1; font-weight:400; }
-.site-footer { --dark-text-muted:#bfb8b2; --dark-text-secondary:#f5f2ee; }
-@media(max-width:767px) { .brand-artwork { width:224px; gap:8px; } .brand-mark { width:48px; height:48px; } .brand-descriptor { font-size:10px; } .site-footer .brand-artwork { width:244px; } }
 /* Restore the warm dark shade that unifies the headers with the site. */
 .page-hero-shade { background:linear-gradient(90deg,rgba(33,23,17,.98),rgba(33,23,17,.88) 42%,rgba(33,23,17,.30)); }
 @media(max-width:640px) { .page-hero-shade { background:linear-gradient(90deg,rgba(33,23,17,.94),rgba(33,23,17,.76)); } }
 .detail-eyebrow { color:var(--orange); }
 
-/* Supplied artwork, intact proportions and texture; compact placement. */
-.brand-artwork { width:218px; display:block; mix-blend-mode:multiply; }
+/* Compact original artwork; footer backing matches the menu header. */
+.brand-artwork { width:176px; max-width:100%; flex-shrink:0; display:block; mix-blend-mode:multiply; }
 .brand-original { display:block; width:100%; height:auto; aspect-ratio:1496/504; }
-.site-footer .brand-artwork { width:228px; margin-bottom:18px; mix-blend-mode:normal; }
-.site-footer .brand-original { background:transparent; }
-@media(max-width:767px){.brand-artwork{width:194px}.site-footer .brand-artwork{width:218px}}
+.site-footer .brand-artwork { box-sizing:content-box; width:176px; padding:10px 12px; margin-bottom:18px; background:var(--nav-bg); border:1px solid var(--nav-hairline); border-radius:6px; mix-blend-mode:normal; }
+.site-footer .brand-original { background:transparent; mix-blend-mode:multiply; }
+@media(max-width:767px){.brand-artwork{width:164px}.site-footer .brand-artwork{width:164px}}
 .seo-breadcrumb { max-width:1240px;margin:0 auto;padding:18px clamp(1.5rem,4vw,4rem);font-size:12px;display:flex;gap:8px;flex-wrap:wrap; }
 .seo-breadcrumb a { color:var(--orange); }
