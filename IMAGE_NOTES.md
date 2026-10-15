@@ -1,63 +1,61 @@
-# Photography audit — 15 October 2026
+# Image provenance and assignments
 
-All 53 previously generated editorial assets were replaced (41) or removed (12). The editorial collection now contains 51 distinct real stock photographs: 41 replacements plus the ten retained genuine stock photographs. No generated editorial bitmap remains in public/images/editorial or the rebuilt dist.
+Only the five supplied team portraits represent Solid Elf people. They remain unchanged. All other photographic scenes are generic editorial illustrations, never representations of company premises or staff.
 
-The five supplied team portraits, supplied Solid Elf logo and partner marks remain unchanged. Stock photographs show illustrative subjects; they do not depict Solid Elf employees, premises, delivered training, clients or proprietary products. Seven informational headers and the homepage community banner now use CSS colour compositions instead of stock office/team pictures.
+## New cybersecurity covers
 
-Art direction uses restrained CSS saturation/contrast, image placement, readable gradients and a copper/charcoal palette. No people, equipment, backgrounds, screens or scenes have been invented, composited or generatively edited. Card/detail reuse within the same subject is intentional; distinct editorial files have unique image hashes.
+blog-recovery, blog-mfa, blog-api and blog-response were reimagined with the built-in image-generation tool using this downloaded Unsplash stock reference: https://images.unsplash.com/photo-1558494949-ef010cbdcc31 . Reference downloaded 14 October 2026. Unsplash licence permits modification and commercial use: https://unsplash.com/license . These outputs are AI-reimagined editorial images, not unmodified documentary stock photographs.
 
-## Sources
+## Other images
 
-Unsplash licence: https://unsplash.com/license . CDN source URLs are retained where photographer metadata was not established; no photographer names have been invented. Third-party products in photographs imply no endorsement.
+The remaining new illustrations were created with the built-in image-generation tool. The original nine editorial topic images from the previous revision remain where relevant. Images are compressed to local WebP files; no remote image dependency is required. Card thumbnails intentionally match their destination page. Unrelated page headers and all ten article covers have distinct assignments.
 
-- `/images/editorial/activity-ai.webp` — A real demonstration robot. Source: https://images.unsplash.com/photo-1485827404703-89b55fcc595e. Credit: Unsplash.
-- `/images/editorial/activity-explain.webp` — Hands pointing at information on a laptop. Source: https://images.unsplash.com/photo-1516321318423-f06f85e504b3. Credit: Unsplash.
-- `/images/editorial/activity-governance.webp` — Paper records being reviewed alongside laptops. Source: https://images.unsplash.com/photo-1454165804606-c3d57bc86b40. Credit: Unsplash.
-- `/images/editorial/activity-privacy.webp` — A password manager window on a real computer display. Source: https://unsplash.com/photos/a-rectangular-cellular-device--eiswENkF9c. Credit: Vova Kondriianenko.
-- `/images/editorial/activity-quantum.webp` — A photographed illuminated electronic circuit schematic. Source: https://images.unsplash.com/photo-1550751827-4bd374c3f58b. Credit: Unsplash.
-- `/images/editorial/activity-training.webp` — Students studying together with a laptop. Source: https://images.unsplash.com/photo-1523240795612-9a054b0db644. Credit: Unsplash.
-- `/images/editorial/agriculture.webp` — Young crops growing in soil. Source: https://images.unsplash.com/photo-1625246333195-78d9c38ad449. Credit: Unsplash.
-- `/images/editorial/ai-audit.webp` — A participant reviewing information on a laptop. Source: https://images.unsplash.com/photo-1553877522-43269d4ea984. Credit: Unsplash.
-- `/images/editorial/analytics-consultancy.webp` — Performance analytics displayed on a laptop. Source: https://unsplash.com/photos/JKUTrJ4vK00. Credit: Luke Chesser.
-- `/images/editorial/analytics-practice.webp` — Hands reviewing analytical charts on a laptop. Source: https://unsplash.com/photos/CielzQJR0SQ. Credit: Loui Kiær.
-- `/images/editorial/blog-api.webp` — Source code on desktop monitors. Source: https://images.unsplash.com/photo-1504639725590-34d0984388bd. Credit: Unsplash.
-- `/images/editorial/blog-governance.webp` — A person writing notes beside a laptop. Source: https://images.unsplash.com/photo-1434030216411-0b793f4b4173. Credit: Unsplash.
-- `/images/editorial/blog-header.webp` — A laptop beside a notebook. Source: https://images.unsplash.com/photo-1501504905252-473c47e087f8. Credit: Unsplash.
-- `/images/editorial/blog-mfa.webp` — A Google Titan hardware security key. Source: https://unsplash.com/photos/a-black-video-game-controller-9s9CIe4ovfw. Credit: Obi.
-- `/images/editorial/blog-recovery.webp` — An exposed hard disk drive used for data storage. Source: https://unsplash.com/photos/silver-and-black-hard-disk-drive-NZY3eCGZZEU. Credit: Glen Carrie.
-- `/images/editorial/blog-response.webp` — An overhead view of two people reviewing a laptop. Source: https://images.unsplash.com/photo-1516321497487-e288fb19713f. Credit: Unsplash.
-- `/images/editorial/canarydrop.webp` — A laptop displaying a software development environment. Source: https://images.unsplash.com/photo-1517694712202-14dd9538aa97. Credit: Unsplash.
-- `/images/editorial/collection-real.webp` — A farm worker using a tablet outdoors. Source: https://unsplash.com/photos/7ddaKmX7Tow. Credit: Land O’Lakes, Inc..
-- `/images/editorial/consultancy-relevant.webp` — An editorial stock photograph of a working discussion. Source: https://unsplash.com/photos/5QgIuuBxKwM. Credit: Headway.
-- `/images/editorial/cyber-real.webp` — A real USB hardware security key. Source: https://unsplash.com/photos/FO4CR0MnY_k. Credit: Andy Kennedy.
-- `/images/editorial/data.webp` — A data trend chart displayed on a computer screen. Source: https://images.unsplash.com/photo-1591696205602-2f950c417cb9. Credit: Unsplash.
-- `/images/editorial/datasets.webp` — Hands writing observations in a notebook. Source: https://images.unsplash.com/photo-1456324504439-367cee3b3c32. Credit: Unsplash.
-- `/images/editorial/education.webp` — Students in a classroom. Source: https://images.unsplash.com/photo-1509062522246-3755977927d7. Credit: Unsplash.
-- `/images/editorial/event-ai.webp` — A presentation projected at a conference. Source: https://images.unsplash.com/photo-1505373877841-8d25f7d46678. Credit: Unsplash.
-- `/images/editorial/event-analytics.webp` — Statistics displayed on a laptop. Source: https://unsplash.com/photos/hpjSkU2UYSU. Credit: Carlos Muza.
-- `/images/editorial/event-governance.webp` — A group discussion in a training setting. Source: https://images.unsplash.com/photo-1542744173-8e7e53415bb0. Credit: Unsplash.
-- `/images/editorial/event-recovery.webp` — Network equipment and cables. Source: https://images.unsplash.com/photo-1558494949-ef010cbdcc31. Credit: Unsplash.
-- `/images/editorial/event-safety.webp` — A person using a tablet. Source: https://unsplash.com/photos/qSdb6dLpduo. Credit: DaryaDarya LiveJournal.
-- `/images/editorial/event-threat.webp` — People working together around laptops. Source: https://images.unsplash.com/photo-1522071820081-009f0129c71c. Credit: Unsplash.
-- `/images/editorial/events-header.webp` — A microphone at a public speaking event. Source: https://images.unsplash.com/photo-1475721027785-f74eccf877e2. Credit: Unsplash.
-- `/images/editorial/field.webp` — Agricultural fields in natural evening light. Source: https://images.unsplash.com/photo-1500382017468-9049fed747ef. Credit: Unsplash.
-- `/images/editorial/finance.webp` — A person using a payment card beside a laptop. Source: https://images.unsplash.com/photo-1563013544-824ae1b704d3. Credit: Unsplash.
-- `/images/editorial/government.webp` — Buildings in an urban commercial district. Source: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab. Credit: Unsplash.
-- `/images/editorial/health.webp` — A healthcare professional using a mobile phone. Source: https://images.unsplash.com/photo-1576091160399-112ba8d25d1d. Credit: Unsplash.
-- `/images/editorial/home.webp` — Ethernet connections on real networking equipment. Source: https://images.unsplash.com/photo-1544197150-b99a580bb7a8. Credit: Unsplash.
-- `/images/editorial/phishing.webp` — A smartphone used alongside email on a laptop. Source: https://images.unsplash.com/photo-1563986768609-322da13575f3. Credit: Unsplash.
-- `/images/editorial/policies.webp` — Hands reviewing and signing a paper document. Source: https://images.unsplash.com/photo-1450101499163-c8848c66ca85. Credit: Unsplash.
-- `/images/editorial/qkabrine.webp` — A close-up of source code on a computer screen. Source: https://images.unsplash.com/photo-1461749280684-dccba630e2f6. Credit: Unsplash.
-- `/images/editorial/reports.webp` — A fountain pen beside handwritten notes. Source: https://images.unsplash.com/photo-1455390582262-044cdead277a. Credit: Unsplash.
-- `/images/editorial/research-header.webp` — Bookshelves in a research library. Source: https://images.unsplash.com/photo-1481627834876-b7833e8f5570. Credit: Unsplash.
-- `/images/editorial/research.webp` — Reference books in a library. Source: https://images.unsplash.com/photo-1507842217343-583bb7270b66. Credit: Unsplash.
-- `/images/editorial/reviews.webp` — Overhead view of laptops and notes during a working session. Source: https://images.unsplash.com/photo-1519389950473-47ba0277781c. Credit: Unsplash.
-- `/images/editorial/safety-consultancy.webp` — A smartphone displaying a security app. Source: https://unsplash.com/photos/ah-HeguOe9k. Credit: Dan Nelson.
-- `/images/editorial/security.webp` — Ethernet cables connected to network equipment. Source: https://unsplash.com/photos/ethernet-cables-connected-to-the-back-of-a-network-device-y4GHs9GEFdM. Credit: Manuel Luikenga.
-- `/images/editorial/service-ai.webp` — Time-series graphs on a computer display. Source: https://images.unsplash.com/photo-1518186285589-2f7649de83e0. Credit: Unsplash.
-- `/images/editorial/service-governance.webp` — Hands and notebooks during a working discussion. Source: https://images.unsplash.com/photo-1517048676732-d65bc937f952. Credit: Unsplash.
-- `/images/editorial/service-privacy.webp` — Hands typing on a laptop keyboard. Source: https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d. Credit: Unsplash.
-- `/images/editorial/service-security.webp` — Security-related code displayed on a computer screen. Source: https://unsplash.com/photos/a-computer-screen-with-a-bunch-of-code-on-it-ieic5Tq8YMk. Credit: Chris Ried.
-- `/images/editorial/service-tools.webp` — Software code on a laptop display. Source: https://images.unsplash.com/photo-1555066931-4365d14bab8c. Credit: Unsplash.
-- `/images/editorial/service-training.webp` — Participants discussing notes in a workshop. Source: https://images.unsplash.com/photo-1552664730-d307ca884978. Credit: Unsplash.
-- `/images/editorial/work.webp` — A close-up photograph of an electronic circuit board. Source: https://images.unsplash.com/photo-1518770660439-4636190af475. Credit: Unsplash.
+## Prompt subjects
+
+The common direction was realistic wide photography, simple composition, charcoal and restrained copper lighting, no people, offices, logos, readable text or holograms.
+
+- `public/images/editorial/about.webp`: a precision optical glass prism refracting a narrow warm light beam on a dark stone surface
+- `public/images/editorial/mission.webp`: a surveying compass beside a clean topographic contour map, macro photograph
+- `public/images/editorial/team.webp`: interwoven copper and charcoal cable strands, close-up material study symbolising complementary skills
+- `public/images/editorial/work.webp`: electronic measurement probes testing an unbranded circuit on a black work mat
+- `public/images/editorial/consultancy.webp`: a clean architectural technical drawing with brass ruler and pencil, top-down detail
+- `public/images/editorial/research-header.webp`: open scientific notebook with abstract hand drawn graphs, mechanical pencil and optical lens
+- `public/images/editorial/datasets.webp`: neatly aligned small archival data storage cartridges, unbranded, close-up
+- `public/images/editorial/reports.webp`: a stack of carefully bound blank technical reports with copper page tabs, dramatic side view
+- `public/images/editorial/blog-header.webp`: open blank editorial journal with fountain pen in warm window light
+- `public/images/editorial/events-header.webp`: close-up of a studio microphone and out of focus sound waveform on dark screen
+- `public/images/editorial/opportunities.webp`: a sharp graphite pencil on an unwritten ruled notebook with morning light
+- `public/images/editorial/apply.webp`: a kraft paper portfolio with a pen and plain index cards on black desk
+- `public/images/editorial/contact.webp`: an unbranded classic black telephone receiver coiled cord on dark background
+- `public/images/editorial/partnerships.webp`: two precision machined metal connectors being aligned, no hands, macro
+- `public/images/editorial/policies.webp`: sealed plain archival document envelope and brass paper clip, no lettering
+- `public/images/editorial/reviews.webp`: flowing real optical fibres with restrained copper and cool white pinpoint bokeh, very dark wide photo
+- `public/images/editorial/home.webp`: macro view of a silicon processor with subtle copper traces and dark natural reflections
+- `public/images/editorial/cta.webp`: single beam of sunlight across layered black stone and translucent glass, realistic material study
+- `public/images/editorial/blog-recovery.webp`: Reimagine the stock server photograph as a close-up tabletop still-life of two disconnected backup drives beside a single neatly coiled data cable; shallow depth of field, metallic textures inspired by the reference, composition entirely different.
+- `public/images/editorial/blog-mfa.webp`: Reimagine the stock server photograph as macro product-style editorial photograph of a small unbranded USB security key next to the USB-C port of a dark laptop; circuit details inspired by reference, no screens, no padlock symbols.
+- `public/images/editorial/blog-api.webp`: Reimagine the stock server photograph as a close-up realistic photograph of three differently coloured network patch cables plugged into distinct ethernet ports, isolated on dark background. Focus on physical boundaries and connections, no text.
+- `public/images/editorial/blog-response.webp`: Reimagine the stock server photograph as a documentary close-up of an unplugged network cable beside an unbranded digital recorder and incident-response notebook, no readable text. Equipment only, not a room.
+- `public/images/editorial/service-security.webp`: an unbranded ethernet diagnostic tester and two probes on dark slate
+- `public/images/editorial/service-privacy.webp`: a mechanical document shredder cutting blank sheets in close-up, no office visible
+- `public/images/editorial/service-governance.webp`: index cards organised into five copper tabbed groups in a slim file tray
+- `public/images/editorial/service-ai.webp`: a glass optical lens revealing fine patterns of an electronic circuit
+- `public/images/editorial/service-training.webp`: a closed charcoal notebook, orange pencil and a compact unbranded tablet
+- `public/images/editorial/service-tools.webp`: a precision screwdriver set next to an open unbranded embedded computer board
+- `public/images/editorial/activity-collection.webp`: rugged unbranded handheld field sensor on a detailed contour map
+- `public/images/editorial/activity-security.webp`: a network patch panel with carefully organised blue and copper cable loops
+- `public/images/editorial/activity-privacy.webp`: frosted glass panels partially concealing abstract printed data tables
+- `public/images/editorial/activity-ai.webp`: macro photograph of a microprocessor on black circuit board, green traces
+- `public/images/editorial/activity-quantum.webp`: a realistic optical laboratory beam splitter and tiny mirror assembly, only equipment close-up
+- `public/images/editorial/activity-explain.webp`: a clear glass magnifying lens over a printed line chart with no legible text
+- `public/images/editorial/activity-blockchain.webp`: three connected brushed metal chain links resting on graphite surface, tactile close-up
+- `public/images/editorial/activity-governance.webp`: an unbranded archival drawer with plain tabbed paper folders, close crop
+- `public/images/editorial/activity-training.webp`: a pair of empty dark notebooks, wooden pencil and blackboard corner with abstract geometry
+- `public/images/editorial/canarydrop.webp`: macro photograph of an unbranded tiny passive electronic sensor and copper signal wire
+- `public/images/editorial/qkabrine.webp`: close-up salt crystal geometric structure with copper highlights against a black backdrop
+- `public/images/editorial/phishing.webp`: unbranded laptop corner beside a sealed plain envelope and small USB key
+- `public/images/editorial/ai-audit.webp`: a precision balance with two clear glass cubes beside a circuit board, realistic tabletop
+- `public/images/editorial/event-threat.webp`: a tabletop threat modelling exercise made of blank amber and grey sticky notes linked by pencil arrows on dark paper, no writing
+- `public/images/editorial/event-governance.webp`: an open ring binder with plain lifecycle flowchart sheets and colored paper tabs, no text
+- `public/images/editorial/event-ai.webp`: a small unbranded single board computer beside a glass cube on a matte black surface
+- `public/images/editorial/blog-governance.webp`: four clearly separated stacks of data index cards with distinct copper, white, grey and black tabs, side angle
