@@ -9,7 +9,7 @@ import { consultancyPractices as services } from "@/data/practices";
 export default function Consultancy() {
   return (
     <>
-      <Hero tag="Consultancy" image="/images/editorial/consultancy-relevant.webp" title="Security, safety and data expertise. Put to work." subtitle="Cybersecurity assessments, digital safety, privacy engineering and data analytics. Practical consultancy to protect your organisation, strengthen resilience and turn evidence into better decisions." actions={[{label:"Discuss your project",to:"/contact"}]} />
+      <Hero tag="Consultancy and Services" image="/images/editorial/consultancy-relevant.webp" title="Security, safety and data expertise. Put to work." subtitle="Cybersecurity assessments, digital safety, privacy engineering and data analytics. Practical consultancy to protect your organisation, strengthen resilience and turn evidence into better decisions." actions={[{label:"Discuss your project",to:"/contact"}]} />
       <Section>
         <SplitSection eyebrow="Advisory">
           <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>How Consultancy Works</h2>

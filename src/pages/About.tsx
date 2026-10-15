@@ -22,25 +22,17 @@ export default function About() {
       />
 
       <Section>
-        <p className="detail-eyebrow">Our focus</p><h2 className="text-3xl font-semibold mb-8">Protect what matters. Understand what comes next.</h2>
-        <div className="related-grid">
-          <Link className="related-card" to="/consultancy/security-assessment-penetration-testing"><span>Cybersecurity</span><h3>Find weaknesses and strengthen systems</h3><p className="text-sm leading-7">Assess applications, identities and integrations, then prioritise practical remediation.</p></Link>
-          <Link className="related-card" to="/consultancy/cybersecurity-digital-safety"><span>Security & safety</span><h3>Support safer digital decisions</h3><p className="text-sm leading-7">Connect account protection, staff awareness, incident readiness and responsible information handling.</p></Link>
-          <Link className="related-card" to="/consultancy/data-analytics-business-intelligence"><span>Data analytics</span><h3>Turn evidence into usable insight</h3><p className="text-sm leading-7">Bring data preparation, analysis and reporting together around decisions that matter.</p></Link>
-          <Link className="related-card" to="/consultancy/privacy-engineering-compliance"><span>Privacy</span><h3>Build protection into the workflow</h3><p className="text-sm leading-7">Minimise unnecessary exposure and design proportionate controls throughout the data lifecycle.</p></Link>
-        </div>
-      </Section>
-      <Section>
         <SplitSection eyebrow="What We Do">
           <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>
-            Research that moves into practice
+            Practical security services, data expertise and research
           </h2>
           <p className="text-[0.93rem] leading-[1.85] mb-4" style={{ color: "var(--dark-text)" }}>
-            Our work begins with the system as it really operates: how information is collected, where it moves, who can access it, which decisions depend on it, and what can go wrong. We then combine technical assessment, research, data analysis, and practical implementation support to address the most important weaknesses.
+            We provide consultancy and practical services across cybersecurity, digital safety, data analytics, privacy and technology implementation. We help organisations assess risks, protect systems, strengthen day-to-day operations and make better use of their data. Applied research informs this work alongside technical experience and the needs of each organisation.
           </p>
           <p className="text-[0.93rem] leading-[1.85]" style={{ color: "var(--dark-text)" }}>
-            That may mean reviewing an organisation's security posture, designing a data governance framework, testing a digital service, developing a privacy-preserving workflow, analysing operational data, or building tools that make a recurring process safer and more reliable.
+            Our cybersecurity services include Incident Response (IR), Endpoint Protection, Identity and Access Management (IAM), Application Security Assessment and Security Hardening. We also deliver data analysis, governance frameworks, privacy engineering, secure tools and training, with implementation support agreed for each engagement.
           </p>
+          <p className="mt-6 text-sm"><Link to="/consultancy" className="underline underline-offset-4" style={{color:"var(--orange)"}}>Explore our consultancy and services →</Link></p>
         </SplitSection>
       </Section>
 
@@ -50,7 +42,7 @@ export default function About() {
             Clear questions, defensible methods, useful outputs
           </h2>
           <p className="text-[0.93rem] leading-[1.85] mb-4" style={{ color: "var(--dark-text)" }}>
-            We define the decision or risk that matters before choosing a method. Research plans, assessments, models, and technical controls are designed around the evidence needed to make that decision with confidence.
+            We define the decision or risk that matters before choosing a method. Service plans, assessments, models, and technical controls are designed around the evidence needed to make that decision with confidence.
           </p>
           <p className="text-[0.93rem] leading-[1.85]" style={{ color: "var(--dark-text)" }}>
             Deliverables are designed to be used: concise executive findings, technical documentation, implementation roadmaps, reusable datasets, training materials, prototypes, or production-ready tools depending on the engagement.
@@ -62,11 +54,11 @@ export default function About() {
         <h2 className="rv font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>
           What Guides Us
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="max-w-[800px] space-y-6">
           {principles.map((p) => (
-            <div key={p.title} className="rv p-6 rounded-lg border transition-all" style={{ background: "hsl(var(--card))", borderColor: "var(--dark-hairline)" }}>
-              <h3 className="text-[0.88rem] font-semibold mb-1.5" style={{ color: "var(--dark-text)" }}>{p.title}</h3>
-              <p className="text-[0.8rem] leading-relaxed" style={{ color: "var(--dark-text-muted)" }}>{p.description}</p>
+            <div key={p.title} className="rv">
+              <h3 className="text-base font-semibold mb-2" style={{color:"var(--dark-text)"}}>{p.title}</h3>
+              <p className="text-[0.93rem] leading-relaxed" style={{color:"var(--dark-text-secondary)"}}>{p.description}</p>
             </div>
           ))}
         </div>
@@ -75,10 +67,10 @@ export default function About() {
       <Section>
         <SplitSection eyebrow="Our Model">
           <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>
-            Security, data research, tools, and capability
+            Security services, data expertise, tools and capability
           </h2>
           <p className="text-[0.93rem] leading-[1.85] mb-4" style={{ color: "var(--dark-text)" }}>
-            Solid Elf operates across four connected areas: security advisory and testing, applied data research, practical tool development, and training. Treating these areas together helps us avoid recommendations that are technically sound but operationally unrealistic.
+            Solid Elf operates across four connected areas: cybersecurity services and implementation, data analytics and applied research, practical tool development, and training. Treating these areas together helps us avoid recommendations that are technically sound but operationally unrealistic.
           </p>
           <p className="text-[0.93rem] leading-[1.85]" style={{ color: "var(--dark-text)" }}>
             We work with organisations that need independent thinking and practical execution, from focused assessments to longer research and implementation programmes.
