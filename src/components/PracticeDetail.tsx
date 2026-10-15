@@ -6,7 +6,7 @@ import type { Practice } from "@/data/practices";
 
 export default function PracticeDetail({ practice: p, consultancy = false }: { practice: Practice; consultancy?: boolean }) {
  const base = consultancy ? "/consultancy" : "/work";
- const label = consultancy ? "Consultancy" : "Research";
+ const label = consultancy ? "Consultancy and Services" : "Research";
  const jump = (id:string) => document.getElementById(id)?.scrollIntoView({behavior:"smooth",block:"start"});
  return <>
   <Hero tag={label} title={p.title} subtitle={p.tagline} image={p.image} actions={[{label:"Discuss this service",to:`/contact?service=${encodeURIComponent(p.title)}`},{label:`All ${consultancy ? "consultancy" : "research areas"}`,to:base,variant:"outline"}]} />
@@ -14,6 +14,7 @@ export default function PracticeDetail({ practice: p, consultancy = false }: { p
   <Section><div className="detail-layout">
     <div className="detail-main">
       <section id="overview" className="detail-block"><p className="detail-eyebrow">Purpose & context</p><h2>{p.tagline}</h2><p className="detail-intro">{p.overview}</p><div className="fit-panel"><h3><Compass size={20}/> A good fit when</h3><ul>{p.fit.map(x=><li key={x}><Check size={16}/><span>{x}</span></li>)}</ul></div></section>
+      {p.serviceAreas && <section className="detail-block"><p className="detail-eyebrow">Services in this area</p><h2>Practical support for your security priorities.</h2><div className="space-y-8">{p.serviceAreas.map(area=><div key={area.title}><h3 className="text-xl font-semibold mb-3" style={{color:"var(--dark-text)"}}>{area.title}</h3><p>{area.body}</p></div>)}</div></section>}
       <section id="capabilities" className="detail-block"><p className="detail-eyebrow">What we cover</p><h2>Focused work. Useful evidence.</h2><div className="capability-list">{p.capabilities.map(x=><div key={x}><ShieldCheck size={20}/><p>{x}</p></div>)}</div></section>
       <section id="deliverables" className="detail-block deliverable-panel"><FileCheck2 size={28}/><p className="detail-eyebrow">What you take forward</p><h2>Outputs designed to be used.</h2><p>The final scope is agreed together. Depending on your needs, the engagement can include:</p><ul>{p.outputs.map(x=><li key={x}><Check size={18}/><span>{x}</span></li>)}</ul></section>
       <section id="approach" className="detail-block"><p className="detail-eyebrow">How we approach it</p><h2>From the question to a practical next step.</h2><div className="approach-track">{p.approach.map(x=><div key={x.title}><span className="approach-dot"/><h3>{x.title}</h3><p>{x.body}</p></div>)}</div></section>

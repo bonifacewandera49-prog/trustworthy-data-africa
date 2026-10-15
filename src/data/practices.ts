@@ -1,5 +1,6 @@
 export interface Practice {
  slug:string; title:string; tagline:string; overview:string; desc:string; image:string;
+ serviceAreas?:{title:string;body:string}[];
  fit:string[]; capabilities:string[]; outputs:string[]; approach:{title:string;body:string}[];
  scenario:string; related:{to:string;label:string}[]; article:string;
 }
@@ -476,8 +477,8 @@ export const consultancyPractices: Practice[] = [
     "slug": "security-assessment-penetration-testing",
     "title": "Security Assessment & Penetration Testing",
     "tagline": "Know your vulnerabilities before attackers do.",
-    "overview": "We conduct comprehensive security evaluations of data infrastructure, applications, and workflows. Our assessments combine automated scanning with manual adversarial testing to identify vulnerabilities that tools alone cannot find. Every engagement produces a clear, prioritised remediation roadmap.",
-    "desc": "Know your vulnerabilities before attackers do.",
+    "overview": "We assess applications, APIs, infrastructure and data workflows to identify exploitable weaknesses and insecure configurations. Our work combines authorised testing with practical Security Hardening: reducing exposed services, tightening permissions and verifying remediation. Scope, change approval and operational safeguards are agreed before testing or implementation.",
+    "desc": "Application Security Assessment, penetration testing and Security Hardening, with prioritised remediation and verification.",
     "image": "/images/editorial/service-security.webp",
     "fit": [
       "An application or integration is approaching launch.",
@@ -485,17 +486,19 @@ export const consultancyPractices: Practice[] = [
       "Security findings need independent prioritisation."
     ],
     "capabilities": [
-      "Conduct full infrastructure and application penetration tests",
-      "Perform adversarial testing calibrated to local threat patterns",
-      "Assess data handling workflows for security gaps",
-      "Evaluate third-party integrations and supply chain risks",
-      "Deliver actionable remediation reports with prioritised recommendations"
+      "Application Security Assessment for web, mobile and API services",
+      "Authorised infrastructure and application penetration testing",
+      "Security Hardening of systems, cloud configurations and exposed services",
+      "Review of third-party integrations and software dependencies",
+      "Remediation support and verification within the agreed scope"
     ],
     "outputs": [
       "Agreed scope and rules of engagement",
       "Evidence-backed technical findings",
       "Executive risk summary and remediation plan",
-      "Retest findings where included in scope"
+      "Retest findings where included in scope",
+      "Secure configuration baseline and prioritised hardening checklist",
+      "Approved implementation steps, rollback considerations and validation record"
     ],
     "approach": [
       {
@@ -514,6 +517,10 @@ export const consultancyPractices: Practice[] = [
     "scenario": "A customer portal is preparing for release. A focused assessment could examine account separation, document access, administrative permissions and critical integrations, then provide a prioritised release checklist and a bounded retest.",
     "related": [
       {
+        "to": "/consultancy/cybersecurity-digital-safety",
+        "label": "Cybersecurity Strategy & Digital Safety"
+      },
+      {
         "to": "/work/cybersecurity-threat-intelligence",
         "label": "Cybersecurity & Threat Intelligence"
       },
@@ -522,31 +529,43 @@ export const consultancyPractices: Practice[] = [
         "label": "Privacy Engineering & Data Protection"
       }
     ],
-    "article": "/blog/api-authorization-beyond-login"
+    "article": "/blog/api-authorization-beyond-login",
+    "serviceAreas": [
+      {
+        "title": "Application Security Assessment",
+        "body": "Review web and mobile applications, APIs, authentication, authorisation, session handling and data exposure. Combine manual testing with relevant tooling; assess source code and dependencies where agreed. Deliver reproducible findings, prioritised fixes and a scoped retest."
+      },
+      {
+        "title": "Security Hardening",
+        "body": "Review operating systems, cloud resources, network services and application configurations. Agree secure baselines, remove unnecessary exposure, tighten privileged access and improve patching and logging. Plan approved changes with backups, rollback steps and validation so essential services remain usable."
+      }
+    ]
   },
   {
     "slug": "cybersecurity-digital-safety",
     "title": "Cybersecurity Strategy & Digital Safety",
     "tagline": "Protect your systems. Support the people who depend on them.",
-    "overview": "We help organisations turn cybersecurity and digital safety into everyday practice. The work connects technical controls with identity protection, safer information handling, incident readiness and staff confidence. Engagements are scoped to the organisation\u2019s risks and resources.",
-    "desc": "Protect your systems. Support the people who depend on them.",
+    "overview": "We help organisations prepare for and respond to security incidents, protect endpoints and manage access to critical systems. Incident Response (IR), Endpoint Protection and Identity and Access Management (IAM) connect technical controls with clear responsibilities and safer everyday practices. Readiness work and incident support are scoped separately, with availability and response arrangements agreed in advance.",
+    "desc": "Incident Response (IR), Endpoint Protection and Identity and Access Management (IAM), supported by practical security strategy and digital safety.",
     "image": "/images/editorial/safety-consultancy.webp",
     "fit": [
       "Security responsibilities and priorities are unclear.",
       "Staff face phishing, impersonation or account-takeover risks.",
-      "You need to prepare for disruption and incidents."
+      "You need to prepare for disruption and incidents.",
+      "Devices or privileged accounts lack consistent protection and oversight."
     ],
     "capabilities": [
-      "Assess security posture and organisational risk",
-      "Improve identity, access and account-recovery practices",
-      "Design phishing, impersonation and digital-safety guidance",
-      "Develop incident playbooks and facilitate tabletop exercises"
+      "Incident Response (IR) readiness, tabletop exercises and scoped incident support",
+      "Endpoint Protection reviews and implementation support",
+      "Identity and Access Management (IAM) assessment and improvement",
+      "Phishing, impersonation and account-recovery guidance",
+      "Security strategy, ownership and prioritised implementation planning"
     ],
     "outputs": [
-      "Practical security and digital-safety roadmap",
-      "Identity, device and information-handling priorities",
-      "Incident roles and escalation playbook",
-      "Tabletop exercise findings and improvement actions"
+      "Incident response plan, escalation contacts and exercise findings",
+      "Endpoint protection baseline, deployment priorities and alert-handling procedures",
+      "Identity inventory, access-control matrix and account-lifecycle workflow",
+      "Prioritised implementation roadmap with owners and validation steps"
     ],
     "approach": [
       {
@@ -565,6 +584,10 @@ export const consultancyPractices: Practice[] = [
     "scenario": "A small organisation is concerned about executive impersonation and account compromise. The engagement could review verification procedures, administrative access and recovery paths, then rehearse how a suspicious request is reported and contained. The focus is safer decisions and workable controls.",
     "related": [
       {
+        "to": "/consultancy/security-assessment-penetration-testing",
+        "label": "Security Assessment & Penetration Testing"
+      },
+      {
         "to": "/work/cybersecurity-threat-intelligence",
         "label": "Cybersecurity & Threat Intelligence"
       },
@@ -573,7 +596,21 @@ export const consultancyPractices: Practice[] = [
         "label": "Training, Security Awareness & Capacity Building"
       }
     ],
-    "article": "/blog/incident-response-first-hour"
+    "article": "/blog/incident-response-first-hour",
+    "serviceAreas": [
+      {
+        "title": "Incident Response (IR)",
+        "body": "Develop and rehearse response playbooks, escalation paths and recovery plans. For an agreed incident engagement, support triage, evidence preservation, containment, recovery coordination and post-incident review. Define responsibilities, access, communications and response availability before work begins."
+      },
+      {
+        "title": "Endpoint Protection",
+        "body": "Assess laptops, desktops and servers; review device inventories, endpoint protection or EDR configuration, patching, encryption and local administrator access. Support agreed deployment improvements and alert-handling procedures, with device-isolation and recovery steps suited to the organisation."
+      },
+      {
+        "title": "Identity and Access Management (IAM)",
+        "body": "Review user and service identities, access privileges and account lifecycles. Support least-privilege roles, multi-factor authentication, single sign-on where appropriate, privileged-account controls, access reviews and joiner/mover/leaver processes. Validate recovery paths and emergency access arrangements."
+      }
+    ]
   },
   {
     "slug": "privacy-engineering-compliance",

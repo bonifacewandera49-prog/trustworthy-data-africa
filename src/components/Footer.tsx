@@ -31,7 +31,7 @@ export default function Footer() {
               <h4 className="text-[0.68rem] font-semibold tracking-wider uppercase mb-2" style={{ color: "var(--dark-text-secondary)" }}>
                 What We Do
               </h4>
-              <Link to="/consultancy" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Consultancy</Link>
+              <Link to="/consultancy" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Consultancy and Services</Link>
               <Link to="/work" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Research</Link>
             </div>
             <div className="flex flex-col gap-1 min-w-[110px]">
