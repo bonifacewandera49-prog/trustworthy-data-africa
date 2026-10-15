@@ -60,3 +60,10 @@ Production build passed. Updated About and the consultancy index/detail pages we
 - Browser visual/interaction QA and live backend integration remain unverified; this environment does not provide the required browser workflow. Build and static output checks are recorded separately.
 
 - Static checks passed for all 84 supplied public pages: one H1, unique titles, one description/canonical, parseable JSON-LD, resolved internal links and local images, and matching sitemap entries. Full exported-content import, asset materialization, empty-collection preservation and unsafe-URL rejection also passed in isolated temporary fixtures.
+
+## 2026-10-15 — course navigation and compact logo
+
+- Short Courses moved to a direct main-menu link on desktop and mobile, with its footer link retained. Public route: /short-courses.
+- Original logo artwork and ratios retained. Header artwork reduced from 218px to 176px on desktop and from 194px to 164px on mobile; header minimum height is 72px.
+- Footer artwork is 176px desktop / 164px mobile, inside a restrained padded backing using the same --nav-bg colour as the menu header. Removed obsolete logo CSS that could obscure the intended sizing.
+- Production build and public-page link checks run for this update. Browser visual QA remains unavailable in the supported environment.
