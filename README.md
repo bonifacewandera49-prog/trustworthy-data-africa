@@ -1,32 +1,37 @@
 # Solid Elf — Security and Data Research Firm
 
-Includes revised source and the compiled website in `dist/`.
+This ZIP contains the complete editable project at its root, plus a compiled `dist/` preview. See NETLIFY_SETUP.md for GitHub → Netlify deployment and new Supabase configuration.
 
-## View
+## View locally
 
-Run `python3 -m http.server 8080 --directory dist` from this folder, then open http://localhost:8080. Do not open index.html directly through file://.
+From this folder, run `python3 -m http.server 8080 --directory dist`, then open http://localhost:8080. Do not open index.html directly through file://.
 
 ## Develop
 
-Run `npm ci`, then `npm run dev`. Run `npm run build` for the production build.
+Run `npm ci` and `npm run dev`. Build with `npm run build`.
 
-## Revision — complete visual refinement
+## Latest revision — 15 October 2026
 
-- Homepage layout and section order preserved. Dedicated homepage hero, approach-carousel photo background and CTA image.
-- Unique imagery for the main pages, nine research detail pages, six consultancy details, two products, ten articles and three proposed events. A card and its destination intentionally share the same subject image.
-- All five supplied team portraits retained unchanged. Other imagery is editorial illustration; none represents Solid Elf staff or premises.
-- Removed wave separators and text-section divider lines. Subtle charcoal/brown section variations and restrained copper lighting.
-- Larger, readable logo descriptor: Security and Data Research Firm. Original symbol retained with a live-text wordmark. Near-black footer with brighter typography.
-- Improved research/service cards, consultancy outputs, engagement process, FAQ and detail-page handover guidance.
-- Ten full blog articles, including four new 635–705-word cybersecurity guides with source links and distinct stock-reference-reimagined covers.
-- Who We Are pages remain text-led below the photographic headers, without empty photo panels.
-- Existing sample-event labels, contact email-draft behaviour and removal of invented testimonials retained.
-- Images bundled locally in WebP; no external image service required to view the site.
+- Restored the exact supplied logo artwork at visible header/footer sizes, blended into both backgrounds.
+- Rebuilt all 17 service/research and consultancy detail pages with full titles, context, suitability, capabilities, deliverables, a tailored approach, illustrative use cases, FAQs and related links.
+- Added dedicated Data Analytics & Decision Intelligence and Data Analytics & Business Intelligence pages.
+- Added Cybersecurity Strategy & Digital Safety consultancy; strengthened security, safety and analytics throughout About, navigation and consultancy.
+- Combined quantum machine learning and blockchain in one emerging-technology page. Both old URLs redirect to the combined page.
+- Added meaningful links between expertise, consultancy, guides, sectors and events. Service enquiries carry the selected topic into the contact form.
+- Consultancy appears first under What We Do; analytics and digital-safety shortcuts are included. Dropdowns support click/keyboard use.
+- Changed Join the Team to Join Our Community and replaced the simulated application form with a community enquiry email-draft workflow.
+- Homepage layout retained. Replaced the first two work-card images with real stock, placed Finance last, and displayed four latest articles.
+- Added three proposed events, bringing the bundled programme to six. New local events are retained alongside live events, with duplicate slugs reconciled.
+- Removed decorative service numbering and unnecessary About process numbering.
+- Installed ten genuine stock photos for the current replacements/additions, including consultancy and analytics imagery. Rejected generated replacements are not shipped. See IMAGE_NOTES.md for exact provenance and limits.
 
-See IMAGE_NOTES.md for image provenance and VERIFICATION.md for checks performed.
+## Content and integration
 
-## Backend and maintenance
+Service content: `src/data/practices.ts`. Blog: `src/data/blog.ts`. Events: `src/data/events.ts`. Photo credits: `src/data/photo-credits.ts`.
 
-Existing Supabase configuration is retained. Live registration and applications require the corresponding backend. Several original admin pages remain static prototypes, not a complete CMS; admin toggles do not update bundled articles. Maintain the public blog in src/data/blog.ts. Suggested events are in src/data/events.ts.
+Configure your new Supabase project through the environment variables documented in NETLIFY_SETUP.md. The old .env is excluded from this delivery, and the bundled build was made with no backend configured. No backend writes were submitted. Proposed event dates are provisional and registration is closed. Contact/community forms prepare an email draft for the visitor to review and send; they do not claim automatic delivery or enrolment. Several inherited admin pages remain prototypes, not a complete CMS.
 
-See IMAGE_NOTES.md for provenance and prompts, and VERIFICATION.md for checks.
+
+## Site-wide photography revision
+
+Replaced 41 generated photographs with real stock and removed 12 unnecessary generated assets. The site now uses 51 distinct stock photographs, with all five original team portraits retained. Informational company headers are text-led; service, sector, blog and event imagery is topic-specific. See IMAGE_NOTES.md and the Photography link in the footer.

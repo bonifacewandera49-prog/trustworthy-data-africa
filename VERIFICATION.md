@@ -1,13 +1,28 @@
-# Verification — 14 October 2026
+# Verification — 15 October 2026
 
-- Production build: TypeScript and Vite passed. The existing bundle-size advisory remains non-blocking.
-- 47 public content routes checked at 375, 768 and 1440 pixels: 141 route/viewport checks passed.
-- No horizontal overflow, broken image elements, missing content-page photographic headers or browser runtime errors in those checks.
-- All main/research/service/product route header assignments are distinct. All ten blog covers are distinct. Matching thumbnail/detail images are intentional.
-- Mobile navigation, article category filtering, sector switching and article section navigation passed interaction checks.
-- Four new cybersecurity articles contain 635–705 words each, original explanatory text and links to primary-source further reading.
-- Reviewed desktop/mobile page screenshots and image contact sheets for layout, legibility, thematic relevance and absence of people/company-premises imagery.
-- All five supplied team portrait files match the original ZIP byte-for-byte.
-- The final navigation-caption line-break refinement is checked on home and consultancy at 375 and 1440 pixels.
+- Production build: TypeScript and Vite passed. The inherited bundle-size advisory is non-blocking.
+- Checked 52 public content routes at 375, 768 and 1440 pixels: 156 route/viewport checks passed, with no broken image elements, horizontal overflow or browser runtime errors.
+- Collected internal links across those pages and verified their routes against the public-page inventory.
+- Final targeted checks passed at 320, 375 and 1440 pixels after refining the supplied logo rendering and narrow-screen footer width.
+- Verified four latest articles on the homepage; Finance last in the sector collection; Consultancy first under What We Do; the analytics shortcut navigates correctly.
+- Both former quantum and blockchain detail URLs redirect to the combined emerging-technology page.
+- Detail-page section navigation and service-specific contact enquiry links work; the selected service appears in the contact message.
+- Six proposed events appear, and the community page uses the requested Join Our Community heading.
+- Supplied logo and five team portrait files are byte-for-byte unchanged. Inspected header/footer logo rendering and representative desktop/mobile layouts.
+- Ten current replacement/additional images are genuine stock photographs; credits and provenance are documented. Rejected generated replacements are not shipped.
 
-Backend operations were not submitted. Browser checks use the bundled content with external requests blocked, so live Supabase administration, registration and application delivery are not claimed as verified. Existing backend configuration is retained.
+No backend writes or enquiry messages were submitted. Responsive browsing used bundled content with external requests blocked. Live registration, administration and email delivery are not claimed as verified. Community and contact forms prepare email drafts for visitors to review and send.
+
+
+## Netlify/GitHub readiness revision
+
+Added netlify.toml (npm run build, dist, Node 22), .nvmrc, .gitignore and .env.example. Retained npm package-lock and removed competing Bun lockfile. Public client initialization tolerates missing/invalid backend URL; unconfigured API calls return a controlled error without external requests. Built with blank Supabase environment values; responsive interactions passed. Live Netlify deployment and a new Supabase database have not been tested or provisioned.
+
+
+## Site-wide photography revision — current
+
+- 53 former generated editorial assets were replaced (41) or removed (12). Hash checks found none in source public assets or the build.
+- 51 editorial photographs have 51 unique file hashes; 10 established genuine stock photos were retained. Original team portraits and supplied logo retained.
+- Checked all 52 content routes at 1440px and 375px: 104 route checks passed, no broken image elements, horizontal overflow or browser runtime errors.
+- Seven informational headers are deliberately text-led; remaining subject pages use relevant stock. The community banner uses CSS colour rather than a blank photograph box.
+- Photography credit page added. Original images are unaltered except download resizing/compression; art direction is implemented in CSS.
