@@ -23,6 +23,6 @@ The existing supabase/migrations files are included for review. They contain inh
 
 Check the deploy log first: the build must finish successfully. In the deployed file listing, index.html and assets/ must be at the published root. A JavaScript request returning HTML usually means the wrong folder was published or a stale/missing bundle was requested. Share the Netlify URL and build log for a live diagnosis.
 
-This site uses hash routes (for example /#/consultancy), so it does not need a catch-all rewrite for its existing internal links.
+This site now builds static HTML for clean public routes (for example /consultancy). Netlify serves those files directly. Existing hash bookmarks are converted by the app. Keep netlify.toml; do not add a blanket 200 rewrite that masks missing pages. Set VITE_SITE_URL to your production origin before building, and read SEO_DEPLOYMENT.md.
 
 References: https://docs.netlify.com/build/frameworks/framework-setup-guides/vite/ and https://docs.netlify.com/build/configure-builds/overview/

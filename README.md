@@ -40,3 +40,20 @@ Restored the pre-stock-overhaul headers, sector imagery and card treatments, wit
 ## About and security services update
 
 Removed the About focus-card grid and converted principle cards into plain text. Repositioned the page around consultancy, security services, data expertise and research. Added detailed Incident Response, Endpoint Protection and IAM sections under Cybersecurity Strategy & Digital Safety; added Application Security Assessment and Security Hardening under Security Assessment & Penetration Testing. Updated related service summaries, outputs and cross-links. The menu and footer now say Consultancy and Services.
+
+
+## Full data lifecycle positioning
+
+Added Secure Data Collection & Quality Assurance and Secure Data Storage & Management as dedicated consultancy services. Homepage, About, Research, Mission and footer now connect collection methods and systematic quality control with storage, processing, secure use, consuming systems, fairness, interpretability, transparency, retention and disposal. Existing service pages expand lineage, governance and intended-use reliability. Partnerships & Funding now leads with joint research, co-delivery, sector collaboration and knowledge exchange; funding is a separate route with its own enquiry.
+
+## SEO, opportunities and community update
+
+The source now builds clean-URL, pre-rendered public pages for GitHub → Netlify deployment. Read SEO_DEPLOYMENT.md before publishing, especially the canonical-domain setting and Search Console steps. The latest package also contains the full data-lifecycle service and partnership changes: secure collection and quality assurance, secure storage and management, responsible processing and use, integrity and controlled disposal.
+
+Added categorized Jobs, Fellowships, Internships and Contracts interest pathways with detail pages; individual detail pages for all 18 existing resource themes; stronger related service/article links; an expanded consent-based community introduction form; supplied contact and social information; and the exact supplied logo artwork rendered intact at compact dimensions with white-background blending.
+
+## Short courses and editable content (latest)
+
+Added seven course detail pages with indicative UGX prices, learning outcomes, prerequisites and Course schema. Short Courses is linked from Resources and the footer. The course prices are proposals, not approved live offers.
+
+The content editor at `/admin` now supports all eight collections with local draft saving, add/edit/delete, file selection, publishable JSON export and full draft backup/restore. **It is not connected to Supabase and does not publish live changes.** Replace `src/data/content.json` with the export and rebuild from GitHub to publish. The complete next-developer integration plan is in CONTENT_MANAGEMENT_HANDOFF.md; no Supabase project or new migrations were created.
