@@ -14,6 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
+      content_items: {
+        Row: {
+          collection: string
+          created_at: string
+          data: Json
+          id: string
+          published: boolean
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          collection: string
+          created_at?: string
+          data?: Json
+          id?: string
+          published?: boolean
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          collection?: string
+          created_at?: string
+          data?: Json
+          id?: string
+          published?: boolean
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       event_registrations: {
         Row: {
           access_token: string
