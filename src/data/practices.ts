@@ -9,7 +9,7 @@ export const researchPractices: Practice[] = [
     "slug": "data-collection-translation-integrity",
     "title": "Data Collection, Translation & Integrity",
     "tagline": "From the field to the database, accurately and securely.",
-    "overview": "Data enters systems through USSD, SMS, paper records, field enumerators, community networks, and informal channels. Each channel introduces its own risks of error, loss, and unauthorised access. We design secure collection protocols, translate and structure data from hard-to-use sources, and train field teams to maintain integrity from the point of first capture.",
+    "overview": "Data enters systems through USSD, SMS, paper records, field enumerators, community networks, and informal channels. Each channel introduces its own risks of error, loss, and unauthorised access. We design secure collection protocols, translate and structure data from hard-to-use sources, and train field teams to maintain integrity from the point of first capture. Research examines collection methods, capture systems, systematic quality control and the consequences of source errors for downstream reliability.",
     "desc": "From the field to the database, accurately and securely.",
     "image": "/images/editorial/collection-real.webp",
     "fit": [
@@ -47,6 +47,10 @@ export const researchPractices: Practice[] = [
     "scenario": "A programme receives paper forms and mobile submissions from several locations. A useful engagement would map both routes, pilot a common schema, reconcile duplicates and document how uncertain values are handled before a reporting dataset is produced.",
     "related": [
       {
+        "to": "/consultancy/secure-data-collection-quality-assurance",
+        "label": "Secure Data Collection & Quality Assurance"
+      },
+      {
         "to": "/consultancy/bespoke-tool-development",
         "label": "Secure Tools & Data Product Development"
       },
@@ -61,7 +65,7 @@ export const researchPractices: Practice[] = [
     "slug": "cybersecurity-threat-intelligence",
     "title": "Cybersecurity & Threat Intelligence",
     "tagline": "Understanding threats before they reach your systems.",
-    "overview": "Security threats affecting organisations follow distinct patterns shaped by local platforms, languages, and social engineering methods. We gather intelligence on these patterns, develop tools calibrated to the threats we observe, and deliver training that prepares teams to recognise and respond.",
+    "overview": "Security threats affecting organisations follow distinct patterns shaped by local platforms, languages, and social engineering methods. We gather intelligence on these patterns, develop tools calibrated to the threats we observe, and deliver training that prepares teams to recognise and respond. Our research follows threats to data and its consuming systems at each point in the pipeline, including capture, transfer, storage, processing, sharing and disposal.",
     "desc": "Understanding threats before they reach your systems.",
     "image": "/images/editorial/cyber-real.webp",
     "fit": [
@@ -333,7 +337,8 @@ export const researchPractices: Practice[] = [
       "Develop sovereign data strategy recommendations for governments",
       "Analyse compliance requirements across jurisdictions",
       "Design governance frameworks for AI and automated systems",
-      "Engage with policymakers to translate research into actionable policy"
+      "Engage with policymakers to translate research into actionable policy",
+      "Research on storage governance, retention, disposal and lifecycle accountability"
     ],
     "outputs": [
       "Ownership and decision-rights model",
@@ -357,6 +362,10 @@ export const researchPractices: Practice[] = [
     ],
     "scenario": "A reporting dataset is copied between departments without a clear owner. The work could establish a trusted source, a named steward, a change process and practical sharing rules so analytics teams can use consistent information safely.",
     "related": [
+      {
+        "to": "/consultancy/secure-data-storage-management",
+        "label": "Secure Data Storage & Management"
+      },
       {
         "to": "/consultancy/data-strategy-governance",
         "label": "Data Strategy & Governance"
@@ -474,10 +483,150 @@ export const researchPractices: Practice[] = [
 ];
 export const consultancyPractices: Practice[] = [
   {
+    "slug": "secure-data-collection-quality-assurance",
+    "title": "Secure Data Collection & Quality Assurance",
+    "tagline": "Build reliable evidence from the first point of collection.",
+    "desc": "Collection methods, secure capture systems and systematic quality control for dependable downstream use.",
+    "overview": "We design and support secure data collection across surveys, field operations, forms, APIs, sensors and existing records. The collection method, validation rules and capture system are planned together around the intended use. We preserve provenance, document uncertainty and address errors early so later storage, analysis and decisions rest on evidence that can be traced and checked.",
+    "image": "/images/editorial/collection-real.webp",
+    "fit": [
+      "You need a new survey, field collection programme or digital capture workflow.",
+      "Data arrives from different sources, formats or collection teams.",
+      "Missing, inconsistent or unverified records weaken later analysis."
+    ],
+    "serviceAreas": [
+      {
+        "title": "Collection methods and capture systems",
+        "body": "Define the purpose, population or source coverage, instruments, data dictionary and collection protocol. Pilot forms and workflows, train collectors, and select appropriate offline or connected capture systems with proportionate access controls."
+      },
+      {
+        "title": "Systematic quality control",
+        "body": "Agree measurable checks for completeness, validity, consistency, timeliness and duplication. Use source verification, supervisor review and exception handling where appropriate; record corrections and unresolved limitations rather than concealing them."
+      },
+      {
+        "title": "Secure transfer and traceability",
+        "body": "Minimise unnecessary sensitive data, protect capture devices and transfer channels, and document provenance, timestamps and transformations. Define acceptance checks at handover so the receiving storage or processing team can verify what was collected and how."
+      }
+    ],
+    "capabilities": [
+      "Survey and instrument design, sampling considerations and collection protocols",
+      "Secure forms, field workflows, API ingestion and integration review",
+      "Data dictionaries, validation rules and systematic quality-control checks",
+      "Collector training, pilot review and exception escalation",
+      "Provenance, controlled correction logs and secure downstream handover"
+    ],
+    "outputs": [
+      "Collection plan, instruments and data dictionary",
+      "Quality-control framework with acceptance criteria",
+      "Capture and transfer configuration recommendations",
+      "Quality report, provenance records and handover documentation"
+    ],
+    "approach": [
+      {
+        "title": "Define the evidence needed",
+        "body": "Start with the intended decision, sources and reliability requirements. Agree collection scope, permissions, quality criteria and security responsibilities."
+      },
+      {
+        "title": "Pilot and control collection",
+        "body": "Test instruments and systems, train the team and review early records. Adjust validation and escalation procedures before wider collection."
+      },
+      {
+        "title": "Verify and hand over",
+        "body": "Check the dataset against acceptance criteria, document corrections and limitations, and agree secure delivery into storage and processing."
+      }
+    ],
+    "scenario": "A programme collecting field records needs consistent evidence across locations. We could design the capture forms, pilot validation rules, train collectors, review exceptions and hand over a checked dataset with its provenance and known limitations.",
+    "related": [
+      {
+        "to": "/consultancy/secure-data-storage-management",
+        "label": "Secure Data Storage & Management"
+      },
+      {
+        "to": "/consultancy/data-analytics-business-intelligence",
+        "label": "Data Analytics & Business Intelligence"
+      },
+      {
+        "to": "/work/data-collection-translation-integrity",
+        "label": "Data Collection Research"
+      }
+    ],
+    "article": "/blog/field-collection-security"
+  },
+  {
+    "slug": "secure-data-storage-management",
+    "title": "Secure Data Storage & Management",
+    "tagline": "Keep data protected, traceable and usable for as long as it is needed.",
+    "desc": "Storage architecture, access, integrity checks, recovery and retention controls across the data lifecycle.",
+    "overview": "We help organisations design and improve the environments in which data is kept and managed. Storage security must preserve confidentiality, integrity and availability while supporting authorised use. We connect classification and ownership with access controls, encryption, metadata, versioning, backup validation and retention or disposal procedures across databases, file stores, cloud platforms and archives.",
+    "image": "/images/editorial/activity-security.webp",
+    "fit": [
+      "Data is spread across databases, shared drives, devices or cloud platforms.",
+      "Access, ownership, versions or recovery responsibilities are unclear.",
+      "You need a defensible retention and disposal process."
+    ],
+    "serviceAreas": [
+      {
+        "title": "Secure storage architecture",
+        "body": "Review data locations, classification, access boundaries and system dependencies. Recommend appropriate encryption, key management, segregation and configuration controls for data at rest and transfers between storage systems."
+      },
+      {
+        "title": "Integrity, management and recovery",
+        "body": "Define ownership, metadata, version control and audit records. Plan integrity checks, backup coverage and restoration exercises, with agreed recovery objectives and evidence that restored data remains usable."
+      },
+      {
+        "title": "Retention and secure disposal",
+        "body": "Translate organisational and applicable requirements into retention schedules, review triggers and authorised disposal workflows. Account for copies, replicas, backups and holds; document deletion or sanitisation verification within the limits of each platform."
+      }
+    ],
+    "capabilities": [
+      "Data inventory, classification and storage architecture review",
+      "Access controls, encryption and key-management recommendations",
+      "Metadata, lineage, versioning and integrity-check workflows",
+      "Backup and restoration planning and validation",
+      "Retention schedules and controlled disposal procedures"
+    ],
+    "outputs": [
+      "Storage inventory and control-gap assessment",
+      "Secure storage and management improvement plan",
+      "Backup, restore and integrity-validation procedures",
+      "Retention and disposal workflow with ownership and evidence requirements"
+    ],
+    "approach": [
+      {
+        "title": "Map data and dependencies",
+        "body": "Identify what is held, where it is copied, who uses it and which systems depend on it. Agree protection and availability needs."
+      },
+      {
+        "title": "Design and implement controls",
+        "body": "Prioritise access, configuration, encryption and management improvements. Plan authorised changes and rollback with operational owners."
+      },
+      {
+        "title": "Validate the lifecycle",
+        "body": "Test agreed access, integrity and restoration controls. Review retention and disposal processes and document exceptions and handover responsibilities."
+      }
+    ],
+    "scenario": "An organisation holds operational records across a database, shared files and backups. An engagement could clarify ownership, tighten access, establish version and recovery procedures, and document how retained copies are reviewed and eventually disposed of.",
+    "related": [
+      {
+        "to": "/consultancy/secure-data-collection-quality-assurance",
+        "label": "Secure Data Collection & Quality Assurance"
+      },
+      {
+        "to": "/consultancy/data-strategy-governance",
+        "label": "Data Strategy & Governance"
+      },
+      {
+        "to": "/consultancy/security-assessment-penetration-testing",
+        "label": "Application Security & Hardening"
+      }
+    ],
+    "article": "/blog/ransomware-recovery-that-you-can-test"
+  },
+  {
     "slug": "security-assessment-penetration-testing",
     "title": "Security Assessment & Penetration Testing",
     "tagline": "Know your vulnerabilities before attackers do.",
-    "overview": "We assess applications, APIs, infrastructure and data workflows to identify exploitable weaknesses and insecure configurations. Our work combines authorised testing with practical Security Hardening: reducing exposed services, tightening permissions and verifying remediation. Scope, change approval and operational safeguards are agreed before testing or implementation.",
+    "overview": "We assess applications, APIs, infrastructure and data workflows to identify exploitable weaknesses and insecure configurations. Our work combines authorised testing with practical Security Hardening: reducing exposed services, tightening permissions and verifying remediation. Scope, change approval and operational safeguards are agreed before testing or implementation. We examine threats across capture, transfer, storage, processing and the applications or integrations that consume data, including risks to integrity and authorised use.",
     "desc": "Application Security Assessment, penetration testing and Security Hardening, with prioritised remediation and verification.",
     "image": "/images/editorial/service-security.webp",
     "fit": [
@@ -668,7 +817,7 @@ export const consultancyPractices: Practice[] = [
     "slug": "data-strategy-governance",
     "title": "Data Strategy & Governance",
     "tagline": "Frameworks that make data assets manageable and secure.",
-    "overview": "Organisations accumulate data faster than they can govern it. We help design and implement data governance frameworks that account for real-world constraints: limited infrastructure, diverse data sources, and evolving regulatory requirements, while making data more secure, findable, and usable.",
+    "overview": "Organisations accumulate data faster than they can govern it. We help design and implement data governance frameworks that account for real-world constraints: limited infrastructure, diverse data sources, and evolving regulatory requirements, while making data more secure, findable, and usable. We map the full lifecycle from collection through storage, processing, sharing and disposal, with explicit ownership, provenance and quality requirements at each handover.",
     "desc": "Frameworks that make data assets manageable and secure.",
     "image": "/images/editorial/service-governance.webp",
     "fit": [
@@ -681,13 +830,16 @@ export const consultancyPractices: Practice[] = [
       "Design governance frameworks tailored to organisational context",
       "Implement data cataloguing and lineage tracking",
       "Create data quality standards and monitoring processes",
-      "Train teams on governance practices and tools"
+      "Train teams on governance practices and tools",
+      "Lifecycle ownership, lineage and quality-control accountability",
+      "Retention, archival and disposal policy design with review and approval responsibilities"
     ],
     "outputs": [
       "Data maturity and priority assessment",
       "Ownership, stewardship and decision model",
       "Quality, access and lifecycle standards",
-      "A sequenced implementation roadmap"
+      "A sequenced implementation roadmap",
+      "Lifecycle responsibility map and retention/disposal policy framework"
     ],
     "approach": [
       {
@@ -706,6 +858,10 @@ export const consultancyPractices: Practice[] = [
     "scenario": "A management team receives several versions of the same monthly metric. The work could agree one definition, trace the underlying sources, assign an owner and establish a repeatable reporting process with visible quality checks.",
     "related": [
       {
+        "to": "/consultancy/secure-data-storage-management",
+        "label": "Secure Data Storage & Management"
+      },
+      {
         "to": "/work/data-governance-policy",
         "label": "Data Governance & Policy"
       },
@@ -720,7 +876,7 @@ export const consultancyPractices: Practice[] = [
     "slug": "data-analytics-business-intelligence",
     "title": "Data Analytics & Business Intelligence",
     "tagline": "Reliable insight, built around the decisions you need to make.",
-    "overview": "We help teams move from fragmented data to clear analysis and useful reporting. Engagements can cover data preparation, business intelligence, statistical analysis and forecasting, with privacy, security and maintainability considered throughout.",
+    "overview": "We help teams move from fragmented data to clear analysis and useful reporting. Engagements can cover data preparation, business intelligence, statistical analysis and forecasting, with privacy, security and maintainability considered throughout. We examine source quality and provenance, document processing and transformations, protect data while it is being used, and validate outputs against their intended decisions. Structured records, text and other formats are considered according to scope and available evidence.",
     "desc": "Reliable insight, built around the decisions you need to make.",
     "image": "/images/editorial/analytics-consultancy.webp",
     "fit": [
@@ -733,13 +889,16 @@ export const consultancyPractices: Practice[] = [
       "Define metrics and reporting requirements",
       "Build dashboards and analytical reports",
       "Evaluate statistical and forecasting methods",
-      "Train teams to maintain and interpret outputs"
+      "Train teams to maintain and interpret outputs",
+      "Traceable processing, transformation validation and data-quality assessment",
+      "Interpretation of outputs with uncertainty, limitations and intended-use checks"
     ],
     "outputs": [
       "Analysis-ready data and documented transformations",
       "A shared metric dictionary",
       "Interactive dashboards or analytical reports",
-      "Validation, interpretation and maintenance guidance"
+      "Validation, interpretation and maintenance guidance",
+      "Documented data lineage, processing assumptions and output-validation findings"
     ],
     "approach": [
       {
@@ -758,6 +917,10 @@ export const consultancyPractices: Practice[] = [
     "scenario": "An operations team wants to compare service turnaround across regions. A scoped project could build a shared metric definition, clean the source records and deliver a dashboard that separates genuine delays from gaps in recording. Follow-up analysis would be driven by decisions the team can actually take.",
     "related": [
       {
+        "to": "/consultancy/secure-data-collection-quality-assurance",
+        "label": "Secure Data Collection & Quality Assurance"
+      },
+      {
         "to": "/work/data-analytics-insights",
         "label": "Data Analytics & Decision Intelligence"
       },
@@ -772,7 +935,7 @@ export const consultancyPractices: Practice[] = [
     "slug": "ai-fairness-interpretability-audits",
     "title": "AI Safety, Fairness & Interpretability Audits",
     "tagline": "Independent evaluation of automated decision-making.",
-    "overview": "When organisations deploy AI systems that make consequential decisions, independent evaluation is essential. We conduct fairness audits that identify disparities in model outcomes across demographic groups, assess interpretability for non-technical stakeholders, and provide actionable recommendations for improvement.",
+    "overview": "When organisations deploy AI systems that make consequential decisions, independent evaluation is essential. We conduct fairness audits that identify disparities in model outcomes across demographic groups, assess interpretability for non-technical stakeholders, and provide actionable recommendations for improvement. The review covers source-data integrity, fairness across relevant groups, interpretability for intended users and transparency about methods and limitations. We consider both the data and the systems that consume it.",
     "desc": "Independent evaluation of automated decision-making.",
     "image": "/images/editorial/service-ai.webp",
     "fit": [
@@ -785,7 +948,9 @@ export const consultancyPractices: Practice[] = [
       "Evaluate interpretability and explainability of AI systems",
       "Assess data quality and representation in training sets",
       "Review model documentation and development practices",
-      "Provide actionable recommendations with remediation guidance"
+      "Provide actionable recommendations with remediation guidance",
+      "Traceability from source data through model inputs to downstream decisions",
+      "Transparency documentation and intended-use limitations"
     ],
     "outputs": [
       "Agreed evaluation scope and risk questions",

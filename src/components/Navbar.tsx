@@ -51,7 +51,7 @@ const megaMenus: Record<string, MegaMenuData> = {
   },
   "What We Do": {
     items: [
-      { to: "/consultancy", label: "Consultancy and Services", desc: "Security, digital safety, data analytics and practical advisory", icon: <BookOpen className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
+      { to: "/consultancy", label: "Consultancy and Services", desc: "Secure collection, quality control, storage, analytics and cybersecurity", icon: <BookOpen className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
       { to: "/work", label: "Research", desc: "Our research areas, methods and applied investigations", icon: <Microscope className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
     ],
     featured: {
@@ -63,6 +63,7 @@ const megaMenus: Record<string, MegaMenuData> = {
   },
   Resources: {
     items: [
+      { to: "/short-courses", label: "Short Courses", desc: "Cybersecurity, NVivo, MAXQDA and Power BI", icon: <GraduationCap className="w-5 h-5" style={{color:"var(--orange)"}} /> },
       { to: "/research", label: "Research Papers", desc: "Peer-reviewed publications and findings", icon: <FileText className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
       { to: "/datasets", label: "Datasets", desc: "Open, citable datasets on Zenodo", icon: <Database className="w-5 h-5" style={{ color: "var(--orange)" }} /> },
       { to: "/reports", label: "Reports", desc: "In-depth analysis and methodology reports", icon: <BookOpen className="w-5 h-5" style={{ color: "var(--orange)" }} /> },

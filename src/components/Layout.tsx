@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Seo from "./Seo";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Background from "./Background";
@@ -43,6 +44,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <Background />
       <Navbar />
+      <Seo />
       <main className={`relative z-[1] ${pathname === "/" ? "home-page" : "inner-page"}`}>{children}</main>
       <Footer />
     </>

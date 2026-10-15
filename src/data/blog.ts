@@ -1,4 +1,5 @@
-export const blogPosts = [
+import { content } from "./content";
+export const defaultBlogPosts = [
   {
     "id": 10,
     "slug": "ransomware-recovery-that-you-can-test",
@@ -492,3 +493,5 @@ export const blogPosts = [
     "sources": []
   }
 ];
+
+export const blogPosts = content("blog", defaultBlogPosts);

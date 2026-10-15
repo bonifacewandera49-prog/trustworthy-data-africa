@@ -1,6 +1,7 @@
+import { content } from "./content";
 import type { EventRow } from "@/lib/events";
 
-export const fallbackEvents: EventRow[] = [
+export const defaultEvents: EventRow[] = [
   {
     id: "local-1",
     slug: "practical-threat-modelling-workshop",
@@ -122,3 +123,5 @@ export function mergeEvents(live: EventRow[]) {
  live.forEach(e => bySlug.set(e.slug, e));
  return [...bySlug.values()].sort((a,b)=>a.start_date.localeCompare(b.start_date));
 }
+
+export const fallbackEvents = content("events", defaultEvents);

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { site } from "@/data/site";
 import Brand from "@/components/Brand";
 
 export default function Footer() {
@@ -12,10 +13,8 @@ export default function Footer() {
           <div className="max-w-[280px]">
             <Brand />
             <p className="text-[0.8rem] leading-relaxed" style={{ color: "var(--dark-text-muted)" }}>
-              A Security and Data Research Firm. We build the tools,
-              frameworks, and datasets that keep systems secure and make data
-              trustworthy and usable.
-            </p>
+              A Security and Data Research Firm. We connect secure collection, quality control, storage, processing and responsible use—protecting data and its integrity throughout the lifecycle.
+            </p><address className="text-xs leading-6 mt-4 not-italic" style={{color:"#d5cec8"}}>{site.address}<br/><a href={`tel:${site.phone}`}>{site.phone}</a><br/><a href={`mailto:${site.email}`}>{site.email}</a></address><div className="flex flex-wrap gap-x-3 gap-y-2 mt-4 text-xs" style={{color:"#e7ddd5"}}>{site.socials.map(s=><a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="hover:underline">{s.name}</a>)}</div>
           </div>
           <div className="flex gap-10 flex-wrap">
             <div className="flex flex-col gap-1 min-w-[110px]">
@@ -38,6 +37,7 @@ export default function Footer() {
               <h4 className="text-[0.68rem] font-semibold tracking-wider uppercase mb-2" style={{ color: "var(--dark-text-secondary)" }}>
                 Resources
               </h4>
+              <Link to="/short-courses" className="text-[0.8rem] hover:underline">Short Courses</Link>
               <Link to="/research" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Papers</Link>
               <Link to="/datasets" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Datasets</Link>
               <Link to="/reports" className="text-[0.8rem] no-underline transition-colors hover:underline" style={{ color: "var(--dark-text-muted)" }}>Reports</Link>
