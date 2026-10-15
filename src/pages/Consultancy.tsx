@@ -9,12 +9,12 @@ import { consultancyPractices as services } from "@/data/practices";
 export default function Consultancy() {
   return (
     <>
-      <Hero tag="Consultancy and Services" image="/images/editorial/consultancy-relevant.webp" title="Security, safety and data expertise. Put to work." subtitle="Cybersecurity assessments, digital safety, privacy engineering and data analytics. Practical consultancy to protect your organisation, strengthen resilience and turn evidence into better decisions." actions={[{label:"Discuss your project",to:"/contact"}]} />
+      <Hero tag="Consultancy and Services" image="/images/editorial/consultancy-relevant.webp" title="Secure data. Reliable systems. From collection to use." subtitle="Secure data collection and quality assurance, storage and management, processing and analytics, cybersecurity, responsible AI and lifecycle governance—from the first record to controlled disposal." actions={[{label:"Discuss your project",to:"/contact"}]} />
       <Section>
         <SplitSection eyebrow="Advisory">
           <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>How Consultancy Works</h2>
           <p className="text-[0.93rem] leading-[1.85] mb-4" style={{ color: "var(--dark-text)" }}>
-            We scope each engagement around your systems, operating constraints and decisions. That may mean assessing an application before launch, improving cyber resilience and digital safety, building a dependable analytics workflow, or helping a team handle data securely.
+            We scope each engagement around the full journey of your data and its intended use. Start with a focused collection or quality-control requirement, secure storage, processing and analysis, or assessment of a consuming application. We identify dependencies on the other stages so improvements remain useful beyond a single system.
           </p>
           <p className="text-[0.93rem] leading-[1.85]" style={{ color: "var(--dark-text)" }}>
             Before work begins, we agree the scope, authorised access, deliverables and points of review. Findings should be understandable to decision-makers and specific enough for the people implementing the changes.

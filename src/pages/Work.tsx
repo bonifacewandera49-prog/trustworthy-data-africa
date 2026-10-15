@@ -10,7 +10,7 @@ const areas = activityAreas;
 export default function Work() {
   return (
     <>
-      <Hero tag="Research" title="Safer systems. More useful data." subtitle="Explore our work in cybersecurity, digital safety, data collection, analytics, privacy and responsible technology. Each area connects practical expertise with a clear route to consultancy." actions={[{label:"Explore consultancy",to:"/consultancy"}]} />
+      <Hero tag="Research" title="Research across the full data journey." subtitle="We investigate collection methods and quality, secure storage and processing, threats to data and consuming systems, fairness, interpretability, transparency and disposal. The aim is evidence that is reliable for its intended use." actions={[{label:"Explore consultancy",to:"/consultancy"}]} />
       <Section>
         <SplitSection eyebrow="Research Areas">
           <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>The Full Data Lifecycle</h2>
@@ -18,7 +18,7 @@ export default function Work() {
             Consider the journey of a single health record. It may be captured on paper in a rural clinic, digitised by a field worker, transmitted over a mobile network, stored in a government database, and eventually used to inform treatment decisions.
           </p>
           <p className="text-[0.93rem] leading-[1.85]" style={{ color: "var(--dark-text)" }}>
-            We work across all these stages because addressing any one of them in isolation produces incomplete results. This research is what our consultancy services draw on.
+            The journey continues through access, analysis, sharing, retention and eventual disposal. At each stage we investigate threats, integrity failures and quality limitations, and how they affect the reliability of the end use. Our consultancy and services apply this research in operational settings.
           </p>
         </SplitSection>
       </Section>

@@ -1,6 +1,7 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { BrowserRouter, StaticRouter, Routes, Route } from "react-router-dom";
 import Layout from "@/components/Layout";
-import AdminLayout from "@/components/AdminLayout";
+const AdminLayout = lazy(() => import("@/components/AdminLayout"));
 import Index from "@/pages/Index";
 import About from "@/pages/About";
 import Mission from "@/pages/Mission";
@@ -26,18 +27,25 @@ import Contact from "@/pages/Contact";
 import Partnerships from "@/pages/Partnerships";
 import Policies from "@/pages/Policies";
 import NotFound from "@/pages/NotFound";
-import AdminLogin from "@/pages/AdminLogin";
-import AdminBlog from "@/pages/admin/AdminBlog";
-import AdminEvents from "@/pages/admin/AdminEvents";
-import AdminEventDetail from "@/pages/admin/AdminEventDetail";
-import AdminPapers from "@/pages/admin/AdminPapers";
-import AdminReports from "@/pages/admin/AdminReports";
-import AdminDatasets from "@/pages/admin/AdminDatasets";
-import AdminTeam from "@/pages/admin/AdminTeam";
+const AdminLogin = lazy(() => import("@/pages/AdminLogin"));
+const AdminBlog = lazy(() => import("@/pages/admin/AdminBlog"));
+const AdminEvents = lazy(() => import("@/pages/admin/AdminEvents"));
+const AdminEventDetail = lazy(() => import("@/pages/admin/AdminEventDetail"));
+const AdminPapers = lazy(() => import("@/pages/admin/AdminPapers"));
+const AdminReports = lazy(() => import("@/pages/admin/AdminReports"));
+const AdminDatasets = lazy(() => import("@/pages/admin/AdminDatasets"));
+const AdminCourses = lazy(() => import("@/pages/admin/AdminCourses"));
+const AdminOpportunities = lazy(() => import("@/pages/admin/AdminOpportunities"));
+const AdminTeam = lazy(() => import("@/pages/admin/AdminTeam"));
 
-function App() {
+import Courses from "@/pages/Courses";
+import CourseDetail from "@/pages/CourseDetail";
+import OpportunityDetail from "@/pages/OpportunityDetail";
+import ResourceDetail from "@/pages/ResourceDetail";
+function App({ location }: { location?: string }) {
+ const Router = location ? StaticRouter : BrowserRouter;
   return (
-    <HashRouter>
+    <Router location={location || "/"}><Suspense fallback={<p role="status">Loading…</p>}>
       <Routes>
         <Route path="/" element={<Layout><Index /></Layout>} />
         <Route path="/about" element={<Layout><About /></Layout>} />
@@ -61,6 +69,10 @@ function App() {
         <Route path="/events/:slug/access" element={<Layout><EventAccess /></Layout>} />
         <Route path="/events/:slug/access/:token" element={<Layout><EventAccess /></Layout>} />
         <Route path="/opportunities" element={<Layout><Opportunities /></Layout>} />
+        <Route path="/opportunities/:slug" element={<Layout><OpportunityDetail /></Layout>} />
+        <Route path="/resources/:slug" element={<Layout><ResourceDetail /></Layout>} />
+        <Route path="/short-courses" element={<Layout><Courses /></Layout>} />
+        <Route path="/short-courses/:slug" element={<Layout><CourseDetail /></Layout>} />
         <Route path="/apply" element={<Layout><Apply /></Layout>} />
         <Route path="/contact" element={<Layout><Contact /></Layout>} />
         <Route path="/partnerships" element={<Layout><Partnerships /></Layout>} />
@@ -72,10 +84,12 @@ function App() {
         <Route path="/admin/papers" element={<AdminLayout><AdminPapers /></AdminLayout>} />
         <Route path="/admin/reports" element={<AdminLayout><AdminReports /></AdminLayout>} />
         <Route path="/admin/datasets" element={<AdminLayout><AdminDatasets /></AdminLayout>} />
+        <Route path="/admin/courses" element={<AdminLayout><AdminCourses /></AdminLayout>} />
+        <Route path="/admin/opportunities" element={<AdminLayout><AdminOpportunities /></AdminLayout>} />
         <Route path="/admin/team" element={<AdminLayout><AdminTeam /></AdminLayout>} />
         <Route path="*" element={<Layout><NotFound /></Layout>} />
       </Routes>
-    </HashRouter>
+    </Suspense></Router>
   );
 }
 

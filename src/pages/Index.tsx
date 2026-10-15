@@ -1,6 +1,5 @@
 import { photoCredits } from "@/data/photo-credits";
-import { editorialImage } from "@/lib/editorial-images";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ChevronRight,
@@ -21,9 +20,7 @@ import {
 import { blogPosts } from "@/data/blog";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselDots } from "@/components/ui/carousel";
-import { supabase } from "@/integrations/supabase/client";
-import type { EventRow } from "@/lib/events";
-import { fallbackEvents, mergeEvents } from "@/data/events";
+import { fallbackEvents } from "@/data/events";
 
 /* ═══════════════════════════════════════════
    HERO: full-bleed image, big two-line headline, CTA
@@ -64,7 +61,7 @@ function Hero() {
             className="text-[0.95rem] md:text-[1rem] leading-relaxed mb-8 max-w-[480px]"
             style={{ color: "var(--dark-text-secondary)" }}
           >
-            We're a security and data research firm building practical tools, conducting applied research, and strengthening the teams responsible for sensitive data and critical systems.
+            We secure the full data journey—from collection and quality control to storage, processing, responsible use and disposal—so data and the systems that depend on it can support reliable decisions.
           </p>
           <Link
             to="/about"
@@ -87,9 +84,9 @@ function Hero() {
 const solutionCards = [
   {
     title: "Secure Data Collection",
-    desc: "We design collection protocols and train field teams so data stays trustworthy from the very first entry point.",
+    desc: "Secure collection methods, capture systems and systematic quality control, from the first record to a verified handover.",
     img: "/images/editorial/collection-real.webp",
-    to: "/work/data-collection-translation-integrity",
+    to: "/consultancy/secure-data-collection-quality-assurance",
   },
   {
     title: "Cybersecurity & Threat Intel",
@@ -377,23 +374,8 @@ function locationIcon(type: string) {
 }
 
 function UpcomingEvents() {
-  const [events, setEvents] = useState<EventRow[]>(fallbackEvents.slice(0, 3));
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    supabase
-      .from("events")
-      .select("*")
-      .eq("published", true)
-      .gte("start_date", new Date().toISOString())
-      .order("start_date", { ascending: true })
-      .limit(3)
-      .then(({ data }) => {
-        const live = ((data as EventRow[]) || []).map(event => ({ ...event, cover_image: editorialImage(event.cover_image) }));
-        setEvents(mergeEvents(live).slice(0, 3));
-        setLoading(false);
-      });
-  }, []);
+  const events=fallbackEvents.filter(e=>new Date(e.start_date)>=new Date()).sort((a,b)=>a.start_date.localeCompare(b.start_date)).slice(0,3);
+  const loading=false;
 
   if (!loading && events.length === 0) return null;
 

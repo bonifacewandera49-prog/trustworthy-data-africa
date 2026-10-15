@@ -15,7 +15,7 @@ export default function Mission() {
  <div className="rv rounded-lg p-7 border" style={{ background: "hsl(var(--card))", borderColor: "var(--dark-hairline)" }}>
  <h3 className="text-base font-semibold mb-2.5" style={{ color: "var(--orange)" }}>Our Mission</h3>
  <p style={{ color: "var(--dark-text)", lineHeight: 1.85 }}>
- To advance the science and practice of security, privacy, and responsible data use worldwide by building the tools, frameworks, and knowledge that protect data from the point of first collection through to final use.
+ To advance the science and practice of security, privacy, and responsible data use worldwide by building the tools, frameworks, and knowledge that protect data from the point of first collection through processing and use to controlled disposal.
  </p>
  </div>
  <div className="rv rounded-lg p-7 border" style={{ background: "hsl(var(--card))", borderColor: "var(--dark-hairline)" }}>
@@ -32,7 +32,7 @@ export default function Mission() {
  From Principle to Practice
  </h2>
  <p className="text-[0.93rem] leading-[1.85] mb-4" style={{ color: "var(--dark-text)" }}>
- Every research project begins with a clear connection to these commitments. When we talk about integrity, it means our data collection protocols include verification at every stage.
+ Every service, implementation and research project begins with a clear connection to these commitments. When we talk about integrity, it means our data collection protocols include verification at every stage.
  </p>
  <p className="text-[0.93rem] leading-[1.85]" style={{ color: "var(--dark-text)" }}>
  These commitments are what make our work useful to the governments, organisations, and research institutions that partner with us.

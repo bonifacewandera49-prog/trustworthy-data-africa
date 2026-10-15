@@ -1,5 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
+import { site } from "@/data/site";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 
@@ -17,16 +18,16 @@ export default function Contact() {
  <div className="grid grid-cols-1 md:grid-cols-2 gap-11 items-start">
  <div>
  <div className="space-y-0">
- {[{ label: "Email", value: "info@solidelf.org" }, { label: "Web", value: "www.solidelf.org" }].map((r) => (
+ {[{ label: "Email", value: site.email, href: `mailto:${site.email}` }, { label: "Phone", value: site.phone, href: `tel:${site.phone}` }, { label: "Main offices", value: site.address, href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.address)}` }].map((r) => (
  <div key={r.label} className="rv flex gap-3 py-2.5 border-b text-[0.86rem]" style={{ borderColor: "var(--dark-hairline)", color: "var(--dark-text-secondary)" }}>
  <span className="font-mono text-[0.76rem] min-w-[60px]" style={{ color: "var(--dark-text-muted)" }}>{r.label}</span>
- <span>{r.value}</span>
+ <a href={r.href} className="hover:underline">{r.value}</a>
  </div>
  ))}
  </div>
  </div>
  <div>
- <h3 className="rv text-[0.95rem] font-semibold mb-4" style={{ color: "var(--dark-text)" }}>Send a Message</h3>
+ <div className="flex flex-wrap gap-4 mb-6">{site.socials.map(s=><a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="detail-text-link">{s.name} ↗</a>)}</div><h3 className="rv text-[0.95rem] font-semibold mb-4" style={{ color: "var(--dark-text)" }}>Send a Message</h3>
  {submitted ? (
  <div className="rv liquid-glass-light-light p-6 text-center">
  <p style={{ color: "var(--dark-text-secondary)" }}>Your email draft has been opened. Send it from your email application, or contact info@solidelf.org directly.</p>

@@ -1,11 +1,8 @@
-import { editorialImage } from "@/lib/editorial-images";
-import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, Users, Monitor, Globe, Building2 } from "lucide-react";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
-import { supabase } from "@/integrations/supabase/client";
-import { formatEventDate, type EventRow } from "@/lib/events";
+import { formatEventDate } from "@/lib/events";
 import { fallbackEvents } from "@/data/events";
 
 const locationIcon = (type: string) => {
@@ -16,30 +13,8 @@ const locationIcon = (type: string) => {
 
 export default function EventDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const [event, setEvent] = useState<EventRow | null>(fallbackEvents.find(e => e.slug === slug) || null);
-  const [loading, setLoading] = useState(!fallbackEvents.some(e => e.slug === slug));
-  const [taken, setTaken] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (!slug) return;
-    const local = fallbackEvents.find(e => e.slug === slug);
-    if (local) { setEvent(local); setLoading(false); return; }
-    setLoading(true);
-    supabase.from("events").select("*").eq("slug", slug).eq("published", true).maybeSingle().then(async ({ data }) => {
-      const fallback = fallbackEvents.find((item) => item.slug === slug) || null;
-      setEvent(data ? { ...(data as EventRow), cover_image: editorialImage((data as EventRow).cover_image) } : fallback);
-      setLoading(false);
-      if (data) {
-        const { data: av } = await supabase.rpc("event_availability", { _event_id: (data as EventRow).id });
-        const row = Array.isArray(av) ? av[0] : av;
-        if (row) setTaken(Number(row.taken));
-      }
-    });
-  }, [slug]);
-
-  if (loading) {
-    return <Section narrow><p className="text-center py-16" style={{ color: "var(--dark-text-muted)" }}>Loading…</p></Section>;
-  }
+  const event=fallbackEvents.find(e=>e.slug===slug);
+  const taken: number | null=null;
 
   if (!event) {
     return (
@@ -59,10 +34,10 @@ export default function EventDetail() {
 
   return (
     <>
-      <Hero image={event.cover_image || undefined} tag={event.id.startsWith("local-") ? "Proposed event" : "Event"} title={event.title} subtitle={formatEventDate(event.start_date, event.end_date)} />
+      <Hero image={event.cover_image || undefined} tag={!!event.location?.toLowerCase().includes("proposed") ? "Proposed event" : "Event"} title={event.title} subtitle={formatEventDate(event.start_date, event.end_date)} />
       <Section narrow>
         <div className="space-y-6">
-          {event.id.startsWith("local-") && <p className="border-l-2 pl-4 text-sm" style={{borderColor:"var(--orange)"}}>Proposed session. The date and format are provisional. <Link to="/contact" className="underline">Contact us to register interest.</Link></p>}
+          {!!event.location?.toLowerCase().includes("proposed") && <p className="border-l-2 pl-4 text-sm" style={{borderColor:"var(--orange)"}}>Proposed session. The date and format are provisional. <Link to="/contact" className="underline">Contact us to register interest.</Link></p>}
           <div className="flex flex-wrap gap-4 mb-4">
             {event.location && <span className="flex items-center gap-1.5 text-xs" style={{ color: "var(--dark-text-muted)" }}>{locationIcon(event.location_type)} {event.location}</span>}
             {event.max_capacity != null && (
@@ -78,17 +53,17 @@ export default function EventDetail() {
               <span className="text-sm" style={{ color: "var(--dark-text-muted)" }}>This event has already taken place.</span>
             ) : event.registration_open ? (
               <>
-                <Link to={event.id.startsWith("local-") ? "/contact" : `/events/${slug}/register`} className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
+                <Link to={`/contact?service=${encodeURIComponent("Event enquiry: "+event.title)}`} className="inline-block px-6 py-2.5 rounded-lg font-semibold text-[0.86rem] no-underline transition-colors" style={{ background: "var(--orange)", color: "var(--dark-text)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-hover)")}
                   onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}>
-                  {event.id.startsWith("local-") ? "Enquire to attend" : isFull ? "Join Waitlist" : "Register Now"}
+                  {!!event.location?.toLowerCase().includes("proposed") ? "Enquire to attend" : isFull ? "Join Waitlist" : "Register Now"}
                 </Link>
                 {event.require_approval && <span className="text-xs" style={{ color: "#fbbf24" }}>Registration requires approval</span>}
               </>
             ) : (
               <span className="text-sm" style={{ color: "var(--dark-text-muted)" }}>Registration is closed for this event.</span>
             )}
-            {!event.id.startsWith("local-") && <Link to={`/events/${slug}/access`} className="text-xs underline" style={{ color: "var(--dark-text-muted)" }}>Already registered?</Link>}
+            <p className="text-xs leading-6">Enquire to confirm attendance arrangements. This website does not process registrations for these listings.</p>
           </div>
         </div>
       </Section>

@@ -17,8 +17,8 @@ export default function About() {
     <>
       <Hero
         tag="About Solid Elf"
-        title="Security for systems. Safety for people. Insight from data."
-        subtitle="Solid Elf is a Security and Data Research Firm. We connect cybersecurity, digital safety, privacy engineering and data analytics to help organisations protect critical systems, reduce harm and make sound decisions from trustworthy evidence."
+        title="Trustworthy data. Protected throughout its journey."
+        subtitle="Solid Elf is a Security and Data Research Firm working across the full data lifecycle: secure collection and systematic quality control, storage and management, processing, responsible use and disposal. We protect data and the systems that consume it, and assess whether its integrity and quality are sufficient for the intended end use."
       />
 
       <Section>
@@ -27,7 +27,7 @@ export default function About() {
             Practical security services, data expertise and research
           </h2>
           <p className="text-[0.93rem] leading-[1.85] mb-4" style={{ color: "var(--dark-text)" }}>
-            We provide consultancy and practical services across cybersecurity, digital safety, data analytics, privacy and technology implementation. We help organisations assess risks, protect systems, strengthen day-to-day operations and make better use of their data. Applied research informs this work alongside technical experience and the needs of each organisation.
+            We provide consultancy, practical implementation and research across the methods, systems and decisions that shape data. We begin with how information is collected and checked, follow how it is stored, transformed and used, and define how it should be retained or disposed of. Security, quality and integrity are considered together at every handover.
           </p>
           <p className="text-[0.93rem] leading-[1.85]" style={{ color: "var(--dark-text)" }}>
             Our cybersecurity services include Incident Response (IR), Endpoint Protection, Identity and Access Management (IAM), Application Security Assessment and Security Hardening. We also deliver data analysis, governance frameworks, privacy engineering, secure tools and training, with implementation support agreed for each engagement.
@@ -65,16 +65,18 @@ export default function About() {
       </Section>
 
       <Section>
-        <SplitSection eyebrow="Our Model">
-          <h2 className="font-mono text-[0.92rem] font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--orange)" }}>
-            Security services, data expertise, tools and capability
-          </h2>
-          <p className="text-[0.93rem] leading-[1.85] mb-4" style={{ color: "var(--dark-text)" }}>
-            Solid Elf operates across four connected areas: cybersecurity services and implementation, data analytics and applied research, practical tool development, and training. Treating these areas together helps us avoid recommendations that are technically sound but operationally unrealistic.
-          </p>
-          <p className="text-[0.93rem] leading-[1.85]" style={{ color: "var(--dark-text)" }}>
-            We work with organisations that need independent thinking and practical execution, from focused assessments to longer research and implementation programmes.
-          </p>
+        <SplitSection eyebrow="The full data lifecycle">
+          <h2 className="text-2xl font-semibold mb-6" style={{color:"var(--dark-text)"}}>Reliability is built across the whole pipeline.</h2>
+          <p className="leading-relaxed mb-8">A secure system can still produce an unreliable decision if its source data is incomplete, its transformations are unclear or its output is misinterpreted. We connect quality control, threat assessment and research across every stage, for structured records, text, images, sensor readings and other data forms within the agreed scope.</p>
+          <div className="space-y-7">{[
+            ["Collect and verify", "Design suitable methods and capture systems, pilot instruments, train collectors and apply systematic checks for accuracy, completeness, consistency and provenance.", "/consultancy/secure-data-collection-quality-assurance"],
+            ["Store and manage securely", "Protect data at rest and in transit. Define ownership, access, metadata, versioning, integrity checks and tested recovery processes.", "/consultancy/secure-data-storage-management"],
+            ["Process and make sense of data", "Validate cleaning, integration and transformations. Protect data during processing and analysis, document uncertainty and assess fitness for the intended use.", "/consultancy/data-analytics-business-intelligence"],
+            ["Protect consuming systems", "Assess applications, APIs, devices and identities that access data. Examine threats to confidentiality, integrity and availability across the pipeline.", "/consultancy/security-assessment-penetration-testing"],
+            ["Use responsibly and transparently", "Examine fairness, interpretability and transparency in models and decisions. Make assumptions, limitations and accountability clear to the people using the results.", "/consultancy/ai-fairness-interpretability-audits"],
+            ["Retain and dispose with control", "Define retention periods, review responsibilities and disposal policies, accounting for copies, backups and holds. Record what can be verified when data is deleted or sanitised.", "/consultancy/data-strategy-governance"]
+          ].map(([title,body,to])=><div key={title}><h3 className="font-semibold text-lg mb-2" style={{color:"var(--dark-text)"}}><Link to={to} className="hover:underline underline-offset-4">{title}</Link></h3><p className="leading-relaxed">{body}</p></div>)}</div>
+          <p className="mt-8 leading-relaxed">Our research investigates weaknesses and trade-offs throughout this journey. Our services turn the findings into collection protocols, quality controls, secure systems, dependable analysis and practical operating procedures.</p>
         </SplitSection>
       </Section>
 

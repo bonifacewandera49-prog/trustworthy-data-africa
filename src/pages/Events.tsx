@@ -1,14 +1,12 @@
-import { editorialImage } from "@/lib/editorial-images";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Users, Monitor, Globe, Building2, Search } from "lucide-react";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { supabase } from "@/integrations/supabase/client";
 import type { EventRow } from "@/lib/events";
-import { fallbackEvents, mergeEvents } from "@/data/events";
+import { fallbackEvents } from "@/data/events";
 
 const locationIcon = (type: string) => {
   if (type === "online") return <Monitor className="w-3.5 h-3.5" />;
@@ -19,21 +17,8 @@ const locationIcon = (type: string) => {
 export default function Events() {
   const [search, setSearch] = useState("");
   const [view, setView] = useState<"upcoming" | "past">("upcoming");
-  const [events, setEvents] = useState<EventRow[]>(fallbackEvents);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    supabase
-      .from("events")
-      .select("*")
-      .eq("published", true)
-      .order("start_date", { ascending: true })
-      .then(({ data }) => {
-        const live = ((data as EventRow[]) || []).map(event => ({ ...event, cover_image: editorialImage(event.cover_image) }));
-        setEvents(mergeEvents(live));
-        setLoading(false);
-      });
-  }, []);
+  const events=fallbackEvents;
+  const loading=false;
 
   const now = new Date();
   const filtered = events.filter((e) => !search || e.title.toLowerCase().includes(search.toLowerCase()));
@@ -53,7 +38,7 @@ export default function Events() {
     <>
       <Hero tag="Events" title="Calendar & Events" subtitle="An overview of upcoming workshops, webinars, and research presentations. Stay connected with our latest activities." />
       <Section>
-        {events.some(e => e.id.startsWith("local-")) && <p className="mb-8 border-l-2 pl-4 text-sm" style={{borderColor:"var(--orange)"}}>Proposed programme: the sessions and dates below are provisional. Contact us to register interest; attendance is not yet confirmed.</p>}
+        {events.some(e => !!e.location?.toLowerCase().includes("proposed")) && <p className="mb-8 border-l-2 pl-4 text-sm" style={{borderColor:"var(--orange)"}}>Proposed programme: the sessions and dates below are provisional. Contact us to register interest; attendance is not yet confirmed.</p>}
         <div className="flex items-center justify-between mb-8 gap-4 flex-wrap">
           <div className="relative flex-1 min-w-[200px] max-w-sm">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--dark-text-muted)" }} />
@@ -97,7 +82,7 @@ export default function Events() {
                           </div>
                           <p className="text-xs mt-2 line-clamp-2 max-sm:hidden" style={{ color: "var(--dark-text-muted)" }}>{e.description}</p>
                           <div className="flex items-center gap-2 mt-3 flex-wrap">
-                            <Badge variant="secondary" className="rounded font-mono text-[0.55rem] tracking-widest uppercase" style={{ background: "hsl(var(--muted))" }}>{e.id.startsWith("local-") ? "Proposed " : ""}{e.event_type}</Badge>
+                            <Badge variant="secondary" className="rounded font-mono text-[0.55rem] tracking-widest uppercase" style={{ background: "hsl(var(--muted))" }}>{!!e.location?.toLowerCase().includes("proposed") ? "Proposed " : ""}{e.event_type}</Badge>
                             {e.require_approval && <Badge className="rounded font-mono text-[0.55rem] tracking-widest uppercase" style={{ background: "rgba(245,158,11,0.1)", color: "#fbbf24", borderColor: "rgba(245,158,11,0.2)" }}>Approval Required</Badge>}
                             {!e.is_free && <Badge variant="outline" className="rounded font-mono text-[0.55rem] tracking-widest uppercase" style={{ borderColor: "var(--dark-hairline)", color: "var(--dark-text-muted)" }}>Paid</Badge>}
                             {e.registration_open && new Date(e.start_date) >= now && <span className="text-[0.7rem] font-semibold ml-auto" style={{ color: "var(--orange)" }}>Register &rarr;</span>}

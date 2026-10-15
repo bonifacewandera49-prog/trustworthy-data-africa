@@ -312,3 +312,12 @@
 .page-hero-shade { background:linear-gradient(90deg,rgba(33,23,17,.98),rgba(33,23,17,.88) 42%,rgba(33,23,17,.30)); }
 @media(max-width:640px) { .page-hero-shade { background:linear-gradient(90deg,rgba(33,23,17,.94),rgba(33,23,17,.76)); } }
 .detail-eyebrow { color:var(--orange); }
+
+/* Supplied artwork, intact proportions and texture; compact placement. */
+.brand-artwork { width:218px; display:block; mix-blend-mode:multiply; }
+.brand-original { display:block; width:100%; height:auto; aspect-ratio:1496/504; }
+.site-footer .brand-artwork { width:228px; margin-bottom:18px; mix-blend-mode:normal; }
+.site-footer .brand-original { background:transparent; }
+@media(max-width:767px){.brand-artwork{width:194px}.site-footer .brand-artwork{width:218px}}
+.seo-breadcrumb { max-width:1240px;margin:0 auto;padding:18px clamp(1.5rem,4vw,4rem);font-size:12px;display:flex;gap:8px;flex-wrap:wrap; }
+.seo-breadcrumb a { color:var(--orange); }
