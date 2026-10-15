@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      content_collections: {
+        Row: {
+          collection: string
+          initialized_at: string
+        }
+        Insert: {
+          collection: string
+          initialized_at?: string
+        }
+        Update: {
+          collection?: string
+          initialized_at?: string
+        }
+        Relationships: []
+      }
+      content_items: {
+        Row: {
+          collection: string
+          created_at: string
+          data: Json
+          id: string
+          published: boolean
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          collection: string
+          created_at?: string
+          data?: Json
+          id?: string
+          published?: boolean
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          collection?: string
+          created_at?: string
+          data?: Json
+          id?: string
+          published?: boolean
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       event_registrations: {
         Row: {
           access_token: string
@@ -173,6 +218,10 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      initialize_content_collection: {
+        Args: { _collection: string; _entries: Json }
+        Returns: undefined
       }
     }
     Enums: {

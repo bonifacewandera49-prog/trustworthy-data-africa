@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, StaticRouter, Routes, Route } from "react-router-dom";
 import Layout from "@/components/Layout";
+import LiveContent from "@/components/LiveContent";
 const AdminLayout = lazy(() => import("@/components/AdminLayout"));
 import Index from "@/pages/Index";
 import About from "@/pages/About";
@@ -45,7 +46,7 @@ import ResourceDetail from "@/pages/ResourceDetail";
 function App({ location }: { location?: string }) {
  const Router = location ? StaticRouter : BrowserRouter;
   return (
-    <Router location={location || "/"}><Suspense fallback={<p role="status">Loading…</p>}>
+    <Router location={location || "/"}><LiveContent><Suspense fallback={<p role="status">Loading…</p>}>
       <Routes>
         <Route path="/" element={<Layout><Index /></Layout>} />
         <Route path="/about" element={<Layout><About /></Layout>} />
@@ -89,7 +90,7 @@ function App({ location }: { location?: string }) {
         <Route path="/admin/team" element={<AdminLayout><AdminTeam /></AdminLayout>} />
         <Route path="*" element={<Layout><NotFound /></Layout>} />
       </Routes>
-    </Suspense></Router>
+    </Suspense></LiveContent></Router>
   );
 }
 

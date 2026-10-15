@@ -1,4 +1,4 @@
-import { content } from "./content";
+import { content, onContentChange } from "./content";
 export const resourceSlug = (title:string)=>title.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 export const defaultResources = [
   {
@@ -153,3 +153,4 @@ export const papers=content<Resource>("papers",prepare("Research theme"));
 export const datasets=content<Resource>("datasets",prepare("Dataset theme"));
 export const reports=content<Resource>("reports",prepare("Report theme"));
 export const resources:Resource[]=[...papers,...datasets,...reports];
+onContentChange(()=>resources.splice(0,resources.length,...papers,...datasets,...reports));
