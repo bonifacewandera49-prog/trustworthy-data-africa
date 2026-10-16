@@ -6,14 +6,16 @@ export function useAuth() {
   const [session, setSession] = useState<Session | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, s) => setSession(s));
-    supabase.auth.getSession().then(({ data }) => setSession(data.session));
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, s) => { setSession(s); setReady(true); });
+    supabase.auth.getSession().then(({ data }) => { setSession(data.session); setReady(true); });
     return () => subscription.unsubscribe();
   }, []);
 
   useEffect(() => {
+    if (!ready) return;
     if (!session?.user) {
       setIsAdmin(false);
       setLoading(false);
@@ -30,7 +32,7 @@ export function useAuth() {
         }
       });
     return () => { cancelled = true; };
-  }, [session?.user?.id]);
+  }, [ready, session?.user?.id]);
 
   const signOut = () => supabase.auth.signOut();
 
