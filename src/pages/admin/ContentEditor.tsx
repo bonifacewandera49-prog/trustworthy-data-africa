@@ -6,7 +6,6 @@ import { loadEntries, saveEntry, deleteEntry } from "@/lib/cloud-content";
 import { Button } from "@/components/ui/button";
 import { Plus, Pencil, Trash2, Save } from "lucide-react";
 const label=(s:string)=>s.replace(/([A-Z])/g," $1").replace(/_/g," ").replace(/^./,x=>x.toUpperCase());
-function download(name:string,data:unknown){const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 function Field({name,value,example,onChange}:{name:string;value:Value;example?:Value;onChange:(v:Value)=>void}){
  const [error,setError]=useState("");
  if(Array.isArray(value)){const sample=Array.isArray(example)?example[0]:"";return <fieldset className="border rounded p-4 space-y-3"><legend className="px-2 font-semibold">{label(name)}</legend>{value.map((v,i)=><div key={i} className="border-b pb-4"><Field name={`${name} ${i+1}`} value={v} example={sample} onChange={x=>onChange(value.map((a,j)=>j===i?x:a))}/><Button type="button" className="text-xs underline mt-2" onClick={()=>onChange(value.filter((_,j)=>j!==i))}>Remove item</Button></div>)}<Button type="button" className="text-sm underline" onClick={()=>onChange([...value,JSON.parse(JSON.stringify(sample??""))])}>+ Add item</Button></fieldset>}
