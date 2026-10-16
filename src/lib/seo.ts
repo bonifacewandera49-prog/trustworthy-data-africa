@@ -21,7 +21,7 @@ export const basePages:Record<string,[string,string]>={
 "/reports":["Reports & Research Briefings | Solid Elf","Explore proposed report themes in cybersecurity, governance, data collection and responsible technology."],
 "/datasets":["Dataset Themes & Data Resources | Solid Elf","Explore proposed field-collected, translated and synthetic dataset themes, documentation needs and permitted-use enquiries."],
 "/apply":["Join Our Community | Solid Elf","Connect around secure data, cybersecurity, analytics and research. Share your interests and preferred ways to learn or contribute."],
-"/contact":["Contact Solid Elf | Ntinda, Kampala","Contact Solid Elf at +256700768295 or info@solidelf.org. Main offices: Ntinda, Plot 668 Kayondo Road, Kampala, Uganda."],
+"/contact":["Contact Solid Elf","Get in touch with Solid Elf about security, data governance and research partnerships."],
 "/partnerships":["Partnerships & Funding | Solid Elf","Collaborate on research, technical delivery, field methods, training or funding for trustworthy data and safer systems."],
 "/policies":["Privacy & Website Policies | Solid Elf","Read Solid Elf's website privacy, contact and data-handling information."],
 "/solutions/canarydrop":["CanaryDrop | Solid Elf","Explore the CanaryDrop solution concept and discuss security requirements with Solid Elf."],
@@ -39,7 +39,7 @@ export function metadata(path:string){
  const item=practice||post||event||opportunity||resource||course;
  const title=item?`${item.title} | Solid Elf`:basePages[path]?.[0]||'Page not found | Solid Elf';
  const description=(practice?.desc||post?.excerpt||event?.description||opportunity?.description||resource?.description||course?.description||basePages[path]?.[1]||'This page is not available.').slice(0,180);
- const url=site.url+path;const imagePath=course?.image||practice?.image||post?.cover_image||event?.cover_image||'/images/editorial/about.webp';const image=imagePath.startsWith('https://')?imagePath:site.url+imagePath;
+ const url=site.url+path;const imagePath=course?.image||practice?.image||post?.cover_image||event?.cover_image||'/images/og-share.jpg';const image=imagePath.startsWith('https://')?imagePath:site.url+imagePath;
  const org={"@type":"Organization","@id":site.url+'/#organization',name:site.name,url:site.url,logo:site.url+'/images/solid-elf-supplied.png',sameAs:site.socials.map(s=>s.url)};
  const parent=path.split('/').filter(Boolean).length>1?'/'+path.split('/')[1]:'';
  const crumbs=[{name:'Home',url:site.url},...(parent?[{name:basePages[parent]?.[0].split(' | ')[0]||(parent==='/solutions'?'Consultancy and Services':'Resources'),url:site.url+(parent==='/resources'?resource?.parent||'/research':parent==='/solutions'?'/consultancy':parent)}]:[]),...(path!=='/'?[{name:item?.title||title.split(' | ')[0],url}]:[])];
